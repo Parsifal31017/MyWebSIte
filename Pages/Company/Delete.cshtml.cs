@@ -21,20 +21,27 @@ namespace MyWebSite.Pages.Company
 
         [BindProperty]
         public MyWebSite.Models.Company Company { get; set; }
+        public string ErrorMessage { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id, bool? saveChangesError = false)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Company = await _context.Company.FirstOrDefaultAsync(m => m.ID == id);
+            Company = await _context.Company.AsNoTracking().FirstOrDefaultAsync(m => m.ID == id);
 
             if (Company == null)
             {
                 return NotFound();
             }
+
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ErrorMessage = "Delete failed. Try again";
+            }
+
             return Page();
         }
 
@@ -45,15 +52,25 @@ namespace MyWebSite.Pages.Company
                 return NotFound();
             }
 
-            Company = await _context.Company.FindAsync(id);
+            var company = await _context.Company.FindAsync(id);
 
-            if (Company != null)
+            if (company == null)
             {
-                _context.Company.Remove(Company);
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            try
+            {
+                _context.Company.Remove(company);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.)
+                return RedirectToAction("./Delete",
+                                     new { id, saveChangesError = true });
+            }
         }
     }
 }

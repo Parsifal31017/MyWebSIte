@@ -28,7 +28,11 @@ namespace MyWebSite.Pages.Company
                 return NotFound();
             }
 
-            Company = await _context.Company.FirstOrDefaultAsync(m => m.ID == id);
+            Company = await _context.Company
+                .Include(s => s.Enrollments)
+                .ThenInclude(e => e.Ads)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ID == id);
 
             if (Company == null)
             {

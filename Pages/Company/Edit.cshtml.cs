@@ -30,7 +30,7 @@ namespace MyWebSite.Pages.Company
                 return NotFound();
             }
 
-            Company = await _context.Company.FirstOrDefaultAsync(m => m.ID == id);
+            Company = await _context.Company.FindAsync(id);
 
             if (Company == null)
             {
@@ -39,34 +39,25 @@ namespace MyWebSite.Pages.Company
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            if (!ModelState.IsValid)
+            var studentToUpdate = await _context.Company.FindAsync(id);
+
+            if (studentToUpdate == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Company).State = EntityState.Modified;
-
-            try
+            if (await TryUpdateModelAsync<MyWebSite.Models.Company>(
+                studentToUpdate,
+                "company",
+                s => s.Title, s => s.Rating, s => s.EnrollmentDate, s => s.Bonus, s => s.Description, s => s.Images, s => s.Video, s => s.Topic, s => s.News, s => s.Price, s => s.Tags))
             {
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CompanyExists(Company.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return RedirectToPage("./Index");
             }
 
-            return RedirectToPage("./Index");
+            return Page();
         }
 
         private bool CompanyExists(int id)

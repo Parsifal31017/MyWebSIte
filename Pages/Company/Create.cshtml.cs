@@ -30,15 +30,19 @@ namespace MyWebSite.Pages.Company
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            var emptyCompany = new MyWebSite.Models.Company();
+
+            if (await TryUpdateModelAsync<MyWebSite.Models.Company>(
+                emptyCompany,
+                "company",   // Prefix for form value.
+                s => s.Title, s => s.Rating, s => s.EnrollmentDate, s => s.Bonus, s => s.Description, s => s.Images, s => s.Video, s => s.Topic, s => s.News, s => s.Price, s => s.Tags))
             {
-                return Page();
+                _context.Company.Add(emptyCompany);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
 
-            _context.Company.Add(Company);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }
