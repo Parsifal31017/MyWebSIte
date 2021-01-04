@@ -16,6 +16,10 @@ namespace MyWebSite.Data
         public DbSet<MyWebSite.Models.Company> Company { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Ads> Ads { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Users> Instructors { get; set; }
+        public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
+        public DbSet<AdsAssignment> AdsAssignments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +27,13 @@ namespace MyWebSite.Data
             modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
             modelBuilder.Entity<Company>().ToTable("Company");
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Department>().ToTable("Department");
+            modelBuilder.Entity<Users>().ToTable("Instructor");
+            modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
+            modelBuilder.Entity<AdsAssignment>().ToTable("AdsAssignment");
+
+            modelBuilder.Entity<AdsAssignment>()
+                .HasKey(c => new { c.AdsID, c.InstructorID });
         }
     }
 }

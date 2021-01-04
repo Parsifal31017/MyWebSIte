@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyWebSite.Models
 {
@@ -15,6 +12,7 @@ namespace MyWebSite.Models
         public int EnrollmentID { get; set; }
         public int AdsID { get; set; }
         public int CompanyID { get; set; }
+        [DisplayFormat(NullDisplayText = "No grade")]
         public Grade? Grade { get; set; }
 
         public Ads Ads { get; set; }

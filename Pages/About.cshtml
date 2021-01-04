@@ -1,0 +1,39 @@
+﻿@*@page
+    @model MyWebSite.Pages.Index1Model
+    @{
+    }*@
+
+@page
+@model MyWebSite.Pages.AboutModel
+
+@{
+    ViewData["Title"] = "Company Body Statistics";
+}
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<h2>@Localizer["Company Body Statistics"]</h2>
+
+<table>
+    <tr>
+        <th>
+            @Localizer["Enrollment Date"]
+        </th>
+        <th>
+            @Localizer["Company"]
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Company)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @item.CompanyCount
+            </td>
+        </tr>
+    }
+</table>

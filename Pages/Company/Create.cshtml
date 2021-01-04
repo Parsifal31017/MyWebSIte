@@ -5,9 +5,12 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
-<h4>Company</h4>
+<h1>@Localizer["Create"]</h1>
+
+<h4>@Localizer["Company"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -76,7 +79,7 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">@Localizer["Back to List"]</a>
 </div>
 
 @section Scripts {
