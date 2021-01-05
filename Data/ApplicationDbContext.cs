@@ -33,7 +33,7 @@ namespace MyWebSite.Data
             modelBuilder.Entity<AdsAssignment>().ToTable("AdsAssignment");
 
             modelBuilder.Entity<AdsAssignment>()
-                .HasKey(c => new { c.AdsID, c.InstructorID });
+                .HasKey(c => new { c.AdsID, c.UsersID });
         }
     }
 }
