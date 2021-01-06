@@ -10,7 +10,7 @@ namespace MyWebSite.Models
     {
         public int UsersID { get; set; }
         public int AdsID { get; set; }
-        public Users Instructor { get; set; }
+        public User Instructor { get; set; }
         public Ads Ads { get; set; }
     }
 }

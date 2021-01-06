@@ -45,6 +45,15 @@
                 <label asp-for="Company.Images" class="control-label"></label>
                 <input asp-for="Company.Images" class="form-control" />
                 <span asp-validation-for="Company.Images" class="text-danger"></span>
+                @*<div id="drop-area">
+                        <div class="my-form">
+                            <p>Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область</p>
+                    <progress id="progress-bar" max=100 value=0></progress>
+                            <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                            <label class="button" for="fileElem">Выбрать изображения</label>
+                        </div>
+                        <div id="gallery"></div>
+                    </div>*@
             </div>
             <div class="form-group">
                 <label asp-for="Company.Video" class="control-label"></label>

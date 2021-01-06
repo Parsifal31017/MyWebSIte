@@ -23,7 +23,7 @@ namespace MyWebSite.Models
 
         public int? UsersID { get; set; }
 
-        public Users Administrator { get; set; }
+        public User Administrator { get; set; }
         public ICollection<Ads> Ads { get; set; }
     }
 }

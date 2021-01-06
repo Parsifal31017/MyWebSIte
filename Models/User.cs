@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyWebSite.Models
 {
-    public class Users
+    public class User
     {
         public int ID { get; set; }
 

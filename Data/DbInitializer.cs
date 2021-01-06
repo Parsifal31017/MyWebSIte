@@ -30,16 +30,16 @@ namespace MyWebSite.Data
             context.Company.AddRange(company);
             context.SaveChanges();
 
-            var users = new Users[]
+            var users = new User[]
             {
-                new Users { FirstMidName = "Kim",     LastName = "Abercrombie", HireDate = DateTime.Parse("1995-03-11"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
-                new Users { FirstMidName = "Fadi",    LastName = "Fakhouri", HireDate = DateTime.Parse("2002-07-06"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
-                new Users { FirstMidName = "Roger",   LastName = "Harui", HireDate = DateTime.Parse("1998-07-01"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
-                new Users { FirstMidName = "Candace", LastName = "Kapoor", HireDate = DateTime.Parse("2001-01-15"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
-                new Users { FirstMidName = "Roger",   LastName = "Zheng", HireDate = DateTime.Parse("2004-02-12"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" }
+                new User { FirstMidName = "Kim",     LastName = "Abercrombie", HireDate = DateTime.Parse("1995-03-11"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
+                new User { FirstMidName = "Fadi",    LastName = "Fakhouri", HireDate = DateTime.Parse("2002-07-06"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
+                new User { FirstMidName = "Roger",   LastName = "Harui", HireDate = DateTime.Parse("1998-07-01"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
+                new User { FirstMidName = "Candace", LastName = "Kapoor", HireDate = DateTime.Parse("2001-01-15"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
+                new User { FirstMidName = "Roger",   LastName = "Zheng", HireDate = DateTime.Parse("2004-02-12"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" }
             };
 
-            context.Users.AddRange(users);
+            context.Instructors.AddRange(users);
             context.SaveChanges();
 
             var departments = new Department[]

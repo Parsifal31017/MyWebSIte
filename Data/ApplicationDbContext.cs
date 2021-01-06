@@ -17,7 +17,7 @@ namespace MyWebSite.Data
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Ads> Ads { get; set; }
         public DbSet<Department> Departments { get; set; }
-        public DbSet<Users> Instructors { get; set; }
+        public DbSet<User> Instructors { get; set; }
         public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
         public DbSet<AdsAssignment> AdsAssignments { get; set; }
 
@@ -28,7 +28,7 @@ namespace MyWebSite.Data
             modelBuilder.Entity<Company>().ToTable("Company");
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Department>().ToTable("Department");
-            modelBuilder.Entity<Users>().ToTable("Instructor");
+            modelBuilder.Entity<User>().ToTable("Instructor");
             modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
             modelBuilder.Entity<AdsAssignment>().ToTable("AdsAssignment");
 
