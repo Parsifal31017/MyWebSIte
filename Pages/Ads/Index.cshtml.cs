@@ -19,12 +19,14 @@ namespace MyWebSite.Pages.Ads
             _context = context;
         }
 
-        public IList<MyWebSite.Models.Ads> Ads { get;set; }
+        public IList<MyWebSite.Models.Ads> Ads { get; set; }
 
         public async Task OnGetAsync()
         {
             Ads = await _context.Ads
-                .Include(a => a.Department).ToListAsync();
+                .Include(c => c.Department)
+                .AsNoTracking()
+                .ToListAsync();
         }
     }
 }

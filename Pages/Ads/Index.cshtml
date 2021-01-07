@@ -2,10 +2,10 @@
 @model MyWebSite.Pages.Ads.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Ads";
 }
 
-<h1>Index</h1>
+<h1>Ads</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -13,6 +13,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ads[0].AdsID)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Ads[0].Title)
             </th>
@@ -26,8 +29,12 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Ads) {
+        @foreach (var item in Model.Ads)
+        {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdsID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -35,7 +42,7 @@
                 @Html.DisplayFor(modelItem => item.Tags)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Department.DepartmentID)
+                @Html.DisplayFor(modelItem => item.Department.Name)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.AdsID">Edit</a> |
@@ -43,6 +50,6 @@
                 <a asp-page="./Delete" asp-route-id="@item.AdsID">Delete</a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
