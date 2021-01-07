@@ -1,0 +1,48 @@
+﻿@page
+@model MyWebSite.Pages.Ads.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ads[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ads[0].Tags)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ads[0].Department)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Ads) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tags)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.DepartmentID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AdsID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AdsID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AdsID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
