@@ -1,0 +1,144 @@
+﻿@page "{id:int?}"
+@model MyWebSite.Pages.User.IndexModel
+
+@{
+    ViewData["Title"] = "User";
+}
+
+<h1>User</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Hire Date</th>
+            <th>Office</th>
+            <th>Courses</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.InstructorData.Instructors)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.InstructorID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstMidName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HireDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AboutMe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comments)
+                </td>
+                <td>
+                    @if (item.OfficeAssignment != null)
+                    {
+                        @item.OfficeAssignment.Location
+                    }
+                </td>
+                <td>
+                    @{
+                        foreach (var ads in item.AdsAssignments)
+                        {
+                            @ads.Ads.AdsID @:  @ads.Ads.Title <br />
+                        }
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Index" asp-route-id="@item.ID">Select</a>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.InstructorData.Ads != null)
+{
+    <h3>Courses Taught by Selected Instructor</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Number</th>
+            <th>Title</th>
+            <th>Department</th>
+        </tr>
+
+        @foreach (var item in Model.InstructorData.Ads)
+        {
+            string selectedRow = "";
+            if (item.AdsID == Model.AdsID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    <a asp-page="./Index" asp-route-courseID="@item.AdsID">Select</a>
+                </td>
+                <td>
+                    @item.AdsID
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Department.Name
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+@if (Model.InstructorData.Enrollments != null)
+{
+    <h3>
+        Students Enrolled in Selected Course
+    </h3>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Grade</th>
+        </tr>
+        @foreach (var item in Model.InstructorData.Enrollments)
+        {
+            <tr>
+                <td>
+                    @item.Company.FullName
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+            </tr>
+        }
+    </table>
+}

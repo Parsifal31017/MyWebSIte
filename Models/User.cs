@@ -24,28 +24,34 @@ namespace MyWebSite.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Hire Date")]
         public DateTime HireDate { get; set; }
+
         [Required]
-        [Display(Name = "Last Name")]
+        [Display(Name = "Age")]
         [StringLength(50)]
-        public decimal Age { get; set; }
+        public int Age { get; set; }
+
         [Required]
-        [Display(Name = "Last Name")]
+        [Display(Name = "Country")]
         [StringLength(50)]
         public string Country { get; set; }
+
         [Required]
-        [Display(Name = "Last Name")]
+        [Display(Name = "City")]
         [StringLength(50)]
         public string City { get; set; }
+
         [Required]
-        [Display(Name = "Last Name")]
+        [Display(Name = "Email")]
         [StringLength(50)]
         public string Email { get; set; }
+
         [Required]
-        [Display(Name = "Last Name")]
+        [Display(Name = "AboutMe")]
         [StringLength(50)]
         public string AboutMe { get; set; }
+
         [Required]
-        [Display(Name = "Last Name")]
+        [Display(Name = "Comments")]
         [StringLength(50)]
         public string Comments { get; set; }
 

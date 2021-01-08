@@ -13,6 +13,12 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ads.AdsID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ads.AdsID)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Ads.Title)
         </dt>
         <dd class="col-sm-10">
@@ -28,7 +34,7 @@
             @Html.DisplayNameFor(model => model.Ads.Department)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Ads.Department.DepartmentID)
+            @Html.DisplayFor(model => model.Ads.Department.Name)
         </dd>
     </dl>
     

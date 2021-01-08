@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MyWebSite.Data;
 using MyWebSite.Models;
 
-namespace MyWebSite.Pages.Ads
+namespace MyWebSite.Pages.User
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace MyWebSite.Pages.Ads
             _context = context;
         }
 
-        public MyWebSite.Models.Ads Ads { get; set; }
+        public MyWebSite.Models.User Instructors { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,11 +28,9 @@ namespace MyWebSite.Pages.Ads
                 return NotFound();
             }
 
-            Ads = await _context.Ads
-                .AsNoTracking()
-                .Include(a => a.Department).FirstOrDefaultAsync(m => m.AdsID == id);
+            Instructors = await _context.Instructors.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Ads == null)
+            if (Instructors == null)
             {
                 return NotFound();
             }

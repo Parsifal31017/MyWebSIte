@@ -10,7 +10,7 @@ using MyWebSite.Models;
 
 namespace MyWebSite.Pages.Ads
 {
-    public class CreateModel : PageModel
+    public class CreateModel : DepartmentNamePageModel
     {
         private readonly MyWebSite.Data.ApplicationDbContext _context;
 
@@ -21,7 +21,7 @@ namespace MyWebSite.Pages.Ads
 
         public IActionResult OnGet()
         {
-        ViewData["DepartmentID"] = new SelectList(_context.Departments, "DepartmentID", "DepartmentID");
+            PopulateDepartmentsDropDownList(_context);
             return Page();
         }
 
@@ -31,15 +31,21 @@ namespace MyWebSite.Pages.Ads
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            var emptyAds = new MyWebSite.Models.Ads();
+
+            if (await TryUpdateModelAsync<MyWebSite.Models.Ads>(
+                 emptyAds,
+                 "ads",   // Prefix for form value.
+                 s => s.AdsID, s => s.DepartmentID, s => s.Title, s => s.Tags))
             {
-                return Page();
+                _context.Ads.Add(emptyAds);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
 
-            _context.Ads.Add(Ads);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            // Select DepartmentID if TryUpdateModelAsync fails.
+            PopulateDepartmentsDropDownList(_context, emptyAds.DepartmentID);
+            return Page();
         }
     }
 }

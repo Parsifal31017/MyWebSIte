@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MyWebSite.Data;
 using MyWebSite.Models;
 
-namespace MyWebSite.Pages.Ads
+namespace MyWebSite.Pages.User
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace MyWebSite.Pages.Ads
         }
 
         [BindProperty]
-        public MyWebSite.Models.Ads Ads { get; set; }
+        public MyWebSite.Models.User Instructors { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,11 +29,9 @@ namespace MyWebSite.Pages.Ads
                 return NotFound();
             }
 
-            Ads = await _context.Ads
-                .AsNoTracking()
-                .Include(a => a.Department).FirstOrDefaultAsync(m => m.AdsID == id);
+            Instructors = await _context.Instructors.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Ads == null)
+            if (Instructors == null)
             {
                 return NotFound();
             }
@@ -47,11 +45,11 @@ namespace MyWebSite.Pages.Ads
                 return NotFound();
             }
 
-            Ads = await _context.Ads.FindAsync(id);
+            Instructors = await _context.Instructors.FindAsync(id);
 
-            if (Ads != null)
+            if (Instructors != null)
             {
-                _context.Ads.Remove(Ads);
+                _context.Instructors.Remove(Instructors);
                 await _context.SaveChangesAsync();
             }
 
