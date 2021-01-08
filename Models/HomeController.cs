@@ -3,6 +3,7 @@ using System.Linq;
 using MyWebSite.Models;
 using System.IO;
 using MyWebSite.Data;
+using MyWebSite.Models.CompanyViewModels;
 
 namespace MyWebSite.Models
 {
