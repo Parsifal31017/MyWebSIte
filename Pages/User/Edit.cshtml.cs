@@ -30,7 +30,7 @@ namespace MyWebSite.Pages.User
                 return NotFound();
             }
 
-            User = await _context.Instructors
+            Instructors = await _context.Instructors
     .Include(i => i.OfficeAssignment)
     .Include(i => i.AdsAssignments).ThenInclude(i => i.Ads)
     .AsNoTracking()
@@ -40,7 +40,7 @@ namespace MyWebSite.Pages.User
             {
                 return NotFound();
             }
-            PopulateAssignedCourseData(_context, User);
+            PopulateAssignedCourseData(_context, Instructors);
             return Page();
         }
 

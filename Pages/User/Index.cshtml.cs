@@ -22,7 +22,7 @@ namespace MyWebSite.Pages.User
 
         public InstructorIndexData InstructorData { get; set; }
         public int InstructorID { get; set; }
-        public int CourseID { get; set; }
+        public int AdsID { get; set; }
 
         public async Task OnGetAsync(int? id, int? adsID)
         {
@@ -50,15 +50,15 @@ namespace MyWebSite.Pages.User
 
             if (adsID != null)
             {
-                CourseID = adsID.Value;
-                var selectedCourse = InstructorData.Ads
+                AdsID = adsID.Value;
+                var selectedAds = InstructorData.Ads
                     .Where(x => x.AdsID == adsID).Single();
-                await _context.Entry(selectedCourse).Collection(x => x.Enrollments).LoadAsync();
-                foreach (Enrollment enrollment in selectedCourse.Enrollments)
+                await _context.Entry(selectedAds).Collection(x => x.Enrollments).LoadAsync();
+                foreach (Enrollment enrollment in selectedAds.Enrollments)
                 {
                     await _context.Entry(enrollment).Reference(x => x.Company).LoadAsync();
                 }
-                InstructorData.Enrollments = selectedCourse.Enrollments;
+                InstructorData.Enrollments = selectedAds.Enrollments;
             }
         }
     }
