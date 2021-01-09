@@ -1,14 +1,17 @@
 ﻿@page
 @model MyWebSite.Pages.Ads.IndexModel
 
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 @{
     ViewData["Title"] = "Ads";
 }
 
-<h1>Ads</h1>
+<h1>@Localizer["Ads"]</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">@Localizer["Create New"]</a>
 </p>
 <table class="table">
     <thead>
@@ -31,25 +34,25 @@
     <tbody>
         @foreach (var item in Model.Ads)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdsID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tags)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Department.Name)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.AdsID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.AdsID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.AdsID">Delete</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdsID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tags)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department.Name)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.AdsID">@Localizer["Edit"]</a> |
+                    <a asp-page="./Details" asp-route-id="@item.AdsID">@Localizer["Details"]</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.AdsID">@Localizer["Delete"]</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

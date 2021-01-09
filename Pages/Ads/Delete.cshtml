@@ -1,13 +1,16 @@
 ﻿@page
 @model MyWebSite.Pages.Ads.DeleteModel
 
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 @{
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h1>@Localizer["Delete"]</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>@Localizer["Are you sure you want to delete this?"]</h3>
 <div>
     <h4>Ads</h4>
     <hr />
@@ -37,10 +40,10 @@
             @Html.DisplayFor(model => model.Ads.Department.Name)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Ads.AdsID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <a asp-page="./Index">@Localizer["Back to List"]</a>
     </form>
 </div>

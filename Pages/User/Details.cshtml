@@ -1,14 +1,17 @@
 ﻿@page
 @model MyWebSite.Pages.User.DetailsModel
 
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>@Localizer["Details"]</h1>
 
 <div>
-    <h4>User</h4>
+    <h4>@Localizer["User"]</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -68,6 +71,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Instructors.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Instructors.ID">@Localizer["Edit"]</a> |
+    <a asp-page="./Index">@Localizer["Back to List"]</a>
 </div>
