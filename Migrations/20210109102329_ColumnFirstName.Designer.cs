@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyWebSite.Data;
 
-namespace MyWebSite.Data.Migrations
+namespace MyWebSite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210102160809_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210109102329_ColumnFirstName")]
+    partial class ColumnFirstName
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -226,15 +226,40 @@ namespace MyWebSite.Data.Migrations
                     b.Property<int>("AdsID")
                         .HasColumnType("int");
 
+                    b.Property<int>("DepartmentID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Tags")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("AdsID");
 
+                    b.HasIndex("DepartmentID");
+
                     b.ToTable("Ads");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.AdsAssignment", b =>
+                {
+                    b.Property<int>("AdsID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsersID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InstructorID")
+                        .HasColumnType("int");
+
+                    b.HasKey("AdsID", "UsersID");
+
+                    b.HasIndex("InstructorID");
+
+                    b.ToTable("AdsAssignment");
                 });
 
             modelBuilder.Entity("MyWebSite.Models.Company", b =>
@@ -245,41 +270,85 @@ namespace MyWebSite.Data.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Bonus")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte[]>("Images")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<byte>("Images")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("News")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("Rating")
-                        .HasColumnType("decimal(18,2)");
+                        .HasMaxLength(50)
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("FirstName");
 
                     b.Property<string>("Tags")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Topic")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.Property<byte[]>("Video")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<byte>("Video")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("ID");
 
                     b.ToTable("Company");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.Department", b =>
+                {
+                    b.Property<int>("DepartmentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int?>("AdministratorID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Budget")
+                        .HasColumnType("money");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UsersID")
+                        .HasColumnType("int");
+
+                    b.HasKey("DepartmentID");
+
+                    b.HasIndex("AdministratorID");
+
+                    b.ToTable("Department");
                 });
 
             modelBuilder.Entity("MyWebSite.Models.Enrollment", b =>
@@ -305,6 +374,93 @@ namespace MyWebSite.Data.Migrations
                     b.HasIndex("CompanyID");
 
                     b.ToTable("Enrollment");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.OfficeAssignment", b =>
+                {
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Location")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("UserID");
+
+                    b.ToTable("OfficeAssignment");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.Settings", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Language")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Topic")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Settings");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.User", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("AboutMe")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("Age")
+                        .HasMaxLength(50)
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Comments")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("FirstMidName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("FirstName");
+
+                    b.Property<DateTime>("HireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Instructor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -358,6 +514,43 @@ namespace MyWebSite.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MyWebSite.Models.Ads", b =>
+                {
+                    b.HasOne("MyWebSite.Models.Department", "Department")
+                        .WithMany("Ads")
+                        .HasForeignKey("DepartmentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.AdsAssignment", b =>
+                {
+                    b.HasOne("MyWebSite.Models.Ads", "Ads")
+                        .WithMany("AdsAssignments")
+                        .HasForeignKey("AdsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyWebSite.Models.User", "Instructor")
+                        .WithMany("AdsAssignments")
+                        .HasForeignKey("InstructorID");
+
+                    b.Navigation("Ads");
+
+                    b.Navigation("Instructor");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.Department", b =>
+                {
+                    b.HasOne("MyWebSite.Models.User", "Administrator")
+                        .WithMany()
+                        .HasForeignKey("AdministratorID");
+
+                    b.Navigation("Administrator");
+                });
+
             modelBuilder.Entity("MyWebSite.Models.Enrollment", b =>
                 {
                     b.HasOne("MyWebSite.Models.Ads", "Ads")
@@ -377,14 +570,39 @@ namespace MyWebSite.Data.Migrations
                     b.Navigation("Company");
                 });
 
+            modelBuilder.Entity("MyWebSite.Models.OfficeAssignment", b =>
+                {
+                    b.HasOne("MyWebSite.Models.User", "Users")
+                        .WithOne("OfficeAssignment")
+                        .HasForeignKey("MyWebSite.Models.OfficeAssignment", "UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Users");
+                });
+
             modelBuilder.Entity("MyWebSite.Models.Ads", b =>
                 {
+                    b.Navigation("AdsAssignments");
+
                     b.Navigation("Enrollments");
                 });
 
             modelBuilder.Entity("MyWebSite.Models.Company", b =>
                 {
                     b.Navigation("Enrollments");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.Department", b =>
+                {
+                    b.Navigation("Ads");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.User", b =>
+                {
+                    b.Navigation("AdsAssignments");
+
+                    b.Navigation("OfficeAssignment");
                 });
 #pragma warning restore 612, 618
         }

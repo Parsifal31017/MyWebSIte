@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyWebSite.Data;
 
-namespace MyWebSite.Data.Migrations
+namespace MyWebSite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210107150858_ComplexDataModel")]
-    partial class ComplexDataModel
+    [Migration("20210109102535_RowVersion")]
+    partial class RowVersion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -338,6 +338,11 @@ namespace MyWebSite.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
@@ -420,9 +425,9 @@ namespace MyWebSite.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<decimal>("Age")
+                    b.Property<int>("Age")
                         .HasMaxLength(50)
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("int");
 
                     b.Property<string>("City")
                         .IsRequired()
