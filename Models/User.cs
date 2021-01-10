@@ -11,13 +11,11 @@ namespace MyWebSite.Models
 
         [Required]
         [Display(Name = "Last Name")]
-        [StringLength(50)]
         public string LastName { get; set; }
 
         [Required]
         [Column("FirstName")]
         [Display(Name = "First Name")]
-        [StringLength(50)]
         public string FirstMidName { get; set; }
 
         [DataType(DataType.Date)]
@@ -27,32 +25,26 @@ namespace MyWebSite.Models
 
         [Required]
         [Display(Name = "Age")]
-        [StringLength(50)]
         public int Age { get; set; }
 
         [Required]
         [Display(Name = "Country")]
-        [StringLength(50)]
         public string Country { get; set; }
 
         [Required]
         [Display(Name = "City")]
-        [StringLength(50)]
         public string City { get; set; }
 
         [Required]
         [Display(Name = "Email")]
-        [StringLength(50)]
         public string Email { get; set; }
 
         [Required]
         [Display(Name = "AboutMe")]
-        [StringLength(50)]
         public string AboutMe { get; set; }
 
         [Required]
         [Display(Name = "Comments")]
-        [StringLength(50)]
         public string Comments { get; set; }
 
         [Display(Name = "Full Name")]

@@ -9,9 +9,9 @@ namespace MyWebSite.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "Number")]
         public int AdsID { get; set; }
-        [StringLength(50, MinimumLength = 3)]
+        //[StringLength(50, MinimumLength = 3)]
         public string Title { get; set; }
-        [StringLength(50, MinimumLength = 3)]
+        //[StringLength(50, MinimumLength = 3)]
         public string Tags { get; set; }
 
         public int DepartmentID { get; set; }
