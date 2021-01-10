@@ -8,39 +8,46 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>@Localizer["Details"]</h1>
-
-<div>
-    <h4>@Localizer["Ads"]</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Ads.AdsID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Ads.AdsID)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Ads.Title)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Ads.Title)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Ads.Tags)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Ads.Tags)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Ads.Department)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Ads.Department.Name)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Ads.AdsID">@Localizer["Edit"]</a> |
-    <a asp-page="./Index">@Localizer["Back to List"]</a>
+<div class="container-fluid">
+    <div class="container">
+        <h1>@Localizer["Details"]</h1>
+        <h4>@Localizer["Ads"]</h4>
+        <hr />
+        <div class="row">
+            <div class="col">
+                <div>
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Ads.AdsID)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Ads.AdsID)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Ads.Title)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Ads.Title)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Ads.Tags)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Ads.Tags)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Ads.Department)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Ads.Department.Name)
+                        </dd>
+                    </dl>
+                </div>
+                <div>
+                    <a asp-page="./Edit" asp-route-id="@Model.Ads.AdsID">@Localizer["Edit"]</a> |
+                    <a asp-page="./Index">@Localizer["Back to List"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MyWebSite.Data;
 using MyWebSite.Models;
+using MyWebSite.Models.CompanyViewModels;
 
 namespace MyWebSite.Pages.Company
 {

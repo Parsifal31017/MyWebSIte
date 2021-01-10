@@ -8,51 +8,60 @@
     ViewData["Title"] = "Ads";
 }
 
-<h1>@Localizer["Ads"]</h1>
+<div class="container-fluid">
+    <div class="container">
+        <h1>@Localizer["Ads"]</h1>
 
-<p>
-    <a asp-page="Create">@Localizer["Create New"]</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Ads[0].AdsID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ads[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ads[0].Tags)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ads[0].Department)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Ads)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AdsID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tags)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Department.Name)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.AdsID">@Localizer["Edit"]</a> |
-                    <a asp-page="./Details" asp-route-id="@item.AdsID">@Localizer["Details"]</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.AdsID">@Localizer["Delete"]</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        <p>
+            <a asp-page="Create">@Localizer["Create New"]</a>
+        </p>
+        <hr />
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ads[0].AdsID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ads[0].Title)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ads[0].Tags)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ads[0].Department)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Ads)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AdsID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tags)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Department.Name)
+                                </td>
+                                <td>
+                                    <a asp-page="./Edit" asp-route-id="@item.AdsID">@Localizer["Edit"]</a> |
+                                    <a asp-page="./Details" asp-route-id="@item.AdsID">@Localizer["Details"]</a> |
+                                    <a asp-page="./Delete" asp-route-id="@item.AdsID">@Localizer["Delete"]</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
