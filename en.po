@@ -61,3 +61,343 @@ msgstr "Resend email confirmation" #: переведенная строка
 #: Areas/Identity/Pages/Account/Login.cshtml:56
 msgid "Используйте другую службу для входа в систему" #: непереведенная строка
 msgstr "Use another service to log in" #: переведенная строка
+
+#: Pages/Ads/Create.cshtml: 13
+msgid "Создать" #: непереведенная строка
+msgstr "Create" #: переведенная строка
+
+#: Pages/Ads/Create.cshtml: 15
+msgid "Объявления" #: непереведенная строка
+msgstr "Ads" #: переведенная строка
+
+#: Pages/Ads/Create.cshtml: 54
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Ads/Delete.cshtml: 13
+msgid "Удалить" #: непереведенная строка
+msgstr "Delete" #: переведенная строка
+
+#: Pages/Ads/Delete.cshtml: 15
+msgid "Вы уверены, что хотите удалить это?" #: непереведенная строка
+msgstr "Are you sure you want to delete this?" #: переведенная строка
+
+#: Pages/Ads/Delete.cshtml: 20
+msgid "Объявления" #: непереведенная строка
+msgstr "Ads" #: переведенная строка
+
+#: Pages/Ads/Delete.cshtml: 51
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Ads/Details.cshtml: 13
+msgid "Подробности" #: непереведенная строка
+msgstr "Details" #: переведенная строка
+
+#: Pages/Ads/Details.cshtml: 14
+msgid "Объявления" #: непереведенная строка
+msgstr "Ads" #: переведенная строка
+
+#: Pages/Ads/Details.cshtml: 47
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/Ads/Details.cshtml: 48
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Ads/Edit.cshtml: 13
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/Ads/Edit.cshtml: 15
+msgid "Объявления" #: непереведенная строка
+msgstr "Ads" #: переведенная строка
+
+#: Pages/Ads/Edit.cshtml: 52
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Ads/Index.cshtml: 13
+msgid "Объявления" #: непереведенная строка
+msgstr "Ads" #: переведенная строка
+
+#: Pages/Ads/Index.cshtml: 16
+msgid "Создать" #: непереведенная строка
+msgstr "Create New" #: переведенная строка
+
+#: Pages/Ads/Index.cshtml: 56
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/Ads/Index.cshtml: 57
+msgid "Подробности" #: непереведенная строка
+msgstr "Details" #: переведенная строка
+
+#: Pages/Ads/Index.cshtml: 58
+msgid "Удалить" #: непереведенная строка
+msgstr "Delete" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 18
+msgid "Создать" #: непереведенная строка
+msgstr "Create" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 20
+msgid "Компанию" #: непереведенная строка
+msgstr "Company" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 58
+msgid "Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область" #: непереведенная строка
+msgstr "Upload images using the File selection dialog or by dragging the desired images to the selected area" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 98
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Company/Delete.cshtml: 16
+msgid "Удалить" #: непереведенная строка
+msgstr "Delete" #: переведенная строка
+
+#: Pages/Company/Delete.cshtml: 20
+msgid "Вы уверены, что хотите удалить это?" #: непереведенная строка
+msgstr "Are you sure you want to delete this?" #: переведенная строка
+
+#: Pages/Company/Delete.cshtml: 96
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Company/Details.cshtml: 18
+msgid "Подробности" #: непереведенная строка
+msgstr "Details" #: переведенная строка
+
+#: Pages/Company/Details.cshtml: 21
+msgid "Компании" #: непереведенная строка
+msgstr "Company" #: переведенная строка
+
+#: Pages/Company/Details.cshtml: 108
+msgid "Заголовок Объявления" #: непереведенная строка
+msgstr "Ads Title" #: переведенная строка
+
+#: Pages/Company/Details.cshtml: 109
+msgid "Категория" #: непереведенная строка
+msgstr "Grade" #: переведенная строка
+
+#: Pages/Company/Details.cshtml: 127
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/Company/Details.cshtml: 128
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Company/Details.cshtml: 132
+msgid "Имя" #: непереведенная строка
+msgstr "Name" #: переведенная строка
+
+#: Pages/Company/Details.cshtml: 134
+msgid "Комментарий" #: непереведенная строка
+msgstr "Comment" #: переведенная строка
+
+#: Pages/Company/Details.cshtml: 136
+msgid "Отправить" #: непереведенная строка
+msgstr "Send" #: переведенная строка
+
+#: Pages/Company/Edit.cshtml: 16
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/Company/Edit.cshtml: 18
+msgid "Компанию" #: непереведенная строка
+msgstr "Company" #: переведенная строка
+
+#: Pages/Company/Edit.cshtml: 88
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Company/Index.cshtml: 16
+msgid "Компании" #: непереведенная строка
+msgstr "Company" #: переведенная строка
+
+#: Pages/Company/Index.cshtml: 19
+msgid "Создать" #: непереведенная строка
+msgstr "Create New" #: переведенная строка
+
+#: Pages/Company/Index.cshtml: 28
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Company/Index.cshtml: 71
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/Company/Index.cshtml: 72
+msgid "Подробности" #: непереведенная строка
+msgstr "Details" #: переведенная строка
+
+#: Pages/Company/Index.cshtml: 73
+msgid "Удалить" #: непереведенная строка
+msgstr "Delete" #: переведенная строка
+
+#: Pages/Company/Index.cshtml: 95
+msgid "Предыдущий" #: непереведенная строка
+msgstr "Previous" #: переведенная строка
+
+#: Pages/Company/Index.cshtml: 102
+msgid "Следующий" #: непереведенная строка
+msgstr "Next" #: переведенная строка
+
+#: Pages/Departments/Create.cshtml: 15
+msgid "Создать" #: непереведенная строка
+msgstr "Create" #: переведенная строка
+
+#: Pages/Departments/Create.cshtml: 17
+msgid "Отдел" #: непереведенная строка
+msgstr "Departments" #: переведенная строка
+
+#: Pages/Departments/Create.cshtml: 56
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Departments/Delete.cshtml: 15
+msgid "Удалить" #: непереведенная строка
+msgstr "Delete" #: переведенная строка
+
+#: Pages/Departments/Delete.cshtml: 19
+msgid "Вы уверены, что хотите удалить это?" #: непереведенная строка
+msgstr "Are you sure you want to delete this?" #: переведенная строка
+
+#: Pages/Departments/Delete.cshtml: 21
+msgid "Отдел" #: непереведенная строка
+msgstr "Departments" #: переведенная строка
+
+#: Pages/Departments/Delete.cshtml: 61
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Departments/Details.cshtml: 15
+msgid "Подробности" #: непереведенная строка
+msgstr "Details" #: переведенная строка
+
+#: Pages/Departments/Details.cshtml: 18
+msgid "Отдел" #: непереведенная строка
+msgstr "Departments" #: переведенная строка
+
+#: Pages/Departments/Details.cshtml: 54
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/Departments/Details.cshtml: 55
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Departments/Edit.cshtml: 15
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/Departments/Edit.cshtml: 17
+msgid "Отдел" #: непереведенная строка
+msgstr "Departments" #: переведенная строка
+
+#: Pages/Departments/Edit.cshtml: 59
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/Departments/Index.cshtml: 15
+msgid "Отделы" #: непереведенная строка
+msgstr "Departments" #: переведенная строка
+
+#: Pages/Departments/Index.cshtml: 18
+msgid "Создать" #: непереведенная строка
+msgstr "Create New" #: переведенная строка
+
+#: Pages/Departments/Index.cshtml: 61
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/Departments/Index.cshtml: 62
+msgid "Подробности" #: непереведенная строка
+msgstr "Details" #: переведенная строка
+
+#: Pages/Departments/Index.cshtml: 63
+msgid "Удалить" #: непереведенная строка
+msgstr "Delete" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 15
+msgid "Создать" #: непереведенная строка
+msgstr "Create" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 17
+msgid "Пользователя" #: непереведенная строка
+msgstr "User" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 102
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/User/Delete.cshtml: 15
+msgid "Удалить" #: непереведенная строка
+msgstr "Delete" #: переведенная строка
+
+#: Pages/User/Delete.cshtml: 17
+msgid "Вы уверены, что хотите удалить это?" #: непереведенная строка
+msgstr "Are you sure you want to delete this?" #: переведенная строка
+
+#: Pages/User/Delete.cshtml: 19
+msgid "Пользователь" #: непереведенная строка
+msgstr "User" #: переведенная строка
+
+#: Pages/User/Delete.cshtml: 75
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/User/Details.cshtml: 15
+msgid "Подробности" #: непереведенная строка
+msgstr "Details" #: переведенная строка
+
+#: Pages/User/Details.cshtml: 18
+msgid "Пользователь" #: непереведенная строка
+msgstr "User" #: переведенная строка
+
+#: Pages/User/Details.cshtml: 72
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/User/Details.cshtml: 73
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 15
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 17
+msgid "Пользователя" #: непереведенная строка
+msgstr "User" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 103
+msgid "Вернуться к списку" #: непереведенная строка
+msgstr "Back to List" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 14
+msgid "Пользователи" #: непереведенная строка
+msgstr "User" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 17
+msgid "Создать" #: непереведенная строка
+msgstr "Create New" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 81
+msgid "Выбрать" #: непереведенная строка
+msgstr "Select" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 82
+msgid "Редактировать" #: непереведенная строка
+msgstr "Edit" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 83
+msgid "Подробности" #: непереведенная строка
+msgstr "Details" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 84
+msgid "Удалить" #: непереведенная строка
+msgstr "Delete" #: переведенная строка

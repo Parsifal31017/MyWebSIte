@@ -15,9 +15,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>@Localizer["Create"]</h1>
+                    <h1>@Localizer["Создать"]</h1>
 
-                    <h4>@Localizer["Company"]</h4>
+                    <h4>@Localizer["Компанию"]</h4>
                     <hr />
                     <div class="row">
                         <div class="col-md-4">
@@ -55,7 +55,7 @@
                                     <div id="drop-area">
                                         <div class="my-form">
                                             <label asp-for="Company.Images" class="control-label"></label>
-                                            <p>Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область</p>
+                                            <p>@Localizer["Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область"]</p>
                                             <input asp-for="Company.Images" class="form-control" type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
                                             <span asp-validation-for="Company.Images" class="text-danger"></span>
                                             <label class="button" for="UploadFileSample.cs">Выбрать изображения</label>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div>
-                        <a asp-page="Index">@Localizer["Back to List"]</a>
+                        <a asp-page="Index">@Localizer["Вернуться к списку"]</a>
                     </div>
                 </div>
             </div>

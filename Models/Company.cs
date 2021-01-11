@@ -54,5 +54,6 @@ namespace MyWebSite.Models
         }
 
         public ICollection<Enrollment> Enrollments { get; set; }
+        public ICollection<UserAssignment> UserAssignments { get; set; }
     }
 }

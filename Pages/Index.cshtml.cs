@@ -5,21 +5,35 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MyWebSite.Models;
+using MyWebSite.Models.CompanyViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyWebSite.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly MyWebSite.Data.ApplicationDbContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(MyWebSite.Data.ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
+        public MainIndexData MainData { get; set; }
+        public int CompanyID { get; set; }
 
-        public void OnGet()
-        {
-
-        }
+        //public async Task OnGetAsync(int? id, int? companyID)
+        //{
+        //    MainData = new MainIndexData();
+        //    MainData.Company = await _context.Company
+        //        .Include(i => i.UserAssignments)
+        //            .ThenInclude(i => i.Company)
+        //        .Include(i => i.UserAssignments)
+        //            .ThenInclude(i => i.Company)
+        //        .AsNoTracking()
+        //        .OrderBy(i => i.Title)
+        //        .OrderBy(i => i.Rating)
+        //        .ToListAsync();
+        //}
     }
 }

@@ -1,10 +1,43 @@
-﻿@page
+﻿@page "{id:int?}"
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Company";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Сайт для ваших краундфандинговых компаний</h2>
+
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Rating</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MainData.Company)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.CompanyID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @{
+                        foreach (var company in item.UserAssignments)
+                        {
+                            @company.Company.Title @:  @company.Company.Tags <br />
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@

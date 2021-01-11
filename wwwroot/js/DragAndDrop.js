@@ -127,4 +127,4 @@ function updateProgress(fileNumber, percent) {
     //})
     //formData.append('file', file)
     //xhr.send(formData)
-}
+//}

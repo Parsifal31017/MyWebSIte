@@ -7,7 +7,7 @@ namespace MyWebSite.Models
     {
         [Key]
         public int UserID { get; set; }
-        //[StringLength(50)]
+
         [Display(Name = "Office Location")]
         public string Location { get; set; }
 

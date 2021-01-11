@@ -10,14 +10,14 @@
 
 <div class="container-fluid">
     <div class="container">
-        <h1>@Localizer["Delete"]</h1>
+        <h1>@Localizer["Удалить"]</h1>
 
-        <h3>@Localizer["Are you sure you want to delete this?"]</h3>
+        <h3>@Localizer["Вы уверены, что хотите удалить это?"]</h3>
         <hr />
         <div class="row">
             <div class="col">
                 <div>
-                    <h4>Ads</h4>
+                    <h4>@Localizer["Объявления"]</h4>
                     <dl class="row">
                         <dt class="col-sm-2">
                             @Html.DisplayNameFor(model => model.Ads.AdsID)
@@ -48,7 +48,7 @@
                     <form method="post">
                         <input type="hidden" asp-for="Ads.AdsID" />
                         <input type="submit" value="Delete" class="btn btn-danger" /> |
-                        <a asp-page="./Index">@Localizer["Back to List"]</a>
+                        <a asp-page="./Index">@Localizer["Вернуться к списку"]</a>
                     </form>
                 </div>
             </div>

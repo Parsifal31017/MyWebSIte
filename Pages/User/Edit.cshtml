@@ -12,9 +12,9 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>@Localizer["Edit"]</h1>
+                <h1>@Localizer["Редактировать"]</h1>
 
-                <h4>@Localizer["User"]</h4>
+                <h4>@Localizer["Пользователя"]</h4>
                 <hr />
                 <div class="row">
                     <div class="col-md-4">
@@ -62,11 +62,6 @@
                                 <span asp-validation-for="Instructors.AboutMe" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Instructors.Comments" class="control-label"></label>
-                                <input asp-for="Instructors.Comments" class="form-control" />
-                                <span asp-validation-for="Instructors.Comments" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
                                 <label asp-for="Instructors.OfficeAssignment.Location" class="control-label"></label>
                                 <input asp-for="Instructors.OfficeAssignment.Location" class="form-control" />
                                 <span asp-validation-for="Instructors.OfficeAssignment.Location" class="text-danger" />
@@ -105,7 +100,7 @@
                     </div>
 
                     <div>
-                        <a asp-page="./Index">@Localizer["Back to List"]</a>
+                        <a asp-page="./Index">@Localizer["Вернуться к списку"]</a>
                     </div>
                 </div>
         </div>

@@ -13,10 +13,10 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>@Localizer["Company"]</h1>
+                    <h1>@Localizer["Компании"]</h1>
 
                     <p>
-                        <a asp-page="Create">@Localizer["Create New"]</a>
+                        <a asp-page="Create">@Localizer["Создать"]</a>
                     </p>
 
                     <form asp-page="./Index" method="get">
@@ -25,7 +25,7 @@
                                 Find by name:
                                 <input type="text" name="SearchString" value="@Model.CurrentFilter" />
                                 <input type="submit" value="Search" class="btn btn-primary" /> |
-                                <a asp-page="./Index">@Localizer["Back to full List"]</a>
+                                <a asp-page="./Index">@Localizer["Вернуться к списку"]</a>
                             </p>
                         </div>
                     </form>
@@ -51,60 +51,6 @@
                                         @Html.DisplayNameFor(model => model.Company[0].EnrollmentDate)
                                     </a>
                                 </th>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].Bonus)
-                                    </a>
-                                </th>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].Bonus)
-                                    </a>
-                                </th>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].Description)
-                                    </a>
-                                </th>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].Images)
-                                    </a>
-                                </th>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].Video)
-                                    </a>
-                                </th>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].Topic)
-                                    </a>
-                                </th>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].News)
-                                    </a>
-                                </th>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].Price)
-                                    </a>
-                                </th>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].Tags)
-                                    </a>
-                                </th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -122,33 +68,9 @@
                                         @Html.DisplayFor(modelItem => item.EnrollmentDate)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Bonus)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Description)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Images)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Video)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Topic)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.News)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Price)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Tags)
-                                    </td>
-                                    <td>
-                                        <a asp-page="./Edit" asp-route-id="@item.ID">@Localizer["Edit"]</a> |
-                                        <a asp-page="./Details" asp-route-id="@item.ID">@Localizer["Details"]</a> |
-                                        <a asp-page="./Delete" asp-route-id="@item.ID">@Localizer["Delete"]</a>
+                                        <a asp-page="./Edit" asp-route-id="@item.ID">@Localizer["Редактировать"]</a> |
+                                        <a asp-page="./Details" asp-route-id="@item.ID">@Localizer["Подробности"]</a> |
+                                        <a asp-page="./Delete" asp-route-id="@item.ID">@Localizer["v"]</a>
                                     </td>
                                 </tr>
                             }
@@ -170,12 +92,12 @@
    asp-route-pageIndex="@(Model.Company.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
-    Previous
+    @Localizer["Предыдущий"]
 </a>
 <a asp-page="./Index"
    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Company.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @nextDisabled">
-    Next
+    @Localizer["Следующий"]
 </a>
