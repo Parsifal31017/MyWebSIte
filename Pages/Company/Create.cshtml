@@ -8,6 +8,8 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
+<link rel="stylesheet" href="/css/DragAndDrop.css">
+
 <div class="container-fluid">
     <div class="container">
         <div class="container">
@@ -43,28 +45,27 @@
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Company.Description" class="control-label"></label>
-                                    <input asp-for="Company.Description" class="form-control" />
+                                    <textarea asp-for="Company.Description" class="form-control"></textarea>
                                     <span asp-validation-for="Company.Description" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Company.Images" class="control-label"></label>
+                                    @*<label asp-for="Company.Images" class="control-label"></label>
                                     <input asp-for="Company.Images" class="form-control" />
-                                    <span asp-validation-for="Company.Images" class="text-danger"></span>
-                                    @*<div id="drop-area">
-                                            <div class="my-form">
-                                                <p>Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область</p>
-                                        <progress id="progress-bar" max=100 value=0></progress>
-                                                <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
-                                                <label class="button" for="fileElem">Выбрать изображения</label>
-                                            </div>
-                                            <div id="gallery"></div>
-                                        </div>*@
+                                    <span asp-validation-for="Company.Images" class="text-danger"></span>*@
+                                    <div id="drop-area">
+                                        <div class="my-form">
+                                            <label asp-for="Company.Images" class="control-label"></label>
+                                            <p>Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область</p>
+                                            <input asp-for="Company.Images" class="form-control" type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                                            <span asp-validation-for="Company.Images" class="text-danger"></span>
+                                            <label class="button" for="UploadFileSample.cs">Выбрать изображения</label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Company.Video" class="control-label"></label>
                                     <input asp-for="Company.Video" class="form-control" />
                                     <span asp-validation-for="Company.Video" class="text-danger"></span>
-                                    <a asp-page="UploadVideo.cs">Загрузить видео</a>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Company.Topic" class="control-label"></label>
@@ -73,7 +74,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Company.News" class="control-label"></label>
-                                    <input asp-for="Company.News" class="form-control" />
+                                    <textarea asp-for="Company.News" class="form-control" ></textarea>
                                     <span asp-validation-for="Company.News" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
@@ -101,6 +102,8 @@
         </div>
     </div>
 </div>
+
+<script src="/js/DragAndDrop.js"></script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

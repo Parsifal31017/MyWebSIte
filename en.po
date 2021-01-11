@@ -1,1 +1,63 @@
-﻿
+﻿#: Pages/Shared/_Layout.cshtml:27
+msgid "Информация" #: непереведенная строка
+msgstr "INFO" #: переведенная строка
+
+#: Pages/Shared/_Layout.cshtml:31
+msgid "Компании" #: непереведенная строка
+msgstr "Company" #: переведенная строка
+
+#: Pages/Shared/_Layout.cshtml:34
+msgid "Объявления" #: непереведенная строка
+msgstr "Ads" #: переведенная строка
+
+#: Pages/Shared/_Layout.cshtml:37
+msgid_plural "Администраторы" #: непереведенная строка
+msgstr "Administrators" #: переведенная строка
+
+#: Pages/Shared/_Layout.cshtml:40
+msgid_plural "Отделы" #: непереведенная строка
+msgstr "Departments" #: переведенная строка
+
+#: Pages/Shared/_Layout.cshtml:43
+msgid "Сменить тему" #: непереведенная строка
+msgstr "Change theme" #: переведенная строка
+
+#: Pages/Shared/_Layout.cshtml:59
+msgid "Конфиденциальность" #: непереведенная строка
+msgstr "Privacy" #: переведенная строка
+
+#: Areas/Identity/Pages/Account/Register.cshtml:15
+msgid "Создайте новую учетную запись" #: непереведенная строка
+msgstr "Create a new account" #: переведенная строка
+
+#: Areas/Identity/Pages/Account/Register.cshtml:33
+msgid "Зарегистрировать" #: непереведенная строка
+msgstr "Register" #: переведенная строка
+
+#: Areas/Identity/Pages/Account/Register.cshtml:38
+msgid "Используйте другой сервис для регистрации" #: непереведенная строка
+msgstr "Use another service to register" #: переведенная строка
+
+#: Areas/Identity/Pages/Account/Login.cshtml:16
+msgid "Используйте локальную учетную запись для входа в систему" #: непереведенная строка
+msgstr "Use a local account to log in" #: переведенная строка
+
+#: Areas/Identity/Pages/Account/Login.cshtml:38
+msgid "Авторизоваться" #: непереведенная строка
+msgstr "Log in" #: переведенная строка
+
+#: Areas/Identity/Pages/Account/Login.cshtml:42
+msgid "Забыли свой пароль?" #: непереведенная строка
+msgstr "Forgot your password?" #: переведенная строка
+
+#: Areas/Identity/Pages/Account/Login.cshtml:45
+msgid "Зарегистрируйтесь как новый пользователь" #: непереведенная строка
+msgstr "Register as a new user" #: переведенная строка
+
+#: Areas/Identity/Pages/Account/Login.cshtml:48
+msgid "Повторная отправка подтверждения по электронной почте" #: непереведенная строка
+msgstr "Resend email confirmation" #: переведенная строка
+
+#: Areas/Identity/Pages/Account/Login.cshtml:56
+msgid "Используйте другую службу для входа в систему" #: непереведенная строка
+msgstr "Use another service to log in" #: переведенная строка

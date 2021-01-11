@@ -25,33 +25,33 @@ function handleDrop(e) {
 function handleFiles(files) {
     ([...files]).forEach(uploadFile)
 }
-function uploadFile(file) {
-    let url = 'ВАШ URL ДЛЯ ЗАГРУЗКИ ФАЙЛОВ'
-    let formData = new FormData()
-    formData.append('file', file)
-    fetch(url, {
-        method: 'POST',
-        body: formData
-    })
-        .then(() => { /* Готово. Информируем пользователя */ })
-        .catch(() => { /* Ошибка. Информируем пользователя */ })
-}
-function uploadFile(file) {
-    var url = 'ВАШ URL ДЛЯ ЗАГРУЗКИ ФАЙЛОВ'
-    var xhr = new XMLHttpRequest()
-    var formData = new FormData()
-    xhr.open('POST', url, true)
-    xhr.addEventListener('readystatechange', function (e) {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+//function uploadFile(file) {
+    //let url = 'https://localhost:44308/'
+    //let formData = new FormData()
+    //formData.append('file', file)
+    //fetch(url, {
+        //method: 'POST',
+        //body: formData
+    //})
+        //.then(() => { /* Готово. Информируем пользователя */ })
+        //.catch(() => { /* Ошибка. Информируем пользователя */ })
+//}
+//function uploadFile(file) {
+    //var url = 'https://localhost:44308/'
+    //var xhr = new XMLHttpRequest()
+    //var formData = new FormData()
+    //xhr.open('POST', url, true)
+    //xhr.addEventListener('readystatechange', function (e) {
+        //if (xhr.readyState == 4 && xhr.status == 200) {
             // Готово. Информируем пользователя
-        }
-        else if (xhr.readyState == 4 && xhr.status != 200) {
+        //}
+        //else if (xhr.readyState == 4 && xhr.status != 200) {
             // Ошибка. Информируем пользователя
-        }
-    })
-    formData.append('file', file)
-    xhr.send(formData)
-}
+        //}
+    //})
+    //formData.append('file', file)
+    //xhr.send(formData)
+//}
 function previewFile(file) {
     let reader = new FileReader()
     reader.readAsDataURL(file)
@@ -108,23 +108,23 @@ function updateProgress(fileNumber, percent) {
     let total = uploadProgress.reduce((tot, curr) => tot + curr, 0) / uploadProgress.length
     progressBar.value = total
 }
-function uploadFile(file, i) { // <- Добавили параметр `i`
-    var url = 'ВАШ URL ДЛЯ ЗАГРУЗКИ ФАЙЛОВ'
-    var xhr = new XMLHttpRequest()
-    var formData = new FormData()
-    xhr.open('POST', url, true)
+//function uploadFile(file, i) { // <- Добавили параметр `i`
+    //var url = 'https://localhost:44308/'
+    //var xhr = new XMLHttpRequest()
+    //var formData = new FormData()
+    //xhr.open('POST', url, true)
     // Добавили следующие слушатели
-    xhr.upload.addEventListener("progress", function (e) {
-        updateProgress(i, (e.loaded * 100.0 / e.total) || 100)
-    })
-    xhr.addEventListener('readystatechange', function (e) {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+    //xhr.upload.addEventListener("progress", function (e) {
+        //updateProgress(i, (e.loaded * 100.0 / e.total) || 100)
+    //})
+    //xhr.addEventListener('readystatechange', function (e) {
+        //if (xhr.readyState == 4 && xhr.status == 200) {
             // Готово. Сообщаем пользователю
-        }
-        else if (xhr.readyState == 4 && xhr.status != 200) {
+        //}
+        //else if (xhr.readyState == 4 && xhr.status != 200) {
             // Ошибка. Сообщаем пользователю
-        }
-    })
-    formData.append('file', file)
-    xhr.send(formData)
+        //}
+    //})
+    //formData.append('file', file)
+    //xhr.send(formData)
 }
