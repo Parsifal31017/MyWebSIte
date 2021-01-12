@@ -1,112 +1,73 @@
 ﻿@page
 @model MyWebSite.Pages.User.EditModel
 
-@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
-
 @{
     ViewData["Title"] = "Edit";
 }
 
-<div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>@Localizer["Редактировать"]</h1>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
-                <h4>@Localizer["Пользователя"]</h4>
-                <hr />
-                <div class="row">
-                    <div class="col-md-4">
-                        <form method="post">
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <input type="hidden" asp-for="Instructors.ID" />
-                            <div class="form-group">
-                                <label asp-for="Instructors.LastName" class="control-label"></label>
-                                <input asp-for="Instructors.LastName" class="form-control" />
-                                <span asp-validation-for="Instructors.LastName" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Instructors.FirstMidName" class="control-label"></label>
-                                <input asp-for="Instructors.FirstMidName" class="form-control" />
-                                <span asp-validation-for="Instructors.FirstMidName" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Instructors.HireDate" class="control-label"></label>
-                                <input asp-for="Instructors.HireDate" class="form-control" />
-                                <span asp-validation-for="Instructors.HireDate" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Instructors.Age" class="control-label"></label>
-                                <input asp-for="Instructors.Age" class="form-control" />
-                                <span asp-validation-for="Instructors.Age" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Instructors.Country" class="control-label"></label>
-                                <input asp-for="Instructors.Country" class="form-control" />
-                                <span asp-validation-for="Instructors.Country" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Instructors.City" class="control-label"></label>
-                                <input asp-for="Instructors.City" class="form-control" />
-                                <span asp-validation-for="Instructors.City" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Instructors.Email" class="control-label"></label>
-                                <input asp-for="Instructors.Email" class="form-control" />
-                                <span asp-validation-for="Instructors.Email" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Instructors.AboutMe" class="control-label"></label>
-                                <input asp-for="Instructors.AboutMe" class="form-control" />
-                                <span asp-validation-for="Instructors.AboutMe" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Instructors.OfficeAssignment.Location" class="control-label"></label>
-                                <input asp-for="Instructors.OfficeAssignment.Location" class="form-control" />
-                                <span asp-validation-for="Instructors.OfficeAssignment.Location" class="text-danger" />
-                            </div>
-                            <div class="form-group">
-                                <div class="table">
-                                    <table>
-                                        <tr>
-                                            @{
-                                                int cnt = 0;
+<h1>@Localizer["Редактировать"]</h1>
 
-                                                foreach (var ads in Model.AssignedCourseDataList)
-                                                {
-                                                    if (cnt++ % 3 == 0)
-                                                    {
-                                                    @:</tr><tr>
-                                                    }
-                                                    @:<td>
-                                                        <input type="checkbox"
-                                                               name="selectedCourses"
-                                                               value="@ads.AdsID"
-                                                               @(Html.Raw(ads.Assigned ? "checked=\"checked\"" : "")) />
-                                                        @ads.AdsID @:  @ads.Title
-                                                    @:</td>
-                                                }
-                                            @:</tr>
-                                            }
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" value="Save" class="btn btn-primary" />
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div>
-                        <a asp-page="./Index">@Localizer["Вернуться к списку"]</a>
-                    </div>
-                </div>
-        </div>
+<h4>@Localizer["Пользователя"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Instructors.ID" />
+            <div class="form-group">
+                <label asp-for="Instructors.LastName" class="control-label"></label>
+                <input asp-for="Instructors.LastName" class="form-control" />
+                <span asp-validation-for="Instructors.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instructors.FirstMidName" class="control-label"></label>
+                <input asp-for="Instructors.FirstMidName" class="form-control" />
+                <span asp-validation-for="Instructors.FirstMidName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instructors.HireDate" class="control-label"></label>
+                <input asp-for="Instructors.HireDate" class="form-control" />
+                <span asp-validation-for="Instructors.HireDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instructors.Age" class="control-label"></label>
+                <input asp-for="Instructors.Age" class="form-control" />
+                <span asp-validation-for="Instructors.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instructors.Country" class="control-label"></label>
+                <input asp-for="Instructors.Country" class="form-control" />
+                <span asp-validation-for="Instructors.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instructors.City" class="control-label"></label>
+                <input asp-for="Instructors.City" class="form-control" />
+                <span asp-validation-for="Instructors.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instructors.Email" class="control-label"></label>
+                <input asp-for="Instructors.Email" class="form-control" />
+                <span asp-validation-for="Instructors.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instructors.AboutMe" class="control-label"></label>
+                <input asp-for="Instructors.AboutMe" class="form-control" />
+                <span asp-validation-for="Instructors.AboutMe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
 </div>
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+<div>
+    <a asp-page="./Index">@Localizer["Вернуться к списку"]</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

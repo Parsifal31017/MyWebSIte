@@ -20,6 +20,7 @@ namespace MyWebSite.Pages.User
             _context = context;
         }
 
+        public IList<MyWebSite.Models.User> Instructors { get; set; }
         public InstructorIndexData InstructorData { get; set; }
         public int InstructorID { get; set; }
         public int AdsID { get; set; }
@@ -32,11 +33,11 @@ namespace MyWebSite.Pages.User
                 .Include(i => i.AdsAssignments)
                     .ThenInclude(i => i.Ads)
                         .ThenInclude(i => i.Department)
-                //.Include(i => i.AdsAssignments)
-                //    .ThenInclude(i => i.Ads)
-                //        .ThenInclude(i => i.Enrollments)
-                //            .ThenInclude(i => i.Company)
-                //.AsNoTracking()
+                .Include(i => i.AdsAssignments)
+                    .ThenInclude(i => i.Ads)
+                        .ThenInclude(i => i.Enrollments)
+                            .ThenInclude(i => i.Company)
+                .AsNoTracking()
                 .OrderBy(i => i.LastName)
                 .ToListAsync();
 
@@ -53,11 +54,6 @@ namespace MyWebSite.Pages.User
                 AdsID = adsID.Value;
                 var selectedAds = InstructorData.Ads
                     .Where(x => x.AdsID == adsID).Single();
-                await _context.Entry(selectedAds).Collection(x => x.Enrollments).LoadAsync();
-                foreach (Enrollment enrollment in selectedAds.Enrollments)
-                {
-                    await _context.Entry(enrollment).Reference(x => x.Company).LoadAsync();
-                }
                 InstructorData.Enrollments = selectedAds.Enrollments;
             }
         }
