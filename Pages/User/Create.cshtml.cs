@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MyWebSite.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using MyWebSite.Data;
-using MyWebSite.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using MyWebSite.Pages.User;
 
-namespace MyWebSite.Pages.User
+namespace MyWebSite.Pages.Instructors
 {
-    public class CreateModel : PageModel
+    public class CreateModel : InstructorCoursesPageModel
     {
         private readonly MyWebSite.Data.ApplicationDbContext _context;
 
@@ -21,24 +17,47 @@ namespace MyWebSite.Pages.User
 
         public IActionResult OnGet()
         {
+            var instructor = new MyWebSite.Models.User();
+            instructor.AdsAssignments = new List<AdsAssignment>();
+
+            // Provides an empty collection for the foreach loop
+            // foreach (var course in Model.AssignedCourseDataList)
+            // in the Create Razor page.
+            PopulateAssignedCourseData(_context, instructor);
             return Page();
         }
 
         [BindProperty]
-        public MyWebSite.Models.User Instructors { get; set; }
+        public MyWebSite.Models.User Instructor { get; set; }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string[] selectedAds)
         {
-            if (!ModelState.IsValid)
+            var newInstructor = new MyWebSite.Models.User();
+            if (selectedAds != null)
             {
-                return Page();
+                newInstructor.AdsAssignments = new List<AdsAssignment>();
+                foreach (var ads in selectedAds)
+                {
+                    var adsToAdd = new AdsAssignment
+                    {
+                        AdsID = int.Parse(ads)
+                    };
+                    newInstructor.AdsAssignments.Add(adsToAdd);
+                }
             }
 
-            _context.Instructors.Add(Instructors);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            if (await TryUpdateModelAsync<MyWebSite.Models.User>(
+                newInstructor,
+                "Instructor",
+                i => i.FirstMidName, i => i.LastName,
+                i => i.HireDate, i => i.OfficeAssignment))
+            {
+                _context.Instructors.Add(newInstructor);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+            PopulateAssignedCourseData(_context, newInstructor);
+            return Page();
         }
     }
 }

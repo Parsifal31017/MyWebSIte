@@ -45,13 +45,23 @@ namespace MyWebSite.Pages.User
                 return NotFound();
             }
 
-            Instructors = await _context.Instructors.FindAsync(id);
+            MyWebSite.Models.User instructor = await _context.Instructors
+                .Include(i => i.AdsAssignments)
+                .SingleAsync(i => i.ID == id);
 
-            if (Instructors != null)
+            if (instructor == null)
             {
-                _context.Instructors.Remove(Instructors);
-                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
+
+            var departments = await _context.Departments
+                .Where(d => d.UsersID == id)
+                .ToListAsync();
+            departments.ForEach(d => d.UsersID = null);
+
+            _context.Instructors.Remove(instructor);
+
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
