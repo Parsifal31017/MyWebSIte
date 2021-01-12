@@ -6,7 +6,7 @@
 
 <h2>Сайт для ваших краундфандинговых компаний</h2>
 
-@*<table class="table">
+<table class="table">
     <thead>
         <tr>
             <th>Title</th>
@@ -33,11 +33,114 @@
                     @{
                         foreach (var company in item.UserAssignments)
                         {
-                            @company.Company.Title @:  @company.Company.Tags <br />
+                            @company.Company.Title @:  @company.Company.Rating <br />
                         }
                     }
                 </td>
             </tr>
         }
     </tbody>
-</table>*@
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Recently updated</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MainData.Company)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.CompanyID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @{
+                        foreach (var company in item.UserAssignments)
+                        {
+                            @company.Company.Title @:  @company.Company.Rating <br />
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tags</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MainData.Company)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.CompanyID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tags)
+                </td>
+                <td>
+                    @{
+                        foreach (var company in item.UserAssignments)
+                        {
+                            @company.Company.Tags <br />
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Topic</th>
+            <th>News</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MainData.Company)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.CompanyID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Topic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.News)
+                </td>
+                <td>
+                    @{
+                        foreach (var company in item.UserAssignments)
+                        {
+                            @company.Company.Topic @:  @company.Company.News <br />
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

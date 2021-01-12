@@ -22,18 +22,22 @@ namespace MyWebSite.Pages
         public MainIndexData MainData { get; set; }
         public int CompanyID { get; set; }
 
-        //public async Task OnGetAsync(int? id, int? companyID)
-        //{
-        //    MainData = new MainIndexData();
-        //    MainData.Company = await _context.Company
-        //        .Include(i => i.UserAssignments)
-        //            .ThenInclude(i => i.Company)
-        //        .Include(i => i.UserAssignments)
-        //            .ThenInclude(i => i.Company)
-        //        .AsNoTracking()
-        //        .OrderBy(i => i.Title)
-        //        .OrderBy(i => i.Rating)
-        //        .ToListAsync();
-        //}
+        public async Task OnGetAsync(int? id, int? companyID)
+        {
+            MainData = new MainIndexData();
+            MainData.Company = await _context.Company
+                .Include(i => i.UserAssignments)
+                .Include(i => i.UserAssignments)
+                .Include(i => i.UserAssignments)
+                .Include(i => i.UserAssignments)
+                .Include(i => i.UserAssignments)
+                .AsNoTracking()
+                .OrderBy(i => i.Title)
+                .OrderBy(i => i.Rating)
+                .OrderBy(i => i.Tags)
+                .OrderBy(i => i.Topic)
+                .OrderBy(i => i.News)
+                .ToListAsync();
+        }
     }
 }

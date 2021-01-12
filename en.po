@@ -401,3 +401,27 @@ msgstr "Details" #: переведенная строка
 #: Pages/User/Index.cshtml: 84
 msgid "Удалить" #: непереведенная строка
 msgstr "Delete" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 93
+msgid "Компания создана выбранным пользователем" #: непереведенная строка
+msgstr "The company was created by the selected user" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 111
+msgid "Выбрать" #: непереведенная строка
+msgstr "Select" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 130
+msgid "Компания зарегистрирована в выбранных объявлениях" #: непереведенная строка
+msgstr "Company Enrolled in Selected Ads" #: переведенная строка
+
+#: Pages/About.cshtml: 16
+msgid "Статистика Компании" #: непереведенная строка
+msgstr "Company Body Statistics" #: переведенная строка
+
+#: Pages/About.cshtml: 21
+msgid "Дата Регистрации" #: непереведенная строка
+msgstr "Enrollment Date" #: переведенная строка
+
+#: Pages/About.cshtml: 24
+msgid "Компания" #: непереведенная строка
+msgstr "Company" #: переведенная строка

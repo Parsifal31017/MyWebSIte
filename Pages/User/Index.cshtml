@@ -90,7 +90,7 @@
 
                 @if (Model.InstructorData.Ads != null)
                 {
-                    <h3>@Localizer["Courses Taught by Selected Instructor"]</h3>
+                    <h3>@Localizer["Компания создана выбранным пользователем"]</h3>
                     <table class="table">
                         <tr>
                             <th></th>
@@ -108,7 +108,7 @@
                             }
                             <tr class="@selectedRow">
                                 <td>
-                                    <a asp-page="./Index" asp-route-courseID="@item.AdsID">@Localizer["Select"]</a>
+                                    <a asp-page="./Index" asp-route-courseID="@item.AdsID">@Localizer["Выбрать"]</a>
                                 </td>
                                 <td>
                                     @item.AdsID
@@ -127,7 +127,7 @@
 
                 @if (Model.InstructorData.Enrollments != null)
                 {
-                    <h3>@Localizer["Students Enrolled in Selected Course"]</h3>
+                    <h3>@Localizer["Компания зарегистрирована в выбранных объявлениях"]</h3>
                     <table class="table">
                         <tr>
                             <th>Name</th>

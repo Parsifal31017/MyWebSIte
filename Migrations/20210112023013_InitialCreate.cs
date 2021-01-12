@@ -52,17 +52,17 @@ namespace MyWebSite.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    FirstName = table.Column<decimal>(type: "decimal(18,2)", maxLength: 50, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     EnrollmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Bonus = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Bonus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Images = table.Column<byte>(type: "tinyint", nullable: false),
                     Video = table.Column<byte>(type: "tinyint", nullable: false),
-                    Topic = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    News = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Topic = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    News = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Tags = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,15 +75,15 @@ namespace MyWebSite.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Age = table.Column<int>(type: "int", maxLength: 50, nullable: false),
-                    Country = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    City = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    AboutMe = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Comments = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AboutMe = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Comments = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -211,15 +211,37 @@ namespace MyWebSite.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserAssignment",
+                columns: table => new
+                {
+                    CompanyID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CompanyID1 = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserAssignment", x => x.CompanyID);
+                    table.ForeignKey(
+                        name: "FK_UserAssignment_Company_CompanyID1",
+                        column: x => x.CompanyID1,
+                        principalTable: "Company",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Department",
                 columns: table => new
                 {
                     DepartmentID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Budget = table.Column<decimal>(type: "money", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UsersID = table.Column<int>(type: "int", nullable: true),
+                    RowVersion = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true),
                     AdministratorID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -238,7 +260,7 @@ namespace MyWebSite.Migrations
                 columns: table => new
                 {
                     UserID = table.Column<int>(type: "int", nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -256,8 +278,8 @@ namespace MyWebSite.Migrations
                 columns: table => new
                 {
                     AdsID = table.Column<int>(type: "int", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Tags = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DepartmentID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -386,6 +408,11 @@ namespace MyWebSite.Migrations
                 name: "IX_Enrollment_CompanyID",
                 table: "Enrollment",
                 column: "CompanyID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserAssignment_CompanyID1",
+                table: "UserAssignment",
+                column: "CompanyID1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -416,6 +443,9 @@ namespace MyWebSite.Migrations
 
             migrationBuilder.DropTable(
                 name: "Settings");
+
+            migrationBuilder.DropTable(
+                name: "UserAssignment");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
