@@ -22,7 +22,7 @@
                     <form asp-page="./Index" method="get">
                         <div class="form-actions no-color">
                             <p>
-                                Find by name:
+                                @Localizer["Поиск по имени:"]
                                 <input type="text" name="SearchString" value="@Model.CurrentFilter" />
                                 <input type="submit" value="Search" class="btn btn-primary" /> |
                                 <a asp-page="./Index">@Localizer["Вернуться к списку"]</a>
@@ -30,52 +30,54 @@
                         </div>
                     </form>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].Title)
-                                    </a>
-                                </th>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].Rating)
-                                    </a>
-                                </th>
-                                <th>
-                                    <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
-                                       asp-route-currentFilter="@Model.CurrentFilter">
-                                        @Html.DisplayNameFor(model => model.Company[0].EnrollmentDate)
-                                    </a>
-                                </th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.Company)
-                            {
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
                                 <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Title)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Rating)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.EnrollmentDate)
-                                    </td>
-                                    <td>
-                                        <a asp-page="./Edit" asp-route-id="@item.ID">@Localizer["Редактировать"]</a> |
-                                        <a asp-page="./Details" asp-route-id="@item.ID">@Localizer["Подробности"]</a> |
-                                        <a asp-page="./Delete" asp-route-id="@item.ID">@Localizer["Удалить"]</a>
-                                    </td>
+                                    <th>
+                                        <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                                           asp-route-currentFilter="@Model.CurrentFilter">
+                                            @Html.DisplayNameFor(model => model.Company[0].Title)
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                                           asp-route-currentFilter="@Model.CurrentFilter">
+                                            @Html.DisplayNameFor(model => model.Company[0].Rating)
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
+                                           asp-route-currentFilter="@Model.CurrentFilter">
+                                            @Html.DisplayNameFor(model => model.Company[0].EnrollmentDate)
+                                        </a>
+                                    </th>
+                                    <th></th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Company)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Title)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Rating)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                                        </td>
+                                        <td>
+                                            <a asp-page="./Edit" asp-route-id="@item.ID">@Localizer["Редактировать"]</a> |
+                                            <a asp-page="./Details" asp-route-id="@item.ID">@Localizer["Подробности"]</a> |
+                                            <a asp-page="./Delete" asp-route-id="@item.ID">@Localizer["Удалить"]</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

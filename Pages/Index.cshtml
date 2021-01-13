@@ -4,143 +4,164 @@
     ViewData["Title"] = "Company";
 }
 
-<h2>Сайт для ваших краундфандинговых компаний</h2>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Rating</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.MainData.Company)
-        {
-            string selectedRow = "";
-            if (item.ID == Model.CompanyID)
-            {
-                selectedRow = "table-success";
-            }
-            <tr class="@selectedRow">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rating)
-                </td>
-                <td>
-                    @{
-                        foreach (var company in item.UserAssignments)
-                        {
-                            @company.Company.Title @:  @company.Company.Rating <br />
-                        }
-                    }
-                </td>
+<h1>@Localizer["Сайт для ваших краундфандинговых компаний"]</h1>
+<br />
+<h3>@Localizer["Компании с самым большим рейтингом"]</h3>
+<br />
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>@Localizer["Название"]</th>
+                <th>@Localizer["Рейтинг"]</th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MainData.Company)
+            {
+                string selectedRow = "";
+                if (item.ID == Model.CompanyID)
+                {
+                    selectedRow = "table-success";
+                }
+                <tr class="@selectedRow">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                    <td>
+                        @{
+                            foreach (var company in item.UserAssignments)
+                            {
+                                @company.Company.Title @:  @company.Company.Rating <br />
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Recently updated</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.MainData.Company)
-        {
-            string selectedRow = "";
-            if (item.ID == Model.CompanyID)
-            {
-                selectedRow = "table-success";
-            }
-            <tr class="@selectedRow">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rating)
-                </td>
-                <td>
-                    @{
-                        foreach (var company in item.UserAssignments)
-                        {
-                            @company.Company.Title @:  @company.Company.Rating <br />
-                        }
-                    }
-                </td>
+<h3>@Localizer["Обнавленные компании"]</h3>
+<br />
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>@Localizer["Название"]</th>
+                <th>@Localizer["Обнавленные компании"]</th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MainData.Company)
+            {
+                string selectedRow = "";
+                if (item.ID == Model.CompanyID)
+                {
+                    selectedRow = "table-success";
+                }
+                <tr class="@selectedRow">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                    <td>
+                        @{
+                            foreach (var company in item.UserAssignments)
+                            {
+                                @company.Company.Title @:  @company.Company.Rating <br />
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Tags</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.MainData.Company)
-        {
-            string selectedRow = "";
-            if (item.ID == Model.CompanyID)
-            {
-                selectedRow = "table-success";
-            }
-            <tr class="@selectedRow">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tags)
-                </td>
-                <td>
-                    @{
-                        foreach (var company in item.UserAssignments)
-                        {
-                            @company.Company.Tags <br />
-                        }
-                    }
-                </td>
+<h3>@Localizer["Облако тэгов"]</h3>
+<br />
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>@Localizer["Тэги"]</th>
+                <th></th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MainData.Company)
+            {
+                string selectedRow = "";
+                if (item.ID == Model.CompanyID)
+                {
+                    selectedRow = "table-success";
+                }
+                <tr class="@selectedRow">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tags)
+                    </td>
+                    <td>
+                        @{
+                            foreach (var company in item.UserAssignments)
+                            {
+                                @company.Company.Tags <br />
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Topic</th>
-            <th>News</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.MainData.Company)
-        {
-            string selectedRow = "";
-            if (item.ID == Model.CompanyID)
-            {
-                selectedRow = "table-success";
-            }
-            <tr class="@selectedRow">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Topic)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.News)
-                </td>
-                <td>
-                    @{
-                        foreach (var company in item.UserAssignments)
-                        {
-                            @company.Company.Topic @:  @company.Company.News <br />
-                        }
-                    }
-                </td>
+<h3>@Localizer["Новости"]</h3>
+<br />
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>@Localizer["Тема"]</th>
+                <th>@Localizer["Новость"]</th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MainData.Company)
+            {
+                string selectedRow = "";
+                if (item.ID == Model.CompanyID)
+                {
+                    selectedRow = "table-success";
+                }
+                <tr class="@selectedRow">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Topic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.News)
+                    </td>
+                    <td>
+                        @{
+                            foreach (var company in item.UserAssignments)
+                            {
+                                @company.Company.Topic @:  @company.Company.News <br />
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

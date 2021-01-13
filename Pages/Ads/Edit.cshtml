@@ -22,21 +22,21 @@
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <input type="hidden" asp-for="Ads.AdsID" />
                             <div class="form-group">
-                                <label asp-for="Ads.AdsID" class="control-label"></label>
+                                <label asp-for="Ads.AdsID" class="control-label">@Localizer["Номер:"]</label>
                                 <div>@Html.DisplayFor(model => model.Ads.AdsID)</div>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Ads.Title" class="control-label"></label>
+                                <label asp-for="Ads.Title" class="control-label">@Localizer["Название:"]</label>
                                 <input asp-for="Ads.Title" class="form-control" />
                                 <span asp-validation-for="Ads.Title" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Ads.Tags" class="control-label"></label>
+                                <label asp-for="Ads.Tags" class="control-label">@Localizer["Тэги:"]</label>
                                 <input asp-for="Ads.Tags" class="form-control" />
                                 <span asp-validation-for="Ads.Tags" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Ads.Department" class="control-label"></label>
+                                <label asp-for="Ads.Department" class="control-label">@Localizer["Описание:"]</label>
                                 <select asp-for="Ads.DepartmentID" class="form-control"
                                         asp-items="@Model.DepartmentNameSL"></select>
                                 <span asp-validation-for="Ads.DepartmentID" class="text-danger"></span>

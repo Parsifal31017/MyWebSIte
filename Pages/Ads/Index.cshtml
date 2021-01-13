@@ -18,49 +18,51 @@
         <hr />
         <div class="row">
             <div class="col">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Ads[0].AdsID)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Ads[0].Title)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Ads[0].Tags)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Ads[0].Department)
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Ads)
-                        {
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.AdsID)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Title)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Tags)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Department.Name)
-                                </td>
-                                <td>
-                                    <a asp-page="./Edit" asp-route-id="@item.AdsID">@Localizer["Редактировать"]</a> |
-                                    <a asp-page="./Details" asp-route-id="@item.AdsID">@Localizer["Подробности"]</a> |
-                                    <a asp-page="./Delete" asp-route-id="@item.AdsID">@Localizer["Удалить"]</a>
-                                </td>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Ads[0].AdsID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Ads[0].Title)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Ads[0].Tags)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Ads[0].Department)
+                                </th>
+                                <th></th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Ads)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AdsID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Title)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Tags)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Department.Name)
+                                    </td>
+                                    <td>
+                                        <a asp-page="./Edit" asp-route-id="@item.AdsID">@Localizer["Редактировать"]</a> |
+                                        <a asp-page="./Details" asp-route-id="@item.AdsID">@Localizer["Подробности"]</a> |
+                                        <a asp-page="./Delete" asp-route-id="@item.AdsID">@Localizer["Удалить"]</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
