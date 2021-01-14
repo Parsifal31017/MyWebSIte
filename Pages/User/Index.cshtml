@@ -1,4 +1,6 @@
-﻿@page "{id:int?}"
+﻿@*Страница Админа, сюда пользователь зайти не может, сделать ссылки на пользователя*@
+
+@page "{id:int?}"
 @model MyWebSite.Pages.User.IndexModel
 
 @{
@@ -9,10 +11,6 @@
 @inject IViewLocalizer Localizer
 
 <h1>@Localizer["Пользователи"]</h1>
-
-<p>
-    <a asp-page="Create">@Localizer["Создать"]</a>
-</p>
 
 <div class="table-responsive">
     <table class="table table-hover">
