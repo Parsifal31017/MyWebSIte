@@ -11,24 +11,24 @@ using Google.Apis.Util.Store;
 using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
 
-namespace MyWebSite.Pages.Company
+namespace Google.Apis.YouTube.Samples
 {
     /// <summary>
-    /// YouTube Data API v3 sample: upload a video.
+    /// YouTube Data API v3 sample: retrieve my uploads.
     /// Relies on the Google APIs Client Library for .NET, v1.7.0 or higher.
     /// See https://developers.google.com/api-client-library/dotnet/get_started
     /// </summary>
-    internal class UploadVideo
+    public class MyUploads
     {
         [STAThread]
         //static void Main(string[] args)
         //{
-        //    Console.WriteLine("YouTube Data API: Upload Video");
-        //    Console.WriteLine("==============================");
+        //    Console.WriteLine("YouTube Data API: My Uploads");
+        //    Console.WriteLine("============================");
 
         //    try
         //    {
-        //        new UploadVideo().Run().Wait();
+        //        new MyUploads().Run().Wait();
         //    }
         //    catch (AggregateException ex)
         //    {
@@ -42,64 +42,64 @@ namespace MyWebSite.Pages.Company
         //    Console.ReadKey();
         //}
 
-        private async Task Run()
+        public async Task Run()
         {
             UserCredential credential;
             using (var stream = new FileStream("client_secrets.json", FileMode.Open, FileAccess.Read))
             {
                 credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.Load(stream).Secrets,
-                    // This OAuth 2.0 access scope allows an application to upload files to the
-                    // authenticated user's YouTube channel, but doesn't allow other types of access.
-                    new[] { YouTubeService.Scope.YoutubeUpload },
-                    "user",
-                    CancellationToken.None
-                );
+                           GoogleClientSecrets.Load(stream).Secrets,
+                           //Эта область доступа OAuth 2.0 допускает доступ 
+                           //только для чтения к учетной записи аутентифицированного пользователя, 
+                           //но не другие типы доступа к учетной записи.
+                           new[] { YouTubeService.Scope.YoutubeReadonly },
+                           "user",
+                           CancellationToken.None,
+                           new FileDataStore(this.GetType().ToString())
+                       );
             }
 
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
-                ApplicationName = Assembly.GetExecutingAssembly().GetName().Name
+                ApplicationName = this.GetType().ToString()
             });
 
-            var video = new Video();
-            video.Snippet = new VideoSnippet();
-            video.Snippet.Title = "Default Video Title";
-            video.Snippet.Description = "Default Video Description";
-            video.Snippet.Tags = new string[] { "tag1", "tag2" };
-            video.Snippet.CategoryId = "22"; // See https://developers.google.com/youtube/v3/docs/videoCategories/list
-            video.Status = new VideoStatus();
-            video.Status.PrivacyStatus = "unlisted"; // or "private" or "public"
-            var filePath = @"REPLACE_ME.mp4"; // Replace with path to actual movie file.
+            var channelsListRequest = youtubeService.Channels.List("contentDetails");
+            channelsListRequest.Mine = true;
 
-            using (var fileStream = new FileStream(filePath, FileMode.Open))
+            // Извлеките часть сведений о содержимом ресурса канала для канала аутентифицированного пользователя.
+            var channelsListResponse = await channelsListRequest.ExecuteAsync();
+
+            foreach (var channel in channelsListResponse.Items)
             {
-                var videosInsertRequest = youtubeService.Videos.Insert(video, "snippet,status", fileStream, "video/*");
-                videosInsertRequest.ProgressChanged += videosInsertRequest_ProgressChanged;
-                videosInsertRequest.ResponseReceived += videosInsertRequest_ResponseReceived;
+                //Из ответа API извлеките идентификатор списка воспроизведения, 
+                //который идентифицирует список видео, загруженных на канал 
+                //аутентифицированного пользователя.
+                var uploadsListId = channel.ContentDetails.RelatedPlaylists.Uploads;
 
-                await videosInsertRequest.UploadAsync();
+                Console.WriteLine("Videos in list {0}", uploadsListId);
+
+                var nextPageToken = "";
+                while (nextPageToken != null)
+                {
+                    var playlistItemsListRequest = youtubeService.PlaylistItems.List("snippet");
+                    playlistItemsListRequest.PlaylistId = uploadsListId;
+                    playlistItemsListRequest.MaxResults = 50;
+                    playlistItemsListRequest.PageToken = nextPageToken;
+
+                    // Извлеките список видео, загруженных на канал аутентифицированного пользователя.
+                    var playlistItemsListResponse = await playlistItemsListRequest.ExecuteAsync();
+
+                    foreach (var playlistItem in playlistItemsListResponse.Items)
+                    {
+                        // Распечатайте информацию о каждом видео.
+                        Console.WriteLine("{0} ({1})", playlistItem.Snippet.Title, playlistItem.Snippet.ResourceId.VideoId);
+                    }
+
+                    nextPageToken = playlistItemsListResponse.NextPageToken;
+                }
             }
-        }
-
-        void videosInsertRequest_ProgressChanged(Google.Apis.Upload.IUploadProgress progress)
-        {
-            switch (progress.Status)
-            {
-                case UploadStatus.Uploading:
-                    Console.WriteLine("{0} bytes sent.", progress.BytesSent);
-                    break;
-
-                case UploadStatus.Failed:
-                    Console.WriteLine("An error prevented the upload from completing.\n{0}", progress.Exception);
-                    break;
-            }
-        }
-
-        void videosInsertRequest_ResponseReceived(Video video)
-        {
-            Console.WriteLine("Video id '{0}' was successfully uploaded.", video.Id);
         }
     }
 }

@@ -19,11 +19,28 @@ namespace MyWebSite.Pages
         {
             _context = context;
         }
+
+        public string NameSort { get; set; }
+        public string DateSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+
         public MainIndexData MainData { get; set; }
         public int CompanyID { get; set; }
 
-        public async Task OnGetAsync(int? id, int? companyID)
+        public async Task OnGetAsync(string sortOrder, string searchString)
         {
+            CurrentFilter = searchString;
+
+            IQueryable<MyWebSite.Models.Company> companyIQ = from s in _context.Company
+                                             select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                companyIQ = companyIQ.Where(s => s.Title.Contains(searchString)
+                                       || s.Tags.Contains(searchString));
+            }
+
             MainData = new MainIndexData();
             MainData.Company = await _context.Company
                 .Include(i => i.UserAssignments)

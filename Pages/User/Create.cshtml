@@ -8,9 +8,9 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
-<h2>Create</h2>
+<h2>@Localizer["Создание"]</h2>
 
-<h4>Instructor</h4>
+<h4>@Localizer["Пользователя"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -97,7 +97,7 @@
     </div>
 
     <div>
-        <a asp-page="Index">Back to List</a>
+        <a asp-page="Index">@Localizer["Вернуться к списку"]</a>
     </div>
 
     @section Scripts {

@@ -9,6 +9,17 @@
 
 <h1>@Localizer["Сайт для ваших краундфандинговых компаний"]</h1>
 <br />
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            @Localizer["Поиск по имени:"]
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">@Localizer["Вернуться к списку"]</a>
+        </p>
+    </div>
+</form>
+<br />
 <h3>@Localizer["Компании с самым большим рейтингом"]</h3>
 <br />
 <div class="table-responsive">
