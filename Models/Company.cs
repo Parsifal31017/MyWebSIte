@@ -20,6 +20,9 @@ namespace MyWebSite.Models
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }
         [Required]
+        [Display(Name = "Thematics")]
+        public string Thematics { get; set; }
+        [Required]
         [Display(Name = "Bonus")]
         public string Bonus { get; set; }
         [Required]

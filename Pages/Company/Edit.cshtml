@@ -18,7 +18,7 @@
                     <h4>@Localizer["Компанию"]</h4>
                     <hr />
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <form method="post">
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <input type="hidden" asp-for="Company.ID" />
@@ -38,8 +38,22 @@
                                     <span asp-validation-for="Company.EnrollmentDate" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
+                                    <label asp-for="Company.Thematics" class="control-label">Тематика:</label>
+                                    <input asp-for="Company.Thematics" class="form-control" />
+                                    <span asp-validation-for="Company.Thematics" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
                                     <label asp-for="Company.Bonus" class="control-label">Бонус:</label>
-                                    <input asp-for="Company.Bonus" class="form-control" />
+                                <select asp-for="Company.Thematics" class="form-control" aria-label="Default select example">
+                                    <option selected>@Localizer["Выберите тематику вашей компании"]</option>
+                                    <option value="1">@Localizer["Образование"]</option>
+                                    <option value="2">@Localizer["Животные"]</option>
+                                    <option value="3">@Localizer["Права человека"]</option>
+                                    <option value="4">@Localizer["Природа"]</option>
+                                    <option value="5">@Localizer["Культура"]</option>
+                                    <option value="6">@Localizer["Игра"]</option>
+                                    <option value="7">@Localizer["Другое"]</option>
+                                </select>
                                     <span asp-validation-for="Company.Bonus" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">

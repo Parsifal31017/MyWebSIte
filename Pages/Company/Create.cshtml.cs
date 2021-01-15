@@ -35,7 +35,7 @@ namespace MyWebSite.Pages.Company
             if (await TryUpdateModelAsync<MyWebSite.Models.Company>(
                 emptyCompany,
                 "company",   // Prefix for form value.
-                s => s.Title, s => s.Rating, s => s.EnrollmentDate, s => s.Bonus, s => s.Description, s => s.Images, s => s.Video, s => s.Topic, s => s.News, s => s.Price, s => s.Tags))
+                s => s.Title, s => s.Rating, s => s.EnrollmentDate, s => s.Thematics, s => s.Bonus, s => s.Description, s => s.Images, s => s.Video, s => s.Topic, s => s.News, s => s.Price, s => s.Tags))
             {
                 _context.Company.Add(emptyCompany);
                 await _context.SaveChangesAsync();

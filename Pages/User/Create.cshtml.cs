@@ -46,18 +46,33 @@ namespace MyWebSite.Pages.Instructors
                 }
             }
 
+            var emptyUser = new MyWebSite.Models.User();
+
             if (await TryUpdateModelAsync<MyWebSite.Models.User>(
-                newInstructor,
-                "Instructor",
-                i => i.FirstMidName, i => i.LastName,
-                i => i.HireDate, i => i.OfficeAssignment))
+                emptyUser,
+                "user",   // Prefix for form value.
+                s => s.LastName, s => s.FirstMidName, s => s.HireDate, s => s.Age, s => s.Country, s => s.City, s => s.Email, s => s.AboutMe))
             {
-                _context.Instructors.Add(newInstructor);
+                _context.Instructors.Add(emptyUser);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
             }
+
             PopulateAssignedCourseData(_context, newInstructor);
             return Page();
+
+            //if (await TryUpdateModelAsync<MyWebSite.Models.User>(
+            //    newInstructor,
+            //    "Instructor",
+            //    i => i.FirstMidName, i => i.LastName,
+            //    i => i.HireDate, i => i.OfficeAssignment))
+            //{
+            //    _context.Instructors.Add(newInstructor);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToPage("./Index");
+            //}
+            //PopulateAssignedCourseData(_context, newInstructor);
+            //return Page();
         }
     }
 }
