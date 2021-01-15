@@ -27,30 +27,30 @@
                                 @Model.Department.RowVersion[7]
                             </div>
                             <div class="form-group">
-                                <label asp-for="Department.Name" class="control-label">@Localizer["Имя:"]</label>
+                                <h5 asp-for="Department.Name" class="control-label">@Localizer["Имя:"]</h5>
                                 <input asp-for="Department.Name" class="form-control" />
                                 <span asp-validation-for="Department.Name" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Department.Budget" class="control-label">@Localizer["Бюджет:"]</label>
+                                <h5 asp-for="Department.Budget" class="control-label">@Localizer["Бюджет:"]</h5>
                                 <input asp-for="Department.Budget" class="form-control" />
                                 <span asp-validation-for="Department.Budget" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Department.StartDate" class="control-label">@Localizer["Дата Начала:"]</label>
+                                <h5 asp-for="Department.StartDate" class="control-label">@Localizer["Дата Начала:"]</h5>
                                 <input asp-for="Department.StartDate" class="form-control" />
                                 <span asp-validation-for="Department.StartDate" class="text-danger">
                                 </span>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">@Localizer["Администратор:"]</label>
+                                <h5 class="control-label">@Localizer["Администратор:"]</h5>
                                 <select asp-for="Department.UsersID" class="form-control"
                                         asp-items="@Model.InstructorNameSL"></select>
                                 <span asp-validation-for="Department.UsersID" class="text-danger">
                                 </span>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Save" class="btn btn-primary" />
+                                <input type="submit" value="Save" class="btn btn-primary btn-lg btn-block" />
                             </div>
                         </form>
                     </div>
