@@ -8,18 +8,18 @@ function ChangeTheme() {
     let darkTheme = "/css/dark.css";
 
     var currTheme = link.getAttribute("href");
-    var theme = "";
+    var Topic = "";
 
     if (currTheme == lightTheme) {
         currTheme = darkTheme;
-        theme = "dark";
+        Topic = "dark";
     }
     else {
         currTheme = lightTheme;
-        theme = "light";
+        Topic = "light";
     }
 
     link.setAttribute("href", currTheme);
 
-    Save(theme);
+    //Save(Topic);
 }
