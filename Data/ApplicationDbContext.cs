@@ -23,8 +23,6 @@ namespace MyWebSite.Data
         public DbSet<AdsAssignment> AdsAssignments { get; set; }
         public DbSet<Settings> Settings { get; set; }
         public DbSet<UserAssignment> UserAssignments { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
