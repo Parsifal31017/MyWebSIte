@@ -12,13 +12,15 @@
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
-            @Localizer["Поиск по имени:"]
+            @Localizer["Поиск:"]
             <input type="text" name="SearchString" value="@Model.CurrentFilter" />
-            <input type="submit" value="Search" class="btn btn-primary" /> |
-            <a asp-page="./Index">@Localizer["Вернуться к списку"]</a>
+            <input type="submit" value="Search" class="btn btn-primary" />
         </p>
     </div>
 </form>
+<br />
+<a type="button" class="btn btn-danger" asp-page="Create">@Localizer["Создать"]</a>
+<br />
 <br />
 <h3>@Localizer["Компании с самым большим рейтингом"]</h3>
 <br />

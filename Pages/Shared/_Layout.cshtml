@@ -24,20 +24,17 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/About">@Localizer["Информация"]</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Company/Index">@Localizer["Компании"]</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Ads/Index">@Localizer["Объявления"]</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/User/Index">@Localizer["Администраторы"]</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Departments/Index">@Localizer["Отделы"]</a>
-                            </li>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Company/Index">@Localizer["Компании"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Ads/Index">@Localizer["Объявления"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/User/Index">@Localizer["Администраторы"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Departments/Index">@Localizer["Отделы"]</a>
+                        </li>
                         <li class="nav-item">
                             <button id="theme-button" type="button" name="Topic" class="form-control">@Localizer["Сменить тему"]</button>
                         </li>
@@ -59,6 +56,7 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - MyWebSite - <a asp-area="" asp-page="/Privacy">@Localizer["Конфиденциальность"]</a>
+            <a asp-area="" asp-page="/About">@Localizer["Информация"]</a>
         </div>
     </footer>
 
