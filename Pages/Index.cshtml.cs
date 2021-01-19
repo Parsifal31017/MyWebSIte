@@ -28,6 +28,8 @@ namespace MyWebSite.Pages
         public MainIndexData MainData { get; set; }
         public int CompanyID { get; set; }
 
+        public PaginatedList<MyWebSite.Models.Company> Company { get; set; }
+
         public async Task OnGetAsync(string sortOrder, string searchString)
         {
             CurrentFilter = searchString;

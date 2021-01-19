@@ -19,11 +19,9 @@
                 <th>@Localizer["Фамилия"]</th>
                 <th>@Localizer["Имя"]</th>
                 <th>@Localizer["Дата Найма"]</th>
-                <th>@Localizer["Возраст"]</th>
-                <th>@Localizer["Страна"]</th>
-                <th>@Localizer["Город"]</th>
-                <th>@Localizer["Почта"]</th>
-                <th>@Localizer["О себе"]</th>
+                <th>@Localizer["Назначить админом"]</th>
+                <th>@Localizer["Блокировать"]</th>
+                <th>@Localizer["Удалить"]</th>
                 <th></th>
             </tr>
         </thead>
@@ -46,6 +44,21 @@
                         @Html.DisplayFor(modelItem => item.HireDate)
                     </td>
                     <td>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            @*<label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>*@
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            @*<label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>*@
+                        </div>
+                    </td>
+                    <td>
+                        <a href="/User/Delete.cshtml" type="button" class="btn btn-danger">Удалить</a>
+                    </td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.Age)
                     </td>
                     <td>
@@ -65,7 +78,7 @@
                         {
                             @item.OfficeAssignment.Location
                         }
-                    </td>
+                    </td>*@
                     <td>
                         @{
                             foreach (var ads in item.AdsAssignments)

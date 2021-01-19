@@ -7,7 +7,7 @@ using MyWebSite.Models.CompanyViewModels;
 
 namespace MyWebSite.Models
 {
-    public class HomeController : Controller
+    public class HomeController : UserController
     {
         ApplicationDbContext _context;
 
