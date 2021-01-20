@@ -30,7 +30,6 @@
             <tr>
                 <th>@Localizer["Название"]</th>
                 <th>@Localizer["Рейтинг"]</th>
-                <th>@Localizer["Описание"]</th>
                 <th></th>
             </tr>
         </thead>
@@ -48,9 +47,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Rating)
-                    </td>
-                    <td>
-                        <a asp-page="./Details" asp-route-id="@item.ID">@Localizer["Подробности"]</a>
                     </td>
                     <td>
                         @{
@@ -74,7 +70,6 @@
             <tr>
                 <th>@Localizer["Название"]</th>
                 <th>@Localizer["Обнавленные компании"]</th>
-                <th>@Localizer["Описание"]</th>
                 <th></th>
             </tr>
         </thead>
@@ -92,9 +87,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Rating)
-                    </td>
-                    <td>
-                        <a asp-page="./Details" asp-route-id="@item.ID">@Localizer["Подробности"]</a>
                     </td>
                     <td>
                         @{
@@ -117,7 +109,6 @@
         <thead>
             <tr>
                 <th>@Localizer["Тэги"]</th>
-                <th>@Localizer["Описание"]</th>
                 <th></th>
             </tr>
         </thead>
@@ -132,9 +123,6 @@
                 <tr class="@selectedRow">
                     <td>
                         @Html.DisplayFor(modelItem => item.Tags)
-                    </td>
-                    <td>
-                        <a asp-page="./Details" asp-route-id="@item.ID">@Localizer["Подробности"]</a>
                     </td>
                     <td>
                         @{
@@ -175,9 +163,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.News)
-                    </td>
-                    <td>
-                        <a asp-page="./Details" asp-route-id="@item.ID">@Localizer["Подробности"]</a>
                     </td>
                     <td>
                         @{

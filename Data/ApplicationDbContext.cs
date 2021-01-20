@@ -21,7 +21,6 @@ namespace MyWebSite.Data
         public DbSet<User> Instructors { get; set; }
         public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
         public DbSet<AdsAssignment> AdsAssignments { get; set; }
-        public DbSet<Settings> Settings { get; set; }
         public DbSet<UserAssignment> UserAssignments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,7 +33,6 @@ namespace MyWebSite.Data
             modelBuilder.Entity<User>().ToTable("Instructor");
             modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
             modelBuilder.Entity<AdsAssignment>().ToTable("AdsAssignment");
-            modelBuilder.Entity<Settings>().ToTable("Settings");
             modelBuilder.Entity<UserAssignment>().ToTable("UserAssignment");
 
             modelBuilder.Entity<AdsAssignment>()
