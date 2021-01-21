@@ -63,8 +63,15 @@
                                 </div>
                                 <div class="form-group">
                                     <h5 asp-for="Company.Images" class="control-label">Изобраение:</h5>
-                                    <input asp-for="Company.Images" class="form-control" />
-                                    <span asp-validation-for="Company.Images" class="text-danger"></span>
+                                    @*<div id="drop-area">
+                                            <div class="my-form">
+                                                <label asp-for="Company.Images" class="control-label"></label>
+                                                <p>@Localizer["Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область"]</p>
+                                                <input asp-for="Company.Images" class="form-control" type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                                                <span asp-validation-for="Company.Images" class="text-danger"></span>
+                                                <label class="button" for="UploadFileSample.cs">@Localizer["Выбрать изображения"]</label>
+                                            </div>
+                                        </div>*@
                                 </div>
                                 <div class="form-group">
                                     <h5 asp-for="Company.Video" class="control-label">Видео:</h5>

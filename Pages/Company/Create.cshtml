@@ -40,16 +40,16 @@
                                 </div>
                                 <div class="form-group">
                                     <h5 asp-for="Company.Thematics" class="control-label">@Localizer["Тематика:"]</h5>
-                                <select asp-for="Company.Thematics" class="form-control" aria-label="Default select example">
-                                    <option selected>@Localizer["Выберите тематику вашей компании"]</option>
-                                    <option value="1">@Localizer["Образование"]</option>
-                                    <option value="2">@Localizer["Животные"]</option>
-                                    <option value="3">@Localizer["Права человека"]</option>
-                                    <option value="4">@Localizer["Природа"]</option>
-                                    <option value="5">@Localizer["Культура"]</option>
-                                    <option value="6">@Localizer["Игра"]</option>
-                                    <option value="7">@Localizer["Другое"]</option>
-                                </select>
+                                    <select asp-for="Company.Thematics" class="form-control" aria-label="Default select example">
+                                        <option selected>@Localizer["Выберите тематику вашей компании"]</option>
+                                        <option value="1">@Localizer["Образование"]</option>
+                                        <option value="2">@Localizer["Животные"]</option>
+                                        <option value="3">@Localizer["Права человека"]</option>
+                                        <option value="4">@Localizer["Природа"]</option>
+                                        <option value="5">@Localizer["Культура"]</option>
+                                        <option value="6">@Localizer["Игра"]</option>
+                                        <option value="7">@Localizer["Другое"]</option>
+                                    </select>
                                     <span asp-validation-for="Company.Thematics" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
@@ -64,17 +64,15 @@
                                 </div>
                                 <div class="form-group">
                                     <h5 asp-for="Company.Images" class="control-label">@Localizer["Изобраения:"]</h5>
-                                    <input asp-for="Company.Images" class="form-control" />
-                                    <span asp-validation-for="Company.Images" class="text-danger"></span>
                                     @*<div id="drop-area">
-                <div class="my-form">
-                    <label asp-for="Company.Images" class="control-label"></label>
-                    <p>@Localizer["Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область"]</p>
-                    <input asp-for="Company.Images" class="form-control" type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
-                    <span asp-validation-for="Company.Images" class="text-danger"></span>
-                    <label class="button" for="UploadFileSample.cs">Выбрать изображения</label>
-                </div>
-            </div>*@
+                                            <div class="my-form">
+                                                <label asp-for="Company.Images" class="control-label"></label>
+                                                <p>@Localizer["Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область"]</p>
+                                                <input asp-for="Company.Images" class="form-control" type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                                                <span asp-validation-for="Company.Images" class="text-danger"></span>
+                                                <label class="button" for="UploadFileSample.cs">@Localizer["Выбрать изображения"]</label>
+                                            </div>
+                                        </div>*@
                                 </div>
                                 <div class="form-group">
                                     <h5 asp-for="Company.Video" class="control-label">@Localizer["Видео:"]</h5>
@@ -97,7 +95,7 @@
                                     <span asp-validation-for="Company.Price" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.Tags" class="control-label">@Localizer["Тэги::"]</h5>
+                                    <h5 asp-for="Company.Tags" class="control-label">@Localizer["Тэги:"]</h5>
                                     <input asp-for="Company.Tags" class="form-control" />
                                     <span asp-validation-for="Company.Tags" class="text-danger"></span>
                                 </div>

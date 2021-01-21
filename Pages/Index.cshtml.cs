@@ -57,6 +57,21 @@ namespace MyWebSite.Pages
                 .OrderBy(i => i.Topic)
                 .OrderBy(i => i.News)
                 .ToListAsync();
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    companyIQ = companyIQ.OrderByDescending(s => s.Rating);
+                    break;
+                case "Date":
+                    companyIQ = companyIQ.OrderBy(s => s.EnrollmentDate);
+                    break;
+                case "date_desc":
+                    companyIQ = companyIQ.OrderByDescending(s => s.EnrollmentDate);
+                    break;
+            }
+
+            MainData.Company = await companyIQ.AsNoTracking().ToListAsync();
         }
     }
 }

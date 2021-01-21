@@ -1,28 +1,20 @@
-﻿#: Pages/Shared/_Layout.cshtml:27
+﻿#: Pages/Shared/_Layout.cshtml:50
 msgid "Информация" #: непереведенная строка
 msgstr "INFO" #: переведенная строка
 
-#: Pages/Shared/_Layout.cshtml:31
+#: Pages/Shared/_Layout.cshtml:27
 msgid "Компании" #: непереведенная строка
 msgstr "Company" #: переведенная строка
 
-#: Pages/Shared/_Layout.cshtml:34
-msgid "Объявления" #: непереведенная строка
-msgstr "Ads" #: переведенная строка
-
-#: Pages/Shared/_Layout.cshtml:37
-msgid_plural "Администраторы" #: непереведенная строка
-msgstr "Administrators" #: переведенная строка
-
-#: Pages/Shared/_Layout.cshtml:40
-msgid_plural "Отделы" #: непереведенная строка
-msgstr "Departments" #: переведенная строка
-
-#: Pages/Shared/_Layout.cshtml:43
+#: Pages/Shared/_Layout.cshtml:30
 msgid "Сменить тему" #: непереведенная строка
 msgstr "Change theme" #: переведенная строка
 
-#: Pages/Shared/_Layout.cshtml:59
+#: Pages/Shared/_Layout.cshtml:33
+msgid "Сменить язык" #: непереведенная строка
+msgstr "Change the language" #: переведенная строка
+
+#: Pages/Shared/_Layout.cshtml:49
 msgid "Конфиденциальность" #: непереведенная строка
 msgstr "Privacy" #: переведенная строка
 
@@ -98,6 +90,22 @@ msgstr "Create" #: переведенная строка
 msgid "Объявления" #: непереведенная строка
 msgstr "Ads" #: переведенная строка
 
+#: Pages/Ads/Create.cshtml: 24
+msgid "Номер" #: непереведенная строка
+msgstr "Number" #: переведенная строка
+
+#: Pages/Ads/Create.cshtml: 29
+msgid "Название" #: непереведенная строка
+msgstr "Title" #: переведенная строка
+
+#: Pages/Ads/Create.cshtml: 34
+msgid "Тэги" #: непереведенная строка
+msgstr "Tags" #: переведенная строка
+
+#: Pages/Ads/Create.cshtml: 39
+msgid "Описание" #: непереведенная строка
+msgstr "Description" #: переведенная строка
+
 #: Pages/Ads/Create.cshtml: 54
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
@@ -142,6 +150,22 @@ msgstr "Edit" #: переведенная строка
 msgid "Объявления" #: непереведенная строка
 msgstr "Ads" #: переведенная строка
 
+#: Pages/Ads/Edit.cshtml: 25
+msgid "Номер" #: непереведенная строка
+msgstr "Number" #: переведенная строка
+
+#: Pages/Ads/Edit.cshtml: 29
+msgid "Название" #: непереведенная строка
+msgstr "Title" #: переведенная строка
+
+#: Pages/Ads/Edit.cshtml:34
+msgid "Тэги" #: непереведенная строка
+msgstr "Tags" #: переведенная строка
+
+#: Pages/Ads/Edit.cshtml:39
+msgid "Описание" #: непереведенная строка
+msgstr "Description" #: переведенная строка
+
 #: Pages/Ads/Edit.cshtml: 52
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
@@ -174,11 +198,95 @@ msgstr "Create" #: переведенная строка
 msgid "Компанию" #: непереведенная строка
 msgstr "Company" #: переведенная строка
 
-#: Pages/Company/Create.cshtml: 58
+#: Pages/Company/Create.cshtml: 27
+msgid "Название" #: непереведенная строка
+msgstr "Title" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 32
+msgid "Рейтинг" #: непереведенная строка
+msgstr "Rating" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 37
+msgid "Дата Регистрации" #: непереведенная строка
+msgstr "Enrollment Date" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 42
+msgid "Тематика" #: непереведенная строка
+msgstr "Thematics" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 44
+msgid "Выберите тематику вашей компании" #: непереведенная строка
+msgstr "Choose the topic of your company" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 45
+msgid "Образование" #: непереведенная строка
+msgstr "Education" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 46
+msgid "Животные" #: непереведенная строка
+msgstr "Animals" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 47
+msgid "Права человека" #: непереведенная строка
+msgstr "Human rights" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 48
+msgid "Природа" #: непереведенная строка
+msgstr "Nature" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 49
+msgid "Культура" #: непереведенная строка
+msgstr "Culture" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 50
+msgid "Игра" #: непереведенная строка
+msgstr "Game" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 51
+msgid "Другое" #: непереведенная строка
+msgstr "Other" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 56
+msgid "Бонус" #: непереведенная строка
+msgstr "Bonus" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 61
+msgid "Описание" #: непереведенная строка
+msgstr "Description" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 66
+msgid "Изобраения" #: непереведенная строка
+msgstr "Images" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 70
 msgid "Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область" #: непереведенная строка
 msgstr "Upload images using the File selection dialog or by dragging the desired images to the selected area" #: переведенная строка
 
+#: Pages/Company/Create.cshtml: 73
+msgid "Выбрать изображения" #: непереведенная строка
+msgstr "Select Images" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 78
+msgid "Видео" #: непереведенная строка
+msgstr "Video" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 83
+msgid "Тема" #: непереведенная строка
+msgstr "Topic" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 88
+msgid "Новости" #: непереведенная строка
+msgstr "News" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 93
+msgid "Цена" #: непереведенная строка
+msgstr "Price" #: переведенная строка
+
 #: Pages/Company/Create.cshtml: 98
+msgid "Тэги" #: непереведенная строка
+msgstr "Tags" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 110
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
 
@@ -190,7 +298,11 @@ msgstr "Delete" #: переведенная строка
 msgid "Вы уверены, что хотите удалить это?" #: непереведенная строка
 msgstr "Are you sure you want to delete this?" #: переведенная строка
 
-#: Pages/Company/Delete.cshtml: 96
+#: Pages/Company/Delete.cshtml: 22
+msgid "Компания" #: непереведенная строка
+msgstr "Company" #: переведенная строка
+
+#: Pages/Company/Delete.cshtml: 102
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
 
@@ -198,35 +310,35 @@ msgstr "Back to List" #: переведенная строка
 msgid "Подробности" #: непереведенная строка
 msgstr "Details" #: переведенная строка
 
-#: Pages/Company/Details.cshtml: 21
+#: Pages/Company/Details.cshtml: 20
 msgid "Компании" #: непереведенная строка
 msgstr "Company" #: переведенная строка
 
-#: Pages/Company/Details.cshtml: 108
+#: Pages/Company/Details.cshtml: 114
 msgid "Заголовок Объявления" #: непереведенная строка
 msgstr "Ads Title" #: переведенная строка
 
-#: Pages/Company/Details.cshtml: 109
+#: Pages/Company/Details.cshtml: 115
 msgid "Категория" #: непереведенная строка
 msgstr "Grade" #: переведенная строка
 
-#: Pages/Company/Details.cshtml: 127
+#: Pages/Company/Details.cshtml: 134
 msgid "Редактировать" #: непереведенная строка
 msgstr "Edit" #: переведенная строка
 
-#: Pages/Company/Details.cshtml: 128
+#: Pages/Company/Details.cshtml: 135
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
 
-#: Pages/Company/Details.cshtml: 132
+#: Pages/Company/Details.cshtml: 139
 msgid "Имя" #: непереведенная строка
 msgstr "Name" #: переведенная строка
 
-#: Pages/Company/Details.cshtml: 134
+#: Pages/Company/Details.cshtml: 141
 msgid "Комментарий" #: непереведенная строка
 msgstr "Comment" #: переведенная строка
 
-#: Pages/Company/Details.cshtml: 136
+#: Pages/Company/Details.cshtml: 143
 msgid "Отправить" #: непереведенная строка
 msgstr "Send" #: переведенная строка
 
@@ -238,7 +350,95 @@ msgstr "Edit" #: переведенная строка
 msgid "Компанию" #: непереведенная строка
 msgstr "Company" #: переведенная строка
 
-#: Pages/Company/Edit.cshtml: 88
+#: Pages/Company/Create.cshtml: 26
+msgid "Название" #: непереведенная строка
+msgstr "Title" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 31
+msgid "Рейтинг" #: непереведенная строка
+msgstr "Rating" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 36
+msgid "Дата Регистрации" #: непереведенная строка
+msgstr "Enrollment Date" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 41
+msgid "Тематика" #: непереведенная строка
+msgstr "Thematics" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 43
+msgid "Выберите тематику вашей компании" #: непереведенная строка
+msgstr "Choose the topic of your company" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 44
+msgid "Образование" #: непереведенная строка
+msgstr "Education" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 45
+msgid "Животные" #: непереведенная строка
+msgstr "Animals" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 46
+msgid "Права человека" #: непереведенная строка
+msgstr "Human rights" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 47
+msgid "Природа" #: непереведенная строка
+msgstr "Nature" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 48
+msgid "Культура" #: непереведенная строка
+msgstr "Culture" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 49
+msgid "Игра" #: непереведенная строка
+msgstr "Game" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 50
+msgid "Другое" #: непереведенная строка
+msgstr "Other" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 55
+msgid "Бонус" #: непереведенная строка
+msgstr "Bonus" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 60
+msgid "Описание" #: непереведенная строка
+msgstr "Description" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 65
+msgid "Изобраения" #: непереведенная строка
+msgstr "Images" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 69
+msgid "Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область" #: непереведенная строка
+msgstr "Upload images using the File selection dialog or by dragging the desired images to the selected area" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 72
+msgid "Выбрать изображения" #: непереведенная строка
+msgstr "Select Images" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 77
+msgid "Видео" #: непереведенная строка
+msgstr "Video" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 82
+msgid "Тема" #: непереведенная строка
+msgstr "Topic" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 87
+msgid "Новости" #: непереведенная строка
+msgstr "News" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 92
+msgid "Цена" #: непереведенная строка
+msgstr "Price" #: переведенная строка
+
+#: Pages/Company/Create.cshtml: 97
+msgid "Тэги" #: непереведенная строка
+msgstr "Tags" #: переведенная строка
+
+#: Pages/Company/Edit.cshtml: 109
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
 
@@ -250,27 +450,31 @@ msgstr "Company" #: переведенная строка
 msgid "Создать" #: непереведенная строка
 msgstr "Create New" #: переведенная строка
 
+#: Pages/Company/Index.cshtml: 25
+msgid "Поиск по имени" #: непереведенная строка
+msgstr "Search by name" #: переведенная строка
+
 #: Pages/Company/Index.cshtml: 28
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
 
-#: Pages/Company/Index.cshtml: 71
+#: Pages/Company/Index.cshtml: 72
 msgid "Редактировать" #: непереведенная строка
 msgstr "Edit" #: переведенная строка
 
-#: Pages/Company/Index.cshtml: 72
+#: Pages/Company/Index.cshtml: 73
 msgid "Подробности" #: непереведенная строка
 msgstr "Details" #: переведенная строка
 
-#: Pages/Company/Index.cshtml: 73
+#: Pages/Company/Index.cshtml: 74
 msgid "Удалить" #: непереведенная строка
 msgstr "Delete" #: переведенная строка
 
-#: Pages/Company/Index.cshtml: 95
+#: Pages/Company/Index.cshtml: 97
 msgid "Предыдущий" #: непереведенная строка
 msgstr "Previous" #: переведенная строка
 
-#: Pages/Company/Index.cshtml: 102
+#: Pages/Company/Index.cshtml: 104
 msgid "Следующий" #: непереведенная строка
 msgstr "Next" #: переведенная строка
 
