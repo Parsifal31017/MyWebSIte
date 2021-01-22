@@ -24,18 +24,16 @@ namespace MyWebSite.Pages
         public string DateSort { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
-
-        public MainIndexData MainData { get; set; }
         public int CompanyID { get; set; }
 
-        public PaginatedList<MyWebSite.Models.Company> Company { get; set; }
+        public IList<MyWebSite.Models.Company> Company { get; set; }
 
         public async Task OnGetAsync(string sortOrder, string searchString)
         {
             CurrentFilter = searchString;
 
             IQueryable<MyWebSite.Models.Company> companyIQ = from s in _context.Company
-                                             select s;
+                                                             select s;
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -43,8 +41,9 @@ namespace MyWebSite.Pages
                                        || s.Tags.Contains(searchString));
             }
 
-            MainData = new MainIndexData();
-            MainData.Company = await _context.Company
+            //Company = new MyWebSite.Models.Company();
+            Company = await _context.Company
+                .Include(i => i.UserAssignments)
                 .Include(i => i.UserAssignments)
                 .Include(i => i.UserAssignments)
                 .Include(i => i.UserAssignments)
@@ -53,6 +52,7 @@ namespace MyWebSite.Pages
                 .AsNoTracking()
                 .OrderBy(i => i.Title)
                 .OrderBy(i => i.Rating)
+                .OrderBy(i => i.EnrollmentDate)
                 .OrderBy(i => i.Tags)
                 .OrderBy(i => i.Topic)
                 .OrderBy(i => i.News)
@@ -71,7 +71,7 @@ namespace MyWebSite.Pages
                     break;
             }
 
-            MainData.Company = await companyIQ.AsNoTracking().ToListAsync();
+            Company = await companyIQ.AsNoTracking().ToListAsync();
         }
     }
 }
