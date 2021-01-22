@@ -46,39 +46,16 @@
                     <td>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                            @*<label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>*@
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                            @*<label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>*@
                         </div>
                     </td>
                     <td>
-                        <a href="/User/Delete.cshtml" type="button" class="btn btn-danger">Удалить</a>
+                        <a href="/User/Delete.cshtml" type="button" class="btn btn-danger">@Localizer["Удалить"]</a>
                     </td>
-                    @*<td>
-                        @Html.DisplayFor(modelItem => item.Age)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Country)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.City)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AboutMe)
-                    </td>
-                    <td>
-                        @if (item.OfficeAssignment != null)
-                        {
-                            @item.OfficeAssignment.Location
-                        }
-                    </td>*@
                     <td>
                         @{
                             foreach (var ads in item.AdsAssignments)

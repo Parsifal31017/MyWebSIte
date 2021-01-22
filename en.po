@@ -486,6 +486,26 @@ msgstr "Create" #: переведенная строка
 msgid "Отдел" #: непереведенная строка
 msgstr "Departments" #: переведенная строка
 
+#: Pages/Departments/Create.cshtml: 24
+msgid "Имя" #: непереведенная строка
+msgstr "Name" #: переведенная строка
+
+#: Pages/Departments/Create.cshtml: 29
+msgid "Бюджет" #: непереведенная строка
+msgstr "Budget" #: переведенная строка
+
+#: Pages/Departments/Create.cshtml: 34
+msgid "Дата Начала" #: непереведенная строка
+msgstr "Start Date" #: переведенная строка
+
+#: Pages/Departments/Create.cshtml: 39
+msgid "Версия строки" #: непереведенная строка
+msgstr "Row Version" #: переведенная строка
+
+#: Pages/Departments/Create.cshtml: 44
+msgid "Администратор" #: непереведенная строка
+msgstr "Administrator" #: переведенная строка
+
 #: Pages/Departments/Create.cshtml: 56
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
@@ -530,6 +550,22 @@ msgstr "Edit" #: переведенная строка
 msgid "Отдел" #: непереведенная строка
 msgstr "Departments" #: переведенная строка
 
+#: Pages/Departments/Edit.cshtml: 30
+msgid "Имя" #: непереведенная строка
+msgstr "Name" #: переведенная строка
+
+#: Pages/Departments/Edit.cshtml: 35
+msgid "Бюджет" #: непереведенная строка
+msgstr "Budget" #: переведенная строка
+
+#: Pages/Departments/Edit.cshtml: 40
+msgid "Дата Начала" #: непереведенная строка
+msgstr "Start Date" #: переведенная строка
+
+#: Pages/Departments/Edit.cshtml: 46
+msgid "Администратор" #: непереведенная строка
+msgstr "Administrator" #: переведенная строка
+
 #: Pages/Departments/Edit.cshtml: 59
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
@@ -542,15 +578,15 @@ msgstr "Departments" #: переведенная строка
 msgid "Создать" #: непереведенная строка
 msgstr "Create New" #: переведенная строка
 
-#: Pages/Departments/Index.cshtml: 61
+#: Pages/Departments/Index.cshtml: 63
 msgid "Редактировать" #: непереведенная строка
 msgstr "Edit" #: переведенная строка
 
-#: Pages/Departments/Index.cshtml: 62
+#: Pages/Departments/Index.cshtml: 64
 msgid "Подробности" #: непереведенная строка
 msgstr "Details" #: переведенная строка
 
-#: Pages/Departments/Index.cshtml: 63
+#: Pages/Departments/Index.cshtml: 65
 msgid "Удалить" #: непереведенная строка
 msgstr "Delete" #: переведенная строка
 
@@ -562,7 +598,43 @@ msgstr "Create" #: переведенная строка
 msgid "Пользователя" #: непереведенная строка
 msgstr "User" #: переведенная строка
 
-#: Pages/User/Create.cshtml: 67
+#: Pages/User/Create.cshtml: 20
+msgid "Фамилия" #: непереведенная строка
+msgstr "Last Name" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 25
+msgid "Имя" #: непереведенная строка
+msgstr "First Name" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 30
+msgid "Дата Найма" #: непереведенная строка
+msgstr "Hire Date" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 35
+msgid "Возраст" #: непереведенная строка
+msgstr "Age" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 40
+msgid "Страна" #: непереведенная строка
+msgstr "Country" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 45
+msgid "Город" #: непереведенная строка
+msgstr "City" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 50
+msgid "Почта" #: непереведенная строка
+msgstr "Email" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 55
+msgid "О себе" #: непереведенная строка
+msgstr "About Me" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 60
+msgid "Местоположение" #: непереведенная строка
+msgstr "Location" #: переведенная строка
+
+#: Pages/User/Create.cshtml: 100
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
 
@@ -587,14 +659,18 @@ msgid "Подробности" #: непереведенная строка
 msgstr "Details" #: переведенная строка
 
 #: Pages/User/Details.cshtml: 14
+msgid "Создать" #: непереведенная строка
+msgstr "Create" #: переведенная строка
+
+#: Pages/User/Details.cshtml: 18
 msgid "Пользователь" #: непереведенная строка
 msgstr "User" #: переведенная строка
 
-#: Pages/User/Details.cshtml: 71
+#: Pages/User/Details.cshtml: 75
 msgid "Редактировать" #: непереведенная строка
 msgstr "Edit" #: переведенная строка
 
-#: Pages/User/Details.cshtml: 72
+#: Pages/User/Details.cshtml: 76
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
 
@@ -606,45 +682,125 @@ msgstr "Edit" #: переведенная строка
 msgid "Пользователя" #: непереведенная строка
 msgstr "User" #: переведенная строка
 
-#: Pages/User/Edit.cshtml: 68
+#: Pages/User/Edit.cshtml: 21
+msgid "Фамилия" #: непереведенная строка
+msgstr "Last Name" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 26
+msgid "Имя" #: непереведенная строка
+msgstr "First Name" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 31
+msgid "Дата Найма" #: непереведенная строка
+msgstr "Hire Date" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 36
+msgid "Возраст" #: непереведенная строка
+msgstr "Age" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 41
+msgid "Страна" #: непереведенная строка
+msgstr "Country" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 46
+msgid "Город" #: непереведенная строка
+msgstr "City" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 51
+msgid "Почта" #: непереведенная строка
+msgstr "Email" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 56
+msgid "О себе" #: непереведенная строка
+msgstr "About Me" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 61
+msgid "Местоположение" #: непереведенная строка
+msgstr "Location" #: переведенная строка
+
+#: Pages/User/Edit.cshtml: 101
 msgid "Вернуться к списку" #: непереведенная строка
 msgstr "Back to List" #: переведенная строка
 
-#: Pages/User/Index.cshtml: 11
+#: Pages/User/Index.cshtml: 13
 msgid "Пользователи" #: непереведенная строка
 msgstr "User" #: переведенная строка
 
-#: Pages/User/Index.cshtml: 14
-msgid "Создать" #: непереведенная строка
-msgstr "Create New" #: переведенная строка
+#: Pages/User/Index.cshtml: 19
+msgid "Фамилия" #: непереведенная строка
+msgstr "Last Name" #: переведенная строка
 
-#: Pages/User/Index.cshtml: 78
+#: Pages/User/Index.cshtml: 20
+msgid "Имя" #: непереведенная строка
+msgstr "First Name" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 21
+msgid "Дата Найма" #: непереведенная строка
+msgstr "Hire Date" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 22
+msgid "Назначить админом" #: непереведенная строка
+msgstr "To be an admin" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 23
+msgid "Блокировать" #: непереведенная строка
+msgstr "Block it" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 24
+msgid "Удалить" #: непереведенная строка
+msgstr "Remove" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 57
+msgid "Удалить" #: непереведенная строка
+msgstr "Remove" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 68
 msgid "Выбрать" #: непереведенная строка
 msgstr "Select" #: переведенная строка
 
-#: Pages/User/Index.cshtml: 79
+#: Pages/User/Index.cshtml: 69
 msgid "Редактировать" #: непереведенная строка
 msgstr "Edit" #: переведенная строка
 
-#: Pages/User/Index.cshtml: 80
+#: Pages/User/Index.cshtml: 70
 msgid "Подробности" #: непереведенная строка
 msgstr "Details" #: переведенная строка
 
-#: Pages/User/Index.cshtml: 81
+#: Pages/User/Index.cshtml: 71
 msgid "Удалить" #: непереведенная строка
 msgstr "Delete" #: переведенная строка
 
-#: Pages/User/Index.cshtml: 90
+#: Pages/User/Index.cshtml: 81
 msgid "Компания создана выбранным пользователем" #: непереведенная строка
 msgstr "The company was created by the selected user" #: переведенная строка
 
-#: Pages/User/Index.cshtml: 108
+#: Pages/User/Index.cshtml: 87
+msgid "Номер" #: непереведенная строка
+msgstr "Number" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 88
+msgid "Название" #: непереведенная строка
+msgstr "Title" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 89
+msgid "Отдел" #: непереведенная строка
+msgstr "Department" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 101
 msgid "Выбрать" #: непереведенная строка
 msgstr "Select" #: переведенная строка
 
-#: Pages/User/Index.cshtml: 128
+#: Pages/User/Index.cshtml: 121
 msgid "Компания зарегистрирована в выбранных объявлениях" #: непереведенная строка
 msgstr "Company Enrolled in Selected Ads" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 127
+msgid "Имя" #: непереведенная строка
+msgstr "Name" #: переведенная строка
+
+#: Pages/User/Index.cshtml: 128
+msgid "Класс" #: непереведенная строка
+msgstr "Class" #: переведенная строка
 
 #: Pages/About.cshtml: 16
 msgid "Статистика Компании" #: непереведенная строка
