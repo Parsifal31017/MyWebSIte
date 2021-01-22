@@ -24,6 +24,14 @@ function ChangeTheme() {
     //Save(Topic);
 }
 
+//let name = "Theme";
+//let value = "Topic"
+
+//document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+
+//alert(document.cookie); 
+
+//Для того чтобы создать cookie можно воспользоваться следующей функцией:
 //function setCookie(name, value, options) {
     //options = options || {}; //по умолчанию нет параметров (допустимые: expires, domain, secure, path)
     //var expires = options.expires;
@@ -51,15 +59,11 @@ function ChangeTheme() {
     //document.cookie = data; //сохраняем куку
   //}
 
-  //function getCookie(name) {
-    //var matches = document.cookie.match(new RegExp(
-      //"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    //));
-    //return matches ? decodeURIComponent(matches[1]) : undefined;
-  //}
-
-  //создаем куку с именем welcome со значением 1, временем жизни 3 дня и доступной на всем сайте
-//setCookie('welcome', 1, { path: '/', expires: 3600*24*3 }); 
-//if(getCookie('welcome') == '1') {
-    //alert('Кука welcome равна еденице!');
+  // возвращает куки с указанным name,
+// или undefined, если ничего не найдено
+//function getCookie(name) {
+  //let matches = document.cookie.match(new RegExp(
+    //"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  //));
+  //return matches ? decodeURIComponent(matches[1]) : undefined;
 //}

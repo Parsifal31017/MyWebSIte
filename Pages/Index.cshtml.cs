@@ -41,22 +41,14 @@ namespace MyWebSite.Pages
                                        || s.Tags.Contains(searchString));
             }
 
-            //Company = new MyWebSite.Models.Company();
             Company = await _context.Company
-                .Include(i => i.UserAssignments)
-                .Include(i => i.UserAssignments)
-                .Include(i => i.UserAssignments)
-                .Include(i => i.UserAssignments)
-                .Include(i => i.UserAssignments)
-                .Include(i => i.UserAssignments)
-                .AsNoTracking()
-                .OrderBy(i => i.Title)
-                .OrderBy(i => i.Rating)
-                .OrderBy(i => i.EnrollmentDate)
-                .OrderBy(i => i.Tags)
-                .OrderBy(i => i.Topic)
-                .OrderBy(i => i.News)
-                .ToListAsync();
+            .OrderBy(i => i.Title)
+            .OrderBy(i => i.Rating)
+            .OrderBy(i => i.EnrollmentDate)
+            .OrderBy(i => i.Tags)
+            .OrderBy(i => i.Topic)
+            .OrderBy(i => i.News)
+            .ToListAsync();
 
             switch (sortOrder)
             {
