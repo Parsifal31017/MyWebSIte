@@ -27,6 +27,7 @@ namespace MyWebSite.Pages
         public int CompanyID { get; set; }
 
         public IList<MyWebSite.Models.Company> Company { get; set; }
+        public Owner Owner { get; set; }
 
         public async Task OnGetAsync(string sortOrder, string searchString)
         {

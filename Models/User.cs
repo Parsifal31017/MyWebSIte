@@ -53,6 +53,7 @@ namespace MyWebSite.Models
             get { return LastName + ", " + FirstMidName; }
         }
 
+        public AdminAssignment AdminAssignment { get; set; }
         public OfficeAssignment OfficeAssignment { get; set; }
     }
 }
