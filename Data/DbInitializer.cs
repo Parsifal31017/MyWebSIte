@@ -39,54 +39,7 @@ namespace MyWebSite.Data
                 new User { FirstMidName = "Roger",   LastName = "Zheng", HireDate = DateTime.Parse("2004-02-12"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" }
             };
 
-            context.Instructors.AddRange(users);
-            context.SaveChanges();
-
-            var departments = new Department[]
-            {
-                new Department { Name = "English",     Budget = 350000,
-                    StartDate = DateTime.Parse("2007-09-01"),
-                    UsersID  = users.Single( i => i.LastName == "Abercrombie").ID },
-                new Department { Name = "Mathematics", Budget = 100000,
-                    StartDate = DateTime.Parse("2007-09-01"),
-                    UsersID  = users.Single( i => i.LastName == "Fakhouri").ID },
-                new Department { Name = "Engineering", Budget = 350000,
-                    StartDate = DateTime.Parse("2007-09-01"),
-                    UsersID  = users.Single( i => i.LastName == "Harui").ID },
-                new Department { Name = "Economics",   Budget = 100000,
-                    StartDate = DateTime.Parse("2007-09-01"),
-                    UsersID  = users.Single( i => i.LastName == "Kapoor").ID }
-            };
-
-            context.Departments.AddRange(departments);
-            context.SaveChanges();
-
-            var ads = new Ads[]
-            {
-                new Ads {AdsID = 1050, Title = "Chemistry",      Tags = "AC",
-                    DepartmentID = departments.Single( s => s.Name == "Engineering").DepartmentID
-                },
-                new Ads {AdsID = 4022, Title = "Microeconomics", Tags = "AC",
-                    DepartmentID = departments.Single( s => s.Name == "Economics").DepartmentID
-                },
-                new Ads {AdsID = 4041, Title = "Macroeconomics", Tags = "AC",
-                    DepartmentID = departments.Single( s => s.Name == "Economics").DepartmentID
-                },
-                new Ads {AdsID = 1045, Title = "Calculus",       Tags = "AC",
-                    DepartmentID = departments.Single( s => s.Name == "Mathematics").DepartmentID
-                },
-                new Ads {AdsID = 3141, Title = "Trigonometry",   Tags = "AC",
-                    DepartmentID = departments.Single( s => s.Name == "Mathematics").DepartmentID
-                },
-                new Ads {AdsID = 2021, Title = "Composition",    Tags = "AC",
-                    DepartmentID = departments.Single( s => s.Name == "English").DepartmentID
-                },
-                new Ads {AdsID = 2042, Title = "Literature",     Tags = "AC",
-                    DepartmentID = departments.Single( s => s.Name == "English").DepartmentID
-                },
-            };
-
-            context.Ads.AddRange(ads);
+            context.User.AddRange(users);
             context.SaveChanges();
 
             var officeAssignments = new OfficeAssignment[]
@@ -105,112 +58,51 @@ namespace MyWebSite.Data
             context.OfficeAssignments.AddRange(officeAssignments);
             context.SaveChanges();
 
-            var adsInstructors = new AdsAssignment[]
+            var owner = new Owner[]
             {
-                new AdsAssignment {
-                    AdsID = ads.Single(c => c.Title == "Chemistry" ).AdsID,
-                    UsersID = users.Single(i => i.LastName == "Kapoor").ID
-                    },
-                new AdsAssignment {
-                    AdsID = ads.Single(c => c.Title == "Chemistry" ).AdsID,
-                    UsersID = users.Single(i => i.LastName == "Harui").ID
-                    },
-                new AdsAssignment {
-                    AdsID = ads.Single(c => c.Title == "Microeconomics" ).AdsID,
-                    UsersID = users.Single(i => i.LastName == "Zheng").ID
-                    },
-                new AdsAssignment {
-                    AdsID = ads.Single(c => c.Title == "Macroeconomics" ).AdsID,
-                    UsersID = users.Single(i => i.LastName == "Zheng").ID
-                    },
-                new AdsAssignment {
-                    AdsID = ads.Single(c => c.Title == "Calculus" ).AdsID,
-                    UsersID = users.Single(i => i.LastName == "Fakhouri").ID
-                    },
-                new AdsAssignment {
-                    AdsID = ads.Single(c => c.Title == "Trigonometry" ).AdsID,
-                    UsersID = users.Single(i => i.LastName == "Harui").ID
-                    },
-                new AdsAssignment {
-                    AdsID = ads.Single(c => c.Title == "Composition" ).AdsID,
-                    UsersID = users.Single(i => i.LastName == "Abercrombie").ID
-                    },
-                new AdsAssignment {
-                    AdsID = ads.Single(c => c.Title == "Literature" ).AdsID,
-                    UsersID = users.Single(i => i.LastName == "Abercrombie").ID
-                    },
-            };
-
-            context.AdsAssignments.AddRange(adsInstructors);
-            context.SaveChanges();
-
-            var enrollments = new Enrollment[]
-            {
-                new Enrollment {
-                    CompanyID = company.Single(s => s.Title == "Alexander").ID,
-                    AdsID = ads.Single(c => c.Title == "Chemistry" ).AdsID,
-                    Grade = Grade.A
+                new Owner {
+                    CompanyID = company.Single(s => s.Title == "Alexander").ID
                 },
-                    new Enrollment {
-                    CompanyID = company.Single(s => s.Title == "Alexander").ID,
-                    AdsID = ads.Single(c => c.Title == "Microeconomics" ).AdsID,
-                    Grade = Grade.C
+                    new Owner {
+                    CompanyID = company.Single(s => s.Title == "Alexander").ID
                     },
-                    new Enrollment {
-                    CompanyID = company.Single(s => s.Title == "Alexander").ID,
-                    AdsID = ads.Single(c => c.Title == "Macroeconomics" ).AdsID,
-                    Grade = Grade.B
+                    new Owner {
+                    CompanyID = company.Single(s => s.Title == "Alexander").ID
                     },
-                    new Enrollment {
-                        CompanyID = company.Single(s => s.Title == "Alonso").ID,
-                    AdsID = ads.Single(c => c.Title == "Calculus" ).AdsID,
-                    Grade = Grade.B
+                    new Owner {
+                        CompanyID = company.Single(s => s.Title == "Alonso").ID
                     },
-                    new Enrollment {
-                        CompanyID = company.Single(s => s.Title == "Alonso").ID,
-                    AdsID = ads.Single(c => c.Title == "Trigonometry" ).AdsID,
-                    Grade = Grade.B
+                    new Owner {
+                        CompanyID = company.Single(s => s.Title == "Alonso").ID
                     },
-                    new Enrollment {
-                    CompanyID = company.Single(s => s.Title == "Alonso").ID,
-                    AdsID = ads.Single(c => c.Title == "Composition" ).AdsID,
-                    Grade = Grade.B
+                    new Owner {
+                    CompanyID = company.Single(s => s.Title == "Alonso").ID
                     },
-                    new Enrollment {
-                    CompanyID = company.Single(s => s.Title == "Anand").ID,
-                    AdsID = ads.Single(c => c.Title == "Chemistry" ).AdsID
+                    new Owner {
+                    CompanyID = company.Single(s => s.Title == "Anand").ID
                     },
-                    new Enrollment {
-                    CompanyID = company.Single(s => s.Title == "Anand").ID,
-                    AdsID = ads.Single(c => c.Title == "Microeconomics").AdsID,
-                    Grade = Grade.B
+                    new Owner {
+                    CompanyID = company.Single(s => s.Title == "Anand").ID
                     },
-                new Enrollment {
-                    CompanyID = company.Single(s => s.Title == "Barzdukas").ID,
-                    AdsID = ads.Single(c => c.Title == "Chemistry").AdsID,
-                    Grade = Grade.B
+                new Owner {
+                    CompanyID = company.Single(s => s.Title == "Barzdukas").ID
                     },
-                    new Enrollment {
-                    CompanyID = company.Single(s => s.Title == "Li").ID,
-                    AdsID = ads.Single(c => c.Title == "Composition").AdsID,
-                    Grade = Grade.B
+                    new Owner {
+                    CompanyID = company.Single(s => s.Title == "Li").ID
                     },
-                    new Enrollment {
-                    CompanyID = company.Single(s => s.Title == "Justice").ID,
-                    AdsID = ads.Single(c => c.Title == "Literature").AdsID,
-                    Grade = Grade.B
+                    new Owner {
+                    CompanyID = company.Single(s => s.Title == "Justice").ID
                     }
             };
 
-            foreach (Enrollment e in enrollments)
+            foreach (Owner e in owner)
             {
-                var enrollmentInDataBase = context.Enrollments.Where(
+                var ownerInDataBase = context.Owner.Where(
                     s =>
-                            s.Company.ID == e.CompanyID &&
-                            s.Ads.AdsID == e.AdsID).SingleOrDefault();
-                if (enrollmentInDataBase == null)
+                            s.Company.ID == e.CompanyID).SingleOrDefault();
+                if (ownerInDataBase == null)
                 {
-                    context.Enrollments.Add(e);
+                    context.Owner.Add(e);
                 }
             }
             context.SaveChanges();

@@ -30,8 +30,7 @@ namespace MyWebSite.Pages.Company
             }
 
             Company = await _context.Company
-                .Include(s => s.Enrollments)
-                .ThenInclude(e => e.Ads)
+                .Include(s => s.Owner)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ID == id);
 

@@ -55,6 +55,7 @@ namespace MyWebSite.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FirstName = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     EnrollmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Thematics = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Bonus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Images = table.Column<byte>(type: "tinyint", nullable: false),
@@ -70,7 +71,7 @@ namespace MyWebSite.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Instructor",
+                name: "User",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
@@ -87,21 +88,7 @@ namespace MyWebSite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Instructor", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Settings",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Topic = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Language = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Settings", x => x.ID);
+                    table.PrimaryKey("PK_User", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -211,51 +198,6 @@ namespace MyWebSite.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserAssignment",
-                columns: table => new
-                {
-                    CompanyID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CompanyID1 = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserAssignment", x => x.CompanyID);
-                    table.ForeignKey(
-                        name: "FK_UserAssignment_Company_CompanyID1",
-                        column: x => x.CompanyID1,
-                        principalTable: "Company",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Department",
-                columns: table => new
-                {
-                    DepartmentID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Budget = table.Column<decimal>(type: "money", nullable: false),
-                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UsersID = table.Column<int>(type: "int", nullable: true),
-                    RowVersion = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true),
-                    AdministratorID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Department", x => x.DepartmentID);
-                    table.ForeignKey(
-                        name: "FK_Department_Instructor_AdministratorID",
-                        column: x => x.AdministratorID,
-                        principalTable: "Instructor",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "OfficeAssignment",
                 columns: table => new
                 {
@@ -266,94 +208,106 @@ namespace MyWebSite.Migrations
                 {
                     table.PrimaryKey("PK_OfficeAssignment", x => x.UserID);
                     table.ForeignKey(
-                        name: "FK_OfficeAssignment_Instructor_UserID",
+                        name: "FK_OfficeAssignment_User_UserID",
                         column: x => x.UserID,
-                        principalTable: "Instructor",
+                        principalTable: "User",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ads",
+                name: "Owner",
                 columns: table => new
                 {
-                    AdsID = table.Column<int>(type: "int", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DepartmentID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ads", x => x.AdsID);
-                    table.ForeignKey(
-                        name: "FK_Ads_Department_DepartmentID",
-                        column: x => x.DepartmentID,
-                        principalTable: "Department",
-                        principalColumn: "DepartmentID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AdsAssignment",
-                columns: table => new
-                {
-                    UsersID = table.Column<int>(type: "int", nullable: false),
-                    AdsID = table.Column<int>(type: "int", nullable: false),
-                    InstructorID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AdsAssignment", x => new { x.AdsID, x.UsersID });
-                    table.ForeignKey(
-                        name: "FK_AdsAssignment_Ads_AdsID",
-                        column: x => x.AdsID,
-                        principalTable: "Ads",
-                        principalColumn: "AdsID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AdsAssignment_Instructor_InstructorID",
-                        column: x => x.InstructorID,
-                        principalTable: "Instructor",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Enrollment",
-                columns: table => new
-                {
-                    EnrollmentID = table.Column<int>(type: "int", nullable: false)
+                    UserID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AdsID = table.Column<int>(type: "int", nullable: false),
                     CompanyID = table.Column<int>(type: "int", nullable: false),
-                    Grade = table.Column<int>(type: "int", nullable: true)
+                    UserID1 = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Enrollment", x => x.EnrollmentID);
+                    table.PrimaryKey("PK_Owner", x => x.UserID);
                     table.ForeignKey(
-                        name: "FK_Enrollment_Ads_AdsID",
-                        column: x => x.AdsID,
-                        principalTable: "Ads",
-                        principalColumn: "AdsID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Enrollment_Company_CompanyID",
+                        name: "FK_Owner_Company_CompanyID",
                         column: x => x.CompanyID,
                         principalTable: "Company",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Owner_User_UserID1",
+                        column: x => x.UserID1,
+                        principalTable: "User",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Admin",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    HireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OfficeAssignmentUserID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Admin", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Admin_OfficeAssignment_OfficeAssignmentUserID",
+                        column: x => x.OfficeAssignmentUserID,
+                        principalTable: "OfficeAssignment",
+                        principalColumn: "UserID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AdminAssignment",
+                columns: table => new
+                {
+                    AdminID = table.Column<int>(type: "int", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: false),
+                    CompanyID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AdminAssignment", x => new { x.UserID, x.AdminID });
+                    table.ForeignKey(
+                        name: "FK_AdminAssignment_Admin_AdminID",
+                        column: x => x.AdminID,
+                        principalTable: "Admin",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AdminAssignment_Company_CompanyID",
+                        column: x => x.CompanyID,
+                        principalTable: "Company",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AdminAssignment_User_UserID",
+                        column: x => x.UserID,
+                        principalTable: "User",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ads_DepartmentID",
-                table: "Ads",
-                column: "DepartmentID");
+                name: "IX_Admin_OfficeAssignmentUserID",
+                table: "Admin",
+                column: "OfficeAssignmentUserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AdsAssignment_InstructorID",
-                table: "AdsAssignment",
-                column: "InstructorID");
+                name: "IX_AdminAssignment_AdminID",
+                table: "AdminAssignment",
+                column: "AdminID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AdminAssignment_CompanyID",
+                table: "AdminAssignment",
+                column: "CompanyID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -395,30 +349,20 @@ namespace MyWebSite.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Department_AdministratorID",
-                table: "Department",
-                column: "AdministratorID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Enrollment_AdsID",
-                table: "Enrollment",
-                column: "AdsID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Enrollment_CompanyID",
-                table: "Enrollment",
+                name: "IX_Owner_CompanyID",
+                table: "Owner",
                 column: "CompanyID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserAssignment_CompanyID1",
-                table: "UserAssignment",
-                column: "CompanyID1");
+                name: "IX_Owner_UserID1",
+                table: "Owner",
+                column: "UserID1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AdsAssignment");
+                name: "AdminAssignment");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -436,16 +380,10 @@ namespace MyWebSite.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Enrollment");
+                name: "Owner");
 
             migrationBuilder.DropTable(
-                name: "OfficeAssignment");
-
-            migrationBuilder.DropTable(
-                name: "Settings");
-
-            migrationBuilder.DropTable(
-                name: "UserAssignment");
+                name: "Admin");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -454,16 +392,13 @@ namespace MyWebSite.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Ads");
-
-            migrationBuilder.DropTable(
                 name: "Company");
 
             migrationBuilder.DropTable(
-                name: "Department");
+                name: "OfficeAssignment");
 
             migrationBuilder.DropTable(
-                name: "Instructor");
+                name: "User");
         }
     }
 }

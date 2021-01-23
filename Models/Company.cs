@@ -56,7 +56,7 @@ namespace MyWebSite.Models
             }
         }
 
-        public ICollection<Enrollment> Enrollments { get; set; }
-        public ICollection<UserAssignment> UserAssignments { get; set; }
+        public ICollection<Owner> Owner { get; set; }
+        public ICollection<AdminAssignment> AdminAssignments { get; set; }
     }
 }
