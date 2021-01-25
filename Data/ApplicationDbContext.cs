@@ -6,7 +6,7 @@ using System.Text;
 using MyWebSite.Models;
 using System.Security.Claims;
 using MyWebSite.Pages.Company;
-using Google.Apis.YouTube.Samples;
+//using Google.Apis.YouTube.Samples;
 
 namespace MyWebSite.Data
 {
@@ -22,8 +22,7 @@ namespace MyWebSite.Data
         public DbSet<Owner> Owner { get; set; }
         public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
         public DbSet<AdminAssignment> AdminAssignments { get; set; }
-        public DbSet<UploadFileSample> UploadFileSample { get; set; }
-        public DbSet<MyUploads> MyUploads { get; set; }
+        public DbSet<YouTubeImageCount> YouTubeImageCount { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,13 +30,19 @@ namespace MyWebSite.Data
             modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<Owner>().ToTable("Owner");
             modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
-            modelBuilder.Entity<UploadFileSample>().ToTable("UploadFileSample");
-            modelBuilder.Entity<MyUploads>().ToTable("MyUploads");
             modelBuilder.Entity<AdminAssignment>().ToTable("AdminAssignment");
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<AdminAssignment>()
                 .HasKey(c => new { c.UserID, c.AdminID });
+
+            modelBuilder
+    .Entity<YouTubeImageCount>(eb =>
+    {
+        eb.HasNoKey();
+        eb.ToView("View_YouTubeImageCounts");
+        eb.Property(v => v.UploadFileSample).HasColumnName("Name");
+    });
         }
     }
 }

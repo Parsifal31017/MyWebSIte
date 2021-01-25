@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using MyWebSite.Data;
 using Microsoft.Extensions.DependencyInjection;
 using MyWebSite.Pages.Company;
-using Google.Apis.YouTube.Samples;
+//using Google.Apis.YouTube.Samples;
 
 namespace MyWebSite
 {
@@ -24,7 +24,7 @@ namespace MyWebSite
 
             try
             {
-                new MyUploads().Run().Wait();
+                //new MyUploads().Run().Wait();
             }
             catch (AggregateException ex)
             {

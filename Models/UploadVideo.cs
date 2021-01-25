@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Reflection;
 using System.Threading;
@@ -10,6 +11,7 @@ using Google.Apis.Upload;
 using Google.Apis.Util.Store;
 using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Google.Apis.YouTube.Samples
 {
@@ -18,6 +20,8 @@ namespace Google.Apis.YouTube.Samples
     /// Relies on the Google APIs Client Library for .NET, v1.7.0 or higher.
     /// See https://developers.google.com/api-client-library/dotnet/get_started
     /// </summary>
+
+    [Keyless]
     public class MyUploads
     {
         [STAThread]
