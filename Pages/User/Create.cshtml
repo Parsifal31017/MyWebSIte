@@ -5,58 +5,56 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
-<h4>User</h4>
+<h1>@Localizer["Create"]</h1>
+
+<h4>@Localizer["User"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="User.LastName" class="control-label"></label>
+                <label asp-for="User.LastName" class="control-label">@Localizer["Фамилия"]</label>
                 <input asp-for="User.LastName" class="form-control" />
                 <span asp-validation-for="User.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.FirstMidName" class="control-label"></label>
+                <label asp-for="User.FirstMidName" class="control-label">@Localizer["Имя"]</label>
                 <input asp-for="User.FirstMidName" class="form-control" />
                 <span asp-validation-for="User.FirstMidName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.HireDate" class="control-label"></label>
+                <label asp-for="User.HireDate" class="control-label">@Localizer["Дата найма"]</label>
                 <input asp-for="User.HireDate" class="form-control" />
                 <span asp-validation-for="User.HireDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Age" class="control-label"></label>
+                <label asp-for="User.Age" class="control-label">@Localizer["Возраст"]</label>
                 <input asp-for="User.Age" class="form-control" />
                 <span asp-validation-for="User.Age" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Country" class="control-label"></label>
+                <label asp-for="User.Country" class="control-label">@Localizer["Страна"]</label>
                 <input asp-for="User.Country" class="form-control" />
                 <span asp-validation-for="User.Country" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.City" class="control-label"></label>
+                <label asp-for="User.City" class="control-label">@Localizer["Город"]</label>
                 <input asp-for="User.City" class="form-control" />
                 <span asp-validation-for="User.City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Email" class="control-label"></label>
+                <label asp-for="User.Email" class="control-label">@Localizer["Почта"]</label>
                 <input asp-for="User.Email" class="form-control" />
                 <span asp-validation-for="User.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.AboutMe" class="control-label"></label>
+                <label asp-for="User.AboutMe" class="control-label">@Localizer["О себе"]</label>
                 <input asp-for="User.AboutMe" class="form-control" />
                 <span asp-validation-for="User.AboutMe" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.Comments" class="control-label"></label>
-                <input asp-for="User.Comments" class="form-control" />
-                <span asp-validation-for="User.Comments" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -66,7 +64,7 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">@Localizer["Back to List"]</a>
 </div>
 
 @section Scripts {

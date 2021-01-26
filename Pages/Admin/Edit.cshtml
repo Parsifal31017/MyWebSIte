@@ -5,9 +5,12 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
-<h4>Admin</h4>
+<h1>@Localizer["Edit"]</h1>
+
+<h4>@Localizer["Admin"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,17 +18,17 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Admin.ID" />
             <div class="form-group">
-                <label asp-for="Admin.LastName" class="control-label"></label>
+                <label asp-for="Admin.LastName" class="control-label">@Localizer["Фамилия"]</label>
                 <input asp-for="Admin.LastName" class="form-control" />
                 <span asp-validation-for="Admin.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Admin.FirstMidName" class="control-label"></label>
+                <label asp-for="Admin.FirstMidName" class="control-label">@Localizer["Имя"]</label>
                 <input asp-for="Admin.FirstMidName" class="form-control" />
                 <span asp-validation-for="Admin.FirstMidName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Admin.HireDate" class="control-label"></label>
+                <label asp-for="Admin.HireDate" class="control-label">@Localizer["Дата найма"]</label>
                 <input asp-for="Admin.HireDate" class="form-control" />
                 <span asp-validation-for="Admin.HireDate" class="text-danger"></span>
             </div>
@@ -37,7 +40,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">@Localizer["Back to List"]</a>
 </div>
 
 @section Scripts {

@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace MyWebSite.Models.CompanyViewModels
 {
-    public class InstructorIndexData
+    public class AdminIndexData
     {
         public IEnumerable<User> User { get; set; }
-        public IEnumerable<Owner> Owner { get; set; }
+        public IEnumerable<Admin> Admin { get; set; }
+        public IEnumerable<Company> Company { get; set; }
     }
 }

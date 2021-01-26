@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyWebSite.Models.CompanyViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +8,11 @@ namespace MyWebSite.Models
 {
     public class Company
     {
+        [Key]
         public int ID { get; set; }
+
+        public int CompanyID { get; set; }
+
         [Required]
         [Display(Name = "Title")]
         public string Title { get; set; }
@@ -57,6 +62,7 @@ namespace MyWebSite.Models
         }
 
         public ICollection<Owner> Owner { get; set; }
-        public ICollection<AdminAssignment> AdminAssignments { get; set; }
+        public OfficeAssignment OfficeAssignment { get; set; }
+        public IEnumerable<AdminIndexData> AdminIndexData { get; set; }
     }
 }

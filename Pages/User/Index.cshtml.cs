@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MyWebSite.Data;
 using MyWebSite.Models;
+using MyWebSite.Models.CompanyViewModels;
 
 namespace MyWebSite.Pages.User
 {
@@ -19,11 +20,31 @@ namespace MyWebSite.Pages.User
             _context = context;
         }
 
-        public IList<MyWebSite.Models.User> User { get;set; }
+        //public IList<MyWebSite.Models.User> User { get;set; }
 
-        public async Task OnGetAsync()
+        //public async Task OnGetAsync()
+        //{
+        //    User = await _context.User.ToListAsync();
+        //}
+
+        public AdminIndexData AdminData { get; set; }
+        public int CompanyID { get; set; }
+        public int UserID { get; set; }
+
+        public async Task OnGetAsync(int? id, int? courseID)
         {
-            User = await _context.User.ToListAsync();
+            AdminData = new AdminIndexData();
+            AdminData.User = await _context.User
+                .Include(i => i.OfficeAssignment)
+                .Include(i => i.AdminIndexData)
+                    .ThenInclude(i => i.User)
+                        .ThenInclude(i => i.FirstMidName)
+                .Include(i => i.AdminIndexData)
+                    .ThenInclude(i => i.Company)
+                        .ThenInclude(i => i.Title)
+                .AsNoTracking()
+                .OrderBy(i => i.FirstMidName)
+                .ToListAsync();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyWebSite.Models.CompanyViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +8,10 @@ namespace MyWebSite.Models
 {
     public class User
     {
+        [Key]
         public int ID { get; set; }
+
+        public int UserID { get; set; }
 
         [Required]
         [Display(Name = "Last Name")]
@@ -53,7 +57,9 @@ namespace MyWebSite.Models
             get { return LastName + ", " + FirstMidName; }
         }
 
-        public AdminAssignment AdminAssignment { get; set; }
+        public AdminAssignment AdminAssignments { get; set; }
         public OfficeAssignment OfficeAssignment { get; set; }
+        public ICollection<Owner> Owner { get; set; }
+        public IEnumerable<AdminIndexData> AdminIndexData { get; set; }
     }
 }

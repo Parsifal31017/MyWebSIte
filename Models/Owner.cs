@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MyWebSite.Models.CompanyViewModels;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyWebSite.Models
@@ -11,5 +13,6 @@ namespace MyWebSite.Models
 
         public User User { get; set; }
         public Company Company { get; set; }
+        public IEnumerable<AdminIndexData> AdminIndexData { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyWebSite.Models.CompanyViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -32,5 +33,7 @@ namespace MyWebSite.Models
         }
 
         public OfficeAssignment OfficeAssignment { get; set; }
+        public AdminAssignment AdminAssignment { get; set; }
+        public IEnumerable<AdminIndexData> AdminIndexData { get; set; }
     }
 }

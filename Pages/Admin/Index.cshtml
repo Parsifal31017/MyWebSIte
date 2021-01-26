@@ -1,48 +1,68 @@
-﻿@page
+﻿@page "{id:int?}"
 @model MyWebSite.Pages.Admin.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Admin";
 }
 
-<h1>Index</h1>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<h1>@Localizer["Admin"]</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">@Localizer["Create New"]</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Admin[0].LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Admin[0].FirstMidName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Admin[0].HireDate)
-            </th>
+            <th>@Localizer["Last Name"]</th>
+            <th>@Localizer["First Name"]</th>
+            <th>@Localizer["Hire Date"]</th>
+            <th>@Localizer["Office"]</th>
+            <th>@Localizer["Courses"]</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Admin) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstMidName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HireDate)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.AdminData.User)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.CompanyID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstMidName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HireDate)
+                </td>
+                <td>
+                    @if (item.OfficeAssignment != null)
+                    {
+                        @item.OfficeAssignment.Location
+                    }
+                </td>
+                <td>
+                    @{
+                        foreach (var user in item.AdminIndexData)
+                        {
+                            @*@user.User.UserID @:  @user.User.Title <br />*@
+                        }
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Index" asp-route-id="@item.ID">@Localizer["Select"]</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.ID">@Localizer["Edit"]</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">@Localizer["Details"]</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">@Localizer["Delete"]</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

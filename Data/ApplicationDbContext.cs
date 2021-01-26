@@ -21,7 +21,7 @@ namespace MyWebSite.Data
         public DbSet<Admin> Admin { get; set; }
         public DbSet<Owner> Owner { get; set; }
         public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
-        public DbSet<AdminAssignment> AdminAssignments { get; set; }
+        public DbSet<AdminAssignment> AdminAssignment { get; set; }
         public DbSet<YouTubeImageCount> YouTubeImageCount { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -30,7 +30,7 @@ namespace MyWebSite.Data
             modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<Owner>().ToTable("Owner");
             modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
-            modelBuilder.Entity<AdminAssignment>().ToTable("AdminAssignment");
+            modelBuilder.Entity<AdminAssignment>().ToTable("AdminAssigment ");
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<AdminAssignment>()

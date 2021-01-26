@@ -21,7 +21,7 @@ function ChangeTheme() {
 
     link.setAttribute("href", currTheme);
 
-    //Save(Topic);
+    Save(setCookie);
 }
 
 let name = "Theme";
