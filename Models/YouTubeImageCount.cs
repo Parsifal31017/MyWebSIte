@@ -9,6 +9,7 @@ namespace MyWebSite.Models
     public class YouTubeImageCount
     {
         public string UploadFileSample { get; set; }
-        public int MyUploads { get; set; }
+        public string MyUploads { get; set; }
+        public string AdminIndexData { get; set; }
     }
 }

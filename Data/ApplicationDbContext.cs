@@ -41,7 +41,13 @@ namespace MyWebSite.Data
     {
         eb.HasNoKey();
         eb.ToView("View_YouTubeImageCounts");
-        eb.Property(v => v.UploadFileSample).HasColumnName("Name");
+        eb.Property(v => v.UploadFileSample).HasColumnName("Name1");
+        eb.HasNoKey();
+        eb.ToView("View_YouTubeImageCounts");
+        eb.Property(v => v.MyUploads).HasColumnName("Name2");
+        eb.HasNoKey();
+        eb.ToView("View_YouTubeImageCounts");
+        eb.Property(v => v.AdminIndexData).HasColumnName("Name3");
     });
         }
     }
