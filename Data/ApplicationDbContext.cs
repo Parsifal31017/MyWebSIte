@@ -22,7 +22,6 @@ namespace MyWebSite.Data
         public DbSet<Owner> Owner { get; set; }
         public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
         public DbSet<AdminAssignment> AdminAssignment { get; set; }
-        public DbSet<YouTubeImageCount> YouTubeImageCount { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,20 +34,6 @@ namespace MyWebSite.Data
 
             modelBuilder.Entity<AdminAssignment>()
                 .HasKey(c => new { c.UserID, c.AdminID });
-
-            modelBuilder
-    .Entity<YouTubeImageCount>(eb =>
-    {
-        eb.HasNoKey();
-        eb.ToView("View_YouTubeImageCounts");
-        eb.Property(v => v.UploadFileSample).HasColumnName("Name1");
-        eb.HasNoKey();
-        eb.ToView("View_YouTubeImageCounts");
-        eb.Property(v => v.MyUploads).HasColumnName("Name2");
-        eb.HasNoKey();
-        eb.ToView("View_YouTubeImageCounts");
-        eb.Property(v => v.AdminIndexData).HasColumnName("Name3");
-    });
         }
     }
 }

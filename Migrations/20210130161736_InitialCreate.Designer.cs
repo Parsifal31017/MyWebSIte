@@ -10,8 +10,8 @@ using MyWebSite.Data;
 namespace MyWebSite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210123082658_ComplexDataModel")]
-    partial class ComplexDataModel
+    [Migration("20210130161736_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,67 @@ namespace MyWebSite.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.1");
+                .HasAnnotation("ProductVersion", "5.0.2");
+
+            modelBuilder.Entity("AdminAdminIndexData", b =>
+                {
+                    b.Property<int>("AdminID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AdminIndexDataID")
+                        .HasColumnType("int");
+
+                    b.HasKey("AdminID", "AdminIndexDataID");
+
+                    b.HasIndex("AdminIndexDataID");
+
+                    b.ToTable("AdminAdminIndexData");
+                });
+
+            modelBuilder.Entity("AdminIndexDataCompany", b =>
+                {
+                    b.Property<int>("AdminIndexDataID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CompanyID")
+                        .HasColumnType("int");
+
+                    b.HasKey("AdminIndexDataID", "CompanyID");
+
+                    b.HasIndex("CompanyID");
+
+                    b.ToTable("AdminIndexDataCompany");
+                });
+
+            modelBuilder.Entity("AdminIndexDataOwner", b =>
+                {
+                    b.Property<int>("AdminIndexDataID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OwnerUserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("AdminIndexDataID", "OwnerUserID");
+
+                    b.HasIndex("OwnerUserID");
+
+                    b.ToTable("AdminIndexDataOwner");
+                });
+
+            modelBuilder.Entity("AdminIndexDataUser", b =>
+                {
+                    b.Property<int>("AdminIndexDataID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("AdminIndexDataID", "UserID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("AdminIndexDataUser");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -260,16 +320,18 @@ namespace MyWebSite.Migrations
                     b.Property<int>("AdminID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CompanyID")
+                    b.Property<int>("CompanyID")
                         .HasColumnType("int");
 
                     b.HasKey("UserID", "AdminID");
 
-                    b.HasIndex("AdminID");
+                    b.HasIndex("AdminID")
+                        .IsUnique();
 
-                    b.HasIndex("CompanyID");
+                    b.HasIndex("UserID")
+                        .IsUnique();
 
-                    b.ToTable("AdminAssignment");
+                    b.ToTable("AdminAssigment ");
                 });
 
             modelBuilder.Entity("MyWebSite.Models.Company", b =>
@@ -282,6 +344,9 @@ namespace MyWebSite.Migrations
                     b.Property<string>("Bonus")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CompanyID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -296,6 +361,9 @@ namespace MyWebSite.Migrations
                     b.Property<string>("News")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("OfficeAssignmentUserID")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -325,7 +393,29 @@ namespace MyWebSite.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("OfficeAssignmentUserID");
+
                     b.ToTable("Company");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.CompanyViewModels.AdminIndexData", b =>
+                {
+                    b.Property<int>("AdminIndexDataID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int?>("AdminAssignmentAdminID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AdminAssignmentUserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("AdminIndexDataID");
+
+                    b.HasIndex("AdminAssignmentUserID", "AdminAssignmentAdminID");
+
+                    b.ToTable("AdminIndexData");
                 });
 
             modelBuilder.Entity("MyWebSite.Models.OfficeAssignment", b =>
@@ -405,9 +495,72 @@ namespace MyWebSite.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("AdminAdminIndexData", b =>
+                {
+                    b.HasOne("MyWebSite.Models.Admin", null)
+                        .WithMany()
+                        .HasForeignKey("AdminID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyWebSite.Models.CompanyViewModels.AdminIndexData", null)
+                        .WithMany()
+                        .HasForeignKey("AdminIndexDataID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AdminIndexDataCompany", b =>
+                {
+                    b.HasOne("MyWebSite.Models.CompanyViewModels.AdminIndexData", null)
+                        .WithMany()
+                        .HasForeignKey("AdminIndexDataID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyWebSite.Models.Company", null)
+                        .WithMany()
+                        .HasForeignKey("CompanyID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AdminIndexDataOwner", b =>
+                {
+                    b.HasOne("MyWebSite.Models.CompanyViewModels.AdminIndexData", null)
+                        .WithMany()
+                        .HasForeignKey("AdminIndexDataID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyWebSite.Models.Owner", null)
+                        .WithMany()
+                        .HasForeignKey("OwnerUserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AdminIndexDataUser", b =>
+                {
+                    b.HasOne("MyWebSite.Models.CompanyViewModels.AdminIndexData", null)
+                        .WithMany()
+                        .HasForeignKey("AdminIndexDataID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyWebSite.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -473,24 +626,36 @@ namespace MyWebSite.Migrations
             modelBuilder.Entity("MyWebSite.Models.AdminAssignment", b =>
                 {
                     b.HasOne("MyWebSite.Models.Admin", "Admin")
-                        .WithMany()
-                        .HasForeignKey("AdminID")
+                        .WithOne("AdminAssignment")
+                        .HasForeignKey("MyWebSite.Models.AdminAssignment", "AdminID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyWebSite.Models.Company", null)
-                        .WithMany("AdminAssignments")
-                        .HasForeignKey("CompanyID");
-
                     b.HasOne("MyWebSite.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID")
+                        .WithOne("AdminAssignments")
+                        .HasForeignKey("MyWebSite.Models.AdminAssignment", "UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Admin");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.Company", b =>
+                {
+                    b.HasOne("MyWebSite.Models.OfficeAssignment", "OfficeAssignment")
+                        .WithMany()
+                        .HasForeignKey("OfficeAssignmentUserID");
+
+                    b.Navigation("OfficeAssignment");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.CompanyViewModels.AdminIndexData", b =>
+                {
+                    b.HasOne("MyWebSite.Models.AdminAssignment", null)
+                        .WithMany("AdminIndexData")
+                        .HasForeignKey("AdminAssignmentUserID", "AdminAssignmentAdminID");
                 });
 
             modelBuilder.Entity("MyWebSite.Models.OfficeAssignment", b =>
@@ -513,7 +678,7 @@ namespace MyWebSite.Migrations
                         .IsRequired();
 
                     b.HasOne("MyWebSite.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Owner")
                         .HasForeignKey("UserID1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -523,16 +688,28 @@ namespace MyWebSite.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MyWebSite.Models.Admin", b =>
+                {
+                    b.Navigation("AdminAssignment");
+                });
+
+            modelBuilder.Entity("MyWebSite.Models.AdminAssignment", b =>
+                {
+                    b.Navigation("AdminIndexData");
+                });
+
             modelBuilder.Entity("MyWebSite.Models.Company", b =>
                 {
-                    b.Navigation("AdminAssignments");
-
                     b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("MyWebSite.Models.User", b =>
                 {
+                    b.Navigation("AdminAssignments");
+
                     b.Navigation("OfficeAssignment");
+
+                    b.Navigation("Owner");
                 });
 #pragma warning restore 612, 618
         }

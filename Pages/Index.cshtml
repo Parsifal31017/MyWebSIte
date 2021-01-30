@@ -7,74 +7,37 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
 
-<h1>@Localizer["Сайт для ваших краундфандинговых компаний"]</h1>
-<br />
-<form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            @Localizer["Поиск:"]
-            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
-            <input type="submit" value="Search" class="btn btn-primary" />
-        </p>
-    </div>
-</form>
-<h3>@Localizer["Компании с самым большим рейтингом"]</h3>
-<br />
-<div class="table-responsive">
-    <table class="table">
-        <thead>
+<h1>Coumpany</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].CompanyID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].Rating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Company)
+        {
             <tr>
-                <th>Title</th>
-                <th>Rating</th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.AdminData.Company)
-            {
-                string selectedRow = "";
-                if (item.ID == Model.CompanyID)
-                {
-                    selectedRow = "table-success";
-                }
-                <tr class="@selectedRow">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Rating)
-                    </td>
-                    <td>
-                        @if (item.OfficeAssignment != null)
-                        {
-                            @item.OfficeAssignment.Location
-                        }
-                    </td>
-                    @*<td>
-                        @{
-                            foreach (var company in item.AdminIndexData)
-                            {
-                                @company.Company.CompanyID @:  @company.Company.Title <br />
-                            }
-                        }
-                    </td>*@
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
-<h3>@Localizer["Обновленные компании"]</h3>
-<br />
-<div class="table-responsive">
-</div>
-
-<h3>@Localizer["Облако тэгов"]</h3>
-<br />
-<div class="table-responsive">
-</div>
-
-<h3>@Localizer["Новости"]</h3>
-<br />
-<div class="table-responsive">
-</div>
+        }
+    </tbody>
+</table>
