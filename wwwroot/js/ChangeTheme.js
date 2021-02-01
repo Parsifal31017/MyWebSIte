@@ -21,49 +21,60 @@ function ChangeTheme() {
 
     link.setAttribute("href", currTheme);
 
-    //Save(Topic);
+    alert( document.cookie );
 }
 
-//let name = "Theme";
-//let value = "Topic"
+document.cookie = "theme=Topic"; // обновляем только куки с именем 'user'
+alert(document.cookie); // показываем все куки
 
-//document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+// специальные символы (пробелы), требуется кодирование
+let name = "my name";
+let value = "John Smith"
 
-//alert(document.cookie); 
+// кодирует в my%20name=John%20Smith
+document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
 
-////Для того чтобы создать cookie можно воспользоваться следующей функцией:
-//function setCookie(name, value, options) {
-//    options = options || {}; //по умолчанию нет параметров (допустимые: expires, domain, secure, path)
-//    var expires = options.expires;
-  
-//    if (typeof expires == "number" && expires) { //если указано время жизни, и это число
-//      var d = new Date();
-//      d.setTime(d.getTime() + expires * 1000); //expires в секундах
-//      expires = options.expires = d;
-//    }
-//    if (expires && expires.toUTCString) {
-//      options.expires = expires.toUTCString();
-//    }
-  
-//    value = encodeURIComponent(value); 
-//    var data = name + "=" + value; //строка в формате cookie имеет вид "имя_куки=значение"
-  
-//    for (var propName in options) {   //дописываем параметры кук (domain, secure, path)
-//      data += "; " + propName;
-//      var propValue = options[propName];
-//      if (propValue !== true) {
-//        data += "=" + propValue;
-//      }
-//    }
-  
-//    document.cookie = data; //сохраняем куку
-//  }
+alert(document.cookie); // ...; my%20name=John%20Smith
 
-//  // возвращает куки с указанным name,
-//// или undefined, если ничего не найдено
-//function getCookie(name) {
-//  let matches = document.cookie.match(new RegExp(
-//    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-//  ));
-//  return matches ? decodeURIComponent(matches[1]) : undefined;
-//  }
+// возвращает куки с указанным name,
+// или undefined, если ничего не найдено
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+
+  function setCookie(name, value, options = {}) {
+
+    options = {
+      path: '/',
+      // при необходимости добавьте другие значения по умолчанию
+      ...options
+    };
+  
+    if (options.expires instanceof Date) {
+      options.expires = options.expires.toUTCString();
+    }
+  
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+  
+    for (let optionKey in options) {
+      updatedCookie += "; " + optionKey;
+      let optionValue = options[optionKey];
+      if (optionValue !== true) {
+        updatedCookie += "=" + optionValue;
+      }
+    }
+  
+    document.cookie = updatedCookie;
+  }
+  
+  // Пример использования:
+  setCookie('theme', 'Topic', {secure: true, 'max-age': 5000});
+
+  function deleteCookie(name) {
+    setCookie(name, "", {
+      'max-age': -1
+    })
+  }

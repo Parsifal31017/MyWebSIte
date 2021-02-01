@@ -8,7 +8,9 @@
 @inject IViewLocalizer Localizer
 
 <h1>@Localizer["Coumpany"]</h1>
-
+<br />
+<h5>@Localizer["Компании с самым большим рейтингом"]</h5>
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -36,6 +38,99 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<h5>@Localizer["Обновленные компании"]</h5>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].CompanyID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].Title)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Company)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<h5>@Localizer["Тэги"]</h5>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].CompanyID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].Tags)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Company)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tags)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<h5>@Localizer["Новости"]</h5>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].CompanyID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].Topic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].News)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Company)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Topic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.News)
                 </td>
             </tr>
         }
