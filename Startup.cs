@@ -46,9 +46,7 @@ namespace MyWebSite
             {
                 var supportedCultures = new List<CultureInfo>
             {
-                new CultureInfo("en-US"),
                 new CultureInfo("en"),
-                new CultureInfo("ru-RU"),
                 new CultureInfo("ru")
             };
 
