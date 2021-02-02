@@ -1,25 +1,23 @@
-var btn = document.getElementById("theme-button");
-var link = document.getElementById("theme-link");
+const link = document.getElementById('language-link');
+const enLanguage = '/css/light.css';
+const ruLanguage = '/css/dark.css';
+let currentLanguage = localStorage.getItem('language');
 
-btn.addEventListener("click", function () { Language(); });
-
-function Language() {
-    let lightTheme = "/css/light.css";//ru
-    let darkTheme = "/css/dark.css";//en
-
-    var currLanguage = link.getAttribute("href");
-    var Language = "";
-
-    if (currLanguage == lightTheme) {
-        currLanguage = darkTheme;
-        Language = "en";
+(function(){
+    if( !currentLanguage ) {
+        currentLanguage = lightLanguage;
+        localStorage.setItem('language', currentLanguage);
     }
-    else {
-        currLanguage = lightTheme;
-        Language = "ru";
+    link.setAttribute('href', currentLanguage);
+})();
+
+document.getElementById('language-button').addEventListener('click', e => {
+    e.preventDefault();
+    if( currentLanguage == ruLanguage ) {
+        currentTLanguage = enLanguage;
+    }else {
+        currentLanguage = ruLanguage;
     }
-
-    link.setAttribute("href", currLanguage);
-
-    //Save(Topic);
-}
+    link.setAttribute('href', currentLanguage);
+    localStorage.setItem('language', currentLanguage);
+});
