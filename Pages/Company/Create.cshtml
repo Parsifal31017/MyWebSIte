@@ -15,55 +15,55 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>@Localizer["Создать"]</h1>
+                    <h1>@Localizer["Create"]</h1>
 
-                    <h4>@Localizer["Компанию"]</h4>
+                    <h4>@Localizer["Company"]</h4>
                     <hr />
                     <div class="row">
                         <div class="col-md-12">
                             <form method="post">
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.Title" class="control-label">@Localizer["Название:"]</h5>
+                                    <h5 asp-for="Company.Title" class="control-label">@Localizer["Title"]</h5>
                                     <input asp-for="Company.Title" class="form-control" />
                                     <span asp-validation-for="Company.Title" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.Rating" class="control-label">@Localizer["Рейтинг:"]</h5>
+                                    <h5 asp-for="Company.Rating" class="control-label">@Localizer["Rating"]</h5>
                                     <input asp-for="Company.Rating" class="form-control" />
                                     <span asp-validation-for="Company.Rating" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.EnrollmentDate" class="control-label">@Localizer["Дата Регистрации:"]</h5>
+                                    <h5 asp-for="Company.EnrollmentDate" class="control-label">@Localizer["Enrollment Date"]</h5>
                                     <input asp-for="Company.EnrollmentDate" class="form-control" />
                                     <span asp-validation-for="Company.EnrollmentDate" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.Thematics" class="control-label">@Localizer["Тематика:"]</h5>
+                                    <h5 asp-for="Company.Thematics" class="control-label">@Localizer["Thematics"]</h5>
                                     <select asp-for="Company.Thematics" class="form-control" aria-label="Default select example">
-                                        <option selected>@Localizer["Выберите тематику вашей компании"]</option>
-                                        <option>@Localizer["Образование"]</option>
-                                        <option>@Localizer["Животные"]</option>
-                                        <option>@Localizer["Права человека"]</option>
-                                        <option>@Localizer["Природа"]</option>
-                                        <option>@Localizer["Культура"]</option>
-                                        <option>@Localizer["Игра"]</option>
+                                        <option selected>@Localizer["Choose the topic of your company"]</option>
+                                        <option>@Localizer["Education"]</option>
+                                        <option>@Localizer["Animals"]</option>
+                                        <option>@Localizer["Human rights"]</option>
+                                        <option>@Localizer["Nature"]</option>
+                                        <option>@Localizer["Culture"]</option>
+                                        <option>@Localizer["Game"]</option>
                                         <option>@Localizer["Другое"]</option>
                                     </select>
                                     <span asp-validation-for="Company.Thematics" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.Bonus" class="control-label">@Localizer["Бонус:"]</h5>
+                                    <h5 asp-for="Company.Bonus" class="control-label">@Localizer["Bonus"]</h5>
                                     <input asp-for="Company.Bonus" class="form-control" />
                                     <span asp-validation-for="Company.Bonus" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.Description" class="control-label">@Localizer["Описание:"]</h5>
+                                    <h5 asp-for="Company.Description" class="control-label">@Localizer["Description"]</h5>
                                     <textarea asp-for="Company.Description" class="form-control"></textarea>
                                     <span asp-validation-for="Company.Description" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.Images" class="control-label">@Localizer["Изобраения:"]</h5>
+                                    <h5 asp-for="Company.Images" class="control-label">@Localizer["Images"]</h5>
                                     <div id="drop-area">
                                         <div class="my-form">
                                             <label asp-for="Company.Images" class="control-label"></label>
@@ -75,27 +75,27 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.Video" class="control-label">@Localizer["Видео:"]</h5>
-                                    @*<input asp-for="Company.Video" class="form-control" />
-                                    <span asp-validation-for="Company.Video" class="text-danger"></span>*@
+                                    <h5 asp-for="Company.Video" class="control-label">@Localizer["Video"]</h5>
+                                    <input asp-for="Company.Video" class="form-control" />
+                                    <span asp-validation-for="Company.Video" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.Topic" class="control-label">@Localizer["Тема:"]</h5>
+                                    <h5 asp-for="Company.Topic" class="control-label">@Localizer["Topic"]</h5>
                                     <input asp-for="Company.Topic" class="form-control" />
                                     <span asp-validation-for="Company.Topic" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.News" class="control-label">@Localizer["Новости:"]</h5>
+                                    <h5 asp-for="Company.News" class="control-label">@Localizer["News"]</h5>
                                     <textarea asp-for="Company.News" class="form-control"></textarea>
                                     <span asp-validation-for="Company.News" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.Price" class="control-label">@Localizer["Цена:"]</h5>
+                                    <h5 asp-for="Company.Price" class="control-label">@Localizer["Price"]</h5>
                                     <input asp-for="Company.Price" class="form-control" />
                                     <span asp-validation-for="Company.Price" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <h5 asp-for="Company.Tags" class="control-label">@Localizer["Тэги:"]</h5>
+                                    <h5 asp-for="Company.Tags" class="control-label">@Localizer["Tags"]</h5>
                                     <input asp-for="Company.Tags" class="form-control" />
                                     <span asp-validation-for="Company.Tags" class="text-danger"></span>
                                 </div>
@@ -107,7 +107,7 @@
                     </div>
 
                     <div>
-                        <a asp-page="Index">@Localizer["Вернуться к списку"]</a>
+                        <a asp-page="Index">@Localizer["Back to List"]</a>
                     </div>
                 </div>
             </div>

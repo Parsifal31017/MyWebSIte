@@ -21,35 +21,16 @@ function ChangeTheme() {
 
     link.setAttribute("href", currTheme);
 
-    alert( document.cookie );
+    Save ( document.cookie );
 }
 
-document.cookie = "theme=Topic"; // обновляем только куки с именем 'user'
-alert(document.cookie); // показываем все куки
-
-// специальные символы (пробелы), требуется кодирование
-let name = "my name";
-let value = "John Smith"
-
-// кодирует в my%20name=John%20Smith
-document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
-
-alert(document.cookie); // ...; my%20name=John%20Smith
-
-// возвращает куки с указанным name,
-// или undefined, если ничего не найдено
-function getCookie(name) {
-    let matches = document.cookie.match(new RegExp(
-      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
-  }
+document.cookie = "theme=Topic"; 
+alert(document.cookie);
 
   function setCookie(name, value, options = {}) {
 
     options = {
       path: '/',
-      // при необходимости добавьте другие значения по умолчанию
       ...options
     };
   
@@ -70,7 +51,6 @@ function getCookie(name) {
     document.cookie = updatedCookie;
   }
   
-  // Пример использования:
   setCookie('theme', 'Topic', {secure: true, 'max-age': 5000});
 
   function deleteCookie(name) {

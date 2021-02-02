@@ -15,9 +15,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>@Localizer["Подробности"]</h1>
+                    <h1>@Localizer["Details"]</h1>
                     <div>
-                        <h4>@Localizer["Компании"]</h4>
+                        <h4>@Localizer["Company"]</h4>
                         <form class="rating-area">
                             <input type="radio" id="star-5" name="rating" value="5">
                             <label for="star-5" title="Оценка «5»"></label>
@@ -110,23 +110,14 @@
                         </dl>
                     </div>
                     <div>
-                        <a asp-page="./Edit" asp-route-id="@Model.Company.ID">@Localizer["Редактировать"]</a> |
-                        <a asp-page="./Index">@Localizer["Вернуться к списку"]</a>
+                        <a asp-page="./Edit" asp-route-id="@Model.Company.ID">@Localizer["Edit"]</a> |
+                        <a asp-page="./Index">@Localizer["Back to List"]</a>
                     </div>
                     <form action="https://www.paypal.com/donate" method="post" target="_top">
                         <input type="hidden" name="hosted_button_id" value="NMUMHG7VQM4FL" />
                         <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
                         <img alt="" border="0" src="https://www.paypal.com/en_BY/i/scr/pixel.gif" width="1" height="1" />
                     </form>
-                    <div class="form-group">
-                        <form>
-                            <span>@Localizer["Имя:"]</span><br>
-                            <input type="text" id="name" class="col-sm-8"><br>
-                            <span>@Localizer["Комментарий:"]</span><br>
-                            <textarea id="comment" class="col-sm-12"></textarea><br>
-                            <button id="button">@Localizer["Отправить"]</button>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
