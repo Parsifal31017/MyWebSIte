@@ -14,7 +14,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form class="row g-3">
+        <form method="post" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="User.ID" />
             <div class="col-md-6">
@@ -79,9 +79,6 @@
                 </div>
             </div>
         </form>
-        @*<form method="post">
-
-            </form>*@
     </div>
 </div>
 

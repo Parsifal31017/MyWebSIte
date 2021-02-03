@@ -17,7 +17,7 @@
 
                     <h4>@Localizer["Company"]</h4>
                     <hr />
-                    <form class="row g-3">
+                    <form method="post" class="row g-3">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="Company.ID" />
                         <div class="col-md-6">
@@ -27,13 +27,6 @@
                                 <span asp-validation-for="Company.Title" class="text-danger"></span>
                             </div>
                         </div>
-                        @*<div class="col-md-6">
-                            <div class="form-group">
-                                <h5 asp-for="Company.Rating" class="control-label">Rating</h5>
-                                <input asp-for="Company.Rating" class="form-control" />
-                                <span asp-validation-for="Company.Rating" class="text-danger"></span>
-                            </div>
-                        </div>*@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <h5 asp-for="Company.EnrollmentDate" class="control-label">Enrollment Date</h5>
@@ -75,18 +68,8 @@
                             <div class="form-group">
                                 <h5 asp-for="Company.Images" class="control-label">Images</h5>
                                 <div class="mb-3">
-                                    @*<label for="formFileMultiple" class="form-label">Multiple files input example</label>*@
                                     <input class="form-control" type="file" id="formFileMultiple" multiple>
                                 </div>
-                                @*<div id="drop-area">
-                                        <div class="my-form">
-                                            <label asp-for="Company.Images" class="control-label"></label>
-                                            <p>@Localizer["Загрузите изображения с помощью диалога выбора файлов или перетащив нужные изображения в выделенную область"]</p>
-                                            <input asp-for="Company.Images" class="form-control" type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
-                                            <span asp-validation-for="Company.Images" class="text-danger"></span>
-                                            <label class="button">@Localizer["Выбрать изображения"]</label>
-                                        </div>
-                                    </div>*@
                             </div>
                         </div>
                         <div class="col-md-6">
