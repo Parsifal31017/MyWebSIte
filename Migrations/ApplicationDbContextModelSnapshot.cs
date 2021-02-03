@@ -353,8 +353,9 @@ namespace MyWebSite.Migrations
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte>("Images")
-                        .HasColumnType("tinyint");
+                    b.Property<string>("Images")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("News")
                         .IsRequired()
@@ -386,8 +387,9 @@ namespace MyWebSite.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("Video")
-                        .HasColumnType("tinyint");
+                    b.Property<string>("Video")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 

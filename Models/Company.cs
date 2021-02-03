@@ -35,10 +35,10 @@ namespace MyWebSite.Models
         public string Description { get; set; }
         [Required]
         [Display(Name = "Images")]
-        public byte Images { get; set; }
+        public string Images { get; set; }
         [Required]
         [Display(Name = "Video ")]
-        public byte Video { get; set; }
+        public string Video { get; set; }
         [Required]
         [Display(Name = "Topic")]
         public string Topic { get; set; }
