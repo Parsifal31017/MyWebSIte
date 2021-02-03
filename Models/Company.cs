@@ -51,6 +51,8 @@ namespace MyWebSite.Models
         [Required]
         [Display(Name = "Tags")]
         public string Tags { get; set; }
+        public double Rank { get; set; }
+        public DateTime Update { get; set; }
 
         [Display(Name = "Full Name")]
         public string FullName
