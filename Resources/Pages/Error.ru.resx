@@ -117,28 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Email" xml:space="preserve">
-    <value>Почта</value>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>При обработке вашего запроса произошла ошибка.</value>
   </data>
-  <data name="Forgot your password?" xml:space="preserve">
-    <value>Забыли свой пароль?</value>
+  <data name="and restarting the app." xml:space="preserve">
+    <value>и перезапустив приложение.</value>
   </data>
-  <data name="Log in" xml:space="preserve">
-    <value>Авторизоваться</value>
+  <data name="ASPNETCORE_ENVIRONMENT" xml:space="preserve">
+    <value>ASPNETCORE_ENVIRONMENT</value>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>Пароль</value>
+  <data name="Development" xml:space="preserve">
+    <value>среду разработки</value>
   </data>
-  <data name="Register as a new user" xml:space="preserve">
-    <value>Зарегистрируйтесь как новый пользователь</value>
+  <data name="Development Mode" xml:space="preserve">
+    <value>Режим разработки</value>
   </data>
-  <data name="Resending the confirmation email" xml:space="preserve">
-    <value>Повторная отправка подтверждения по электронной почте</value>
+  <data name="environment by setting the" xml:space="preserve">
+    <value>установив переменную среды</value>
   </data>
-  <data name="Use a local account to log in" xml:space="preserve">
-    <value>Используйте локальную учетную запись для входа в систему</value>
+  <data name="environment displays detailed information about the error that occurred." xml:space="preserve">
+    <value>отображается подробная информация о возникшей ошибке.</value>
   </data>
-  <data name="Use another service to log in" xml:space="preserve">
-    <value>Используйте другую службу для входа в систему</value>
+  <data name="environment variable to" xml:space="preserve">
+    <value>в значение</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="For local debugging, enable the" xml:space="preserve">
+    <value>Для локальной отладки включите</value>
+  </data>
+  <data name="It can result in displaying sensitive information from exceptions to end users." xml:space="preserve">
+    <value>Это может привести к отображению конфиденциальной информации от исключений конечным пользователям.</value>
+  </data>
+  <data name="Request ID:" xml:space="preserve">
+    <value>Идентификатор запроса:</value>
+  </data>
+  <data name="Swapping to the" xml:space="preserve">
+    <value>При переходе в</value>
+  </data>
+  <data name="The Development environment shouldn't be enabled for deployed applications." xml:space="preserve">
+    <value>Среда разработки не должна быть включена для развернутых приложений.</value>
   </data>
 </root>
