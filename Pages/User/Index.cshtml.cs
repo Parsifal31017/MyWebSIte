@@ -20,31 +20,28 @@ namespace MyWebSite.Pages.User
             _context = context;
         }
 
-        //public IList<MyWebSite.Models.User> User { get;set; }
+        public IList<MyWebSite.Models.Company> Company { get; set; }
 
-        //public async Task OnGetAsync()
-        //{
-        //    User = await _context.User.ToListAsync();
-        //}
+        public List<MyWebSite.Models.Company> GetCompaniesWithRank()
+        {
+            return Company != null
+                ? Company.OrderBy(p => p.Rank).Take(100).ToList()
+                : new List<MyWebSite.Models.Company>();
+        }
 
-        public AdminIndexData AdminData { get; set; }
-        public int CompanyID { get; set; }
-        public int UserID { get; set; }
+        public List<MyWebSite.Models.Company> GetCompaniesWithUpdate()
+        {
+            return Company != null
+                ? Company.OrderBy(p => p.Update).ToList()
+                : new List<MyWebSite.Models.Company>();
+        }
 
         public async Task OnGetAsync(int? id, int? courseID)
         {
-            AdminData = new AdminIndexData();
-            AdminData.User = await _context.User
-                .Include(i => i.OfficeAssignment)
-                .Include(i => i.AdminIndexData)
-                    .ThenInclude(i => i.User)
-                        .ThenInclude(i => i.FirstMidName)
-                .Include(i => i.AdminIndexData)
-                    .ThenInclude(i => i.Company)
-                        .ThenInclude(i => i.Title)
-                .AsNoTracking()
-                .OrderBy(i => i.FirstMidName)
-                .ToListAsync();
+            Company = await _context.Company
+    .Include(c => c.AdminIndexData)
+    .AsNoTracking()
+    .ToListAsync();
         }
     }
 }

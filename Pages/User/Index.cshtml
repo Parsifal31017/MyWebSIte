@@ -16,49 +16,30 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Localizer["Last Name"]</th>
-            <th>@Localizer["First Name"]</th>
-            <th>@Localizer["Hire Date"]</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].CompanyID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].EnrollmentDate)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.AdminData.User)
+        @foreach (var item in Model.Company)
         {
-            string selectedRow = "";
-            if (item.ID == Model.UserID)
-            {
-                selectedRow = "table-success";
-            }
-            <tr class="@selectedRow">
+            <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
+                    @Html.DisplayFor(modelItem => item.CompanyID)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FirstMidName)
+                    @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.HireDate)
-                </td>
-                <td>
-                    @if (item.OfficeAssignment != null)
-                    {
-                        @item.OfficeAssignment.Location
-                    }
-                </td>
-                <td>
-                    @{
-                        foreach (var company in item.AdminIndexData)
-                        {
-                            @*@company.Company.CompanyID @:  @company.Company.Title <br />*@
-                        }
-                    }
-                </td>
-                <td>
-                    <a asp-page="./Index" asp-route-id="@item.ID">@Localizer["Select"]</a> |
-                    <a asp-page="./Edit" asp-route-id="@item.ID">@Localizer["Edit"]</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">@Localizer["Details"]</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">@Localizer["Delete"]</a>
+                    @Html.DisplayFor(modelItem => item.EnrollmentDate)
                 </td>
             </tr>
         }
