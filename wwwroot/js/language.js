@@ -1,6 +1,6 @@
 const link = document.getElementById('language-link');
-const enLanguage = '/css/light.css';
-const ruLanguage = '/css/dark.css';
+const enLanguage = 'Resources/Pages/Index.en.resx';
+const ruLanguage = 'Resources/Pages/Index.ru.resx';
 let currentLanguage = localStorage.getItem('language');
 
 (function(){

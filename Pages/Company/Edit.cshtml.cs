@@ -41,23 +41,30 @@ namespace MyWebSite.Pages.Company
 
         public async Task<IActionResult> OnPostAsync(int id)
         {
-            var studentToUpdate = await _context.Company.FindAsync(id);
-
-            if (studentToUpdate == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return Page();
             }
 
-            if (await TryUpdateModelAsync<MyWebSite.Models.Company>(
-                studentToUpdate,
-                "company",
-                s => s.Title, s => s.Rating, s => s.EnrollmentDate, s => s.Thematics, s => s.Bonus, s => s.Description, s => s.Images, s => s.Video, s => s.Topic, s => s.News, s => s.Price, s => s.Tags))
+            _context.Attach(Company).State = EntityState.Modified;
+
+            try
             {
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CompanyExists(Company.ID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
-            return Page();
+            return RedirectToPage("./Index");
         }
 
         private bool CompanyExists(int id)

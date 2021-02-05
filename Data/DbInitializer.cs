@@ -30,34 +30,6 @@ namespace MyWebSite.Data
             context.Company.AddRange(company);
             context.SaveChanges();
 
-            var users = new User[]
-            {
-                new User { FirstMidName = "Kim",     LastName = "Abercrombie", HireDate = DateTime.Parse("1995-03-11"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
-                new User { FirstMidName = "Fadi",    LastName = "Fakhouri", HireDate = DateTime.Parse("2002-07-06"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
-                new User { FirstMidName = "Roger",   LastName = "Harui", HireDate = DateTime.Parse("1998-07-01"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
-                new User { FirstMidName = "Candace", LastName = "Kapoor", HireDate = DateTime.Parse("2001-01-15"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" },
-                new User { FirstMidName = "Roger",   LastName = "Zheng", HireDate = DateTime.Parse("2004-02-12"), Age= 20, Country="Belarus", City="Minsk",Email="viki@gmail.com", AboutMe="Programmer" }
-            };
-
-            context.User.AddRange(users);
-            context.SaveChanges();
-
-            var officeAssignments = new OfficeAssignment[]
-            {
-                new OfficeAssignment {
-                    UserID = users.Single( i => i.LastName == "Fakhouri").ID,
-                    Location = "Smith 17" },
-                new OfficeAssignment {
-                    UserID = users.Single( i => i.LastName == "Harui").ID,
-                    Location = "Gowan 27" },
-                new OfficeAssignment {
-                    UserID = users.Single( i => i.LastName == "Kapoor").ID,
-                    Location = "Thompson 304" },
-            };
-
-            context.OfficeAssignments.AddRange(officeAssignments);
-            context.SaveChanges();
-
             var owner = new Owner[]
             {
                 new Owner {

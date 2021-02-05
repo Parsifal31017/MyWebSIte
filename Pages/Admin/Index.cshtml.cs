@@ -37,9 +37,6 @@ namespace MyWebSite.Pages.Admin
             AdminData.Admin = await _context.Admin
                 .Include(i => i.OfficeAssignment)
                 .Include(i => i.AdminIndexData)
-                    .ThenInclude(i => i.User)
-                        .ThenInclude(i => i.FirstMidName)
-                .Include(i => i.AdminIndexData)
                     .ThenInclude(i => i.Company)
                         .ThenInclude(i => i.Title)
                 .AsNoTracking()

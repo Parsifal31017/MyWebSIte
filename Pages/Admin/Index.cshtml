@@ -16,14 +16,12 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Localizer["Last Name"]</th>
-            <th>@Localizer["First Name"]</th>
-            <th>@Localizer["Hire Date"]</th>
+            <th>@Localizer["Title"]</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.AdminData.User)
+        @foreach (var item in Model.AdminData.Company)
         {
             string selectedRow = "";
             if (item.ID == Model.CompanyID)
@@ -32,13 +30,7 @@
             }
             <tr class="@selectedRow">
                 <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstMidName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HireDate)
+                    @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
                     @if (item.OfficeAssignment != null)

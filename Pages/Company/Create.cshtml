@@ -39,9 +39,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label asp-for="Company.Rating" class="control-label">@Localizer["Rating"]</label>
-                                        <input asp-for="Company.Rating" class="form-control" />
-                                        <span asp-validation-for="Company.Rating" class="text-danger"></span>
+                                        <label asp-for="Company.Rank" class="control-label">@Localizer["Rank"]</label>
+                                        <input asp-for="Company.Rank" class="form-control" />
+                                        <span asp-validation-for="Company.Rank" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -79,22 +79,25 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label asp-for="Company.Description" class="control-label">@Localizer["Description"]</label>
-                                        <input asp-for="Company.Description" class="form-control" />
+                                        <textarea asp-for="Company.Description" class="form-control"></textarea>
                                         <span asp-validation-for="Company.Description" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label asp-for="Company.Images" class="control-label">@Localizer["Images"]</label>
-                                        <input asp-for="Company.Images" class="form-control" />
-                                        <span asp-validation-for="Company.Images" class="text-danger"></span>
+                                        <div class="input-group mb-3">
+                                            <input asp-for="Company.Images" type="file" class="form-control" id="inputGroupFile01">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label asp-for="Company.Video" class="control-label">@Localizer["Video"]</label>
-                                        <input asp-for="Company.Video" class="form-control" />
-                                        <span asp-validation-for="Company.Video" class="text-danger"></span>
+                                        <div class="input-group mb-3">
+                                            <span asp-for="Company.Video" class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                                            <input asp-for="Company.Video" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -107,7 +110,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label asp-for="Company.News" class="control-label">@Localizer["News"]</label>
-                                        <input asp-for="Company.News" class="form-control" />
+                                        <textarea asp-for="Company.News" class="form-control"></textarea>
                                         <span asp-validation-for="Company.News" class="text-danger"></span>
                                     </div>
                                 </div>

@@ -47,25 +47,16 @@ namespace MyWebSite.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "OfficeAssignment",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
+                    UserID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserID = table.Column<int>(type: "int", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Age = table.Column<int>(type: "int", nullable: false),
-                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AboutMe = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Comments = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.ID);
+                    table.PrimaryKey("PK_OfficeAssignment", x => x.UserID);
                 });
 
             migrationBuilder.CreateTable(
@@ -175,24 +166,6 @@ namespace MyWebSite.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OfficeAssignment",
-                columns: table => new
-                {
-                    UserID = table.Column<int>(type: "int", nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_OfficeAssignment", x => x.UserID);
-                    table.ForeignKey(
-                        name: "FK_OfficeAssignment_User_UserID",
-                        column: x => x.UserID,
-                        principalTable: "User",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Admin",
                 columns: table => new
                 {
@@ -265,12 +238,6 @@ namespace MyWebSite.Migrations
                         principalTable: "Admin",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AdminAssigment _User_UserID",
-                        column: x => x.UserID,
-                        principalTable: "User",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -279,8 +246,7 @@ namespace MyWebSite.Migrations
                 {
                     UserID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CompanyID = table.Column<int>(type: "int", nullable: false),
-                    UserID1 = table.Column<int>(type: "int", nullable: false)
+                    CompanyID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -289,12 +255,6 @@ namespace MyWebSite.Migrations
                         name: "FK_Owner_Company_CompanyID",
                         column: x => x.CompanyID,
                         principalTable: "Company",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Owner_User_UserID1",
-                        column: x => x.UserID1,
-                        principalTable: "User",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -391,30 +351,6 @@ namespace MyWebSite.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "AdminIndexDataUser",
-                columns: table => new
-                {
-                    AdminIndexDataID = table.Column<int>(type: "int", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AdminIndexDataUser", x => new { x.AdminIndexDataID, x.UserID });
-                    table.ForeignKey(
-                        name: "FK_AdminIndexDataUser_AdminIndexData_AdminIndexDataID",
-                        column: x => x.AdminIndexDataID,
-                        principalTable: "AdminIndexData",
-                        principalColumn: "AdminIndexDataID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AdminIndexDataUser_User_UserID",
-                        column: x => x.UserID,
-                        principalTable: "User",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_Admin_OfficeAssignmentUserID",
                 table: "Admin",
@@ -432,12 +368,6 @@ namespace MyWebSite.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_AdminAssigment _UserID",
-                table: "AdminAssigment ",
-                column: "UserID",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_AdminIndexData_AdminAssignmentUserID_AdminAssignmentAdminID",
                 table: "AdminIndexData",
                 columns: new[] { "AdminAssignmentUserID", "AdminAssignmentAdminID" });
@@ -451,11 +381,6 @@ namespace MyWebSite.Migrations
                 name: "IX_AdminIndexDataOwner_OwnerUserID",
                 table: "AdminIndexDataOwner",
                 column: "OwnerUserID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AdminIndexDataUser_UserID",
-                table: "AdminIndexDataUser",
-                column: "UserID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -505,11 +430,6 @@ namespace MyWebSite.Migrations
                 name: "IX_Owner_CompanyID",
                 table: "Owner",
                 column: "CompanyID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Owner_UserID1",
-                table: "Owner",
-                column: "UserID1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -522,9 +442,6 @@ namespace MyWebSite.Migrations
 
             migrationBuilder.DropTable(
                 name: "AdminIndexDataOwner");
-
-            migrationBuilder.DropTable(
-                name: "AdminIndexDataUser");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -542,10 +459,10 @@ namespace MyWebSite.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Owner");
+                name: "AdminIndexData");
 
             migrationBuilder.DropTable(
-                name: "AdminIndexData");
+                name: "Owner");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -554,19 +471,16 @@ namespace MyWebSite.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Company");
+                name: "AdminAssigment ");
 
             migrationBuilder.DropTable(
-                name: "AdminAssigment ");
+                name: "Company");
 
             migrationBuilder.DropTable(
                 name: "Admin");
 
             migrationBuilder.DropTable(
                 name: "OfficeAssignment");
-
-            migrationBuilder.DropTable(
-                name: "User");
         }
     }
 }

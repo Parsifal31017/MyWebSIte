@@ -11,7 +11,6 @@ namespace MyWebSite.Models
         public int UserID { get; set; }
         public int CompanyID { get; set; }
 
-        public User User { get; set; }
         public Company Company { get; set; }
         public IEnumerable<AdminIndexData> AdminIndexData { get; set; }
     }

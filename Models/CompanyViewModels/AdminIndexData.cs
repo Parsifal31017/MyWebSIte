@@ -11,7 +11,6 @@ namespace MyWebSite.Models.CompanyViewModels
     {
         [Key]
         public int AdminIndexDataID { get; set; }
-        public IEnumerable<User> User { get; set; }
         public IEnumerable<Admin> Admin { get; set; }
         public IEnumerable<Company> Company { get; set; }
         public IEnumerable<Owner> Owner { get; set; }

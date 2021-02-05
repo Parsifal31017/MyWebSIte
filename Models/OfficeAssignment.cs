@@ -10,7 +10,5 @@ namespace MyWebSite.Models
 
         [Display(Name = "Office Location")]
         public string Location { get; set; }
-
-        public User Users { get; set; }
     }
 }

@@ -17,7 +17,6 @@ namespace MyWebSite.Data
         {
         }
         public DbSet<Company> Company { get; set; }
-        public DbSet<User> User { get; set; }
         public DbSet<Admin> Admin { get; set; }
         public DbSet<Owner> Owner { get; set; }
         public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
@@ -26,7 +25,6 @@ namespace MyWebSite.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Admin>().ToTable("Admin");
-            modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<Owner>().ToTable("Owner");
             modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
             modelBuilder.Entity<AdminAssignment>().ToTable("AdminAssigment ");
