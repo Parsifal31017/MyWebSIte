@@ -233,6 +233,8 @@ namespace MyWebSite.Migrations
                     News = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Tags = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Rank = table.Column<double>(type: "float", nullable: false),
+                    Update = table.Column<DateTime>(type: "datetime2", nullable: false),
                     OfficeAssignmentUserID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
