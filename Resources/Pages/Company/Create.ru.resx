@@ -132,6 +132,9 @@
   <data name="Company" xml:space="preserve">
     <value>Компанию</value>
   </data>
+  <data name="Company ID" xml:space="preserve">
+    <value>Идентификатор компании</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Создать</value>
   </data>

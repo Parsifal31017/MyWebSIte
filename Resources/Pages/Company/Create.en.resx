@@ -132,6 +132,9 @@
   <data name="Company" xml:space="preserve">
     <value>Company</value>
   </data>
+  <data name="Company ID" xml:space="preserve">
+    <value>Company ID</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
   </data>
