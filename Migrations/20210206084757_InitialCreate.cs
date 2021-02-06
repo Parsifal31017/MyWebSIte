@@ -166,28 +166,6 @@ namespace MyWebSite.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Admin",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    HireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    OfficeAssignmentUserID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Admin", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Admin_OfficeAssignment_OfficeAssignmentUserID",
-                        column: x => x.OfficeAssignmentUserID,
-                        principalTable: "OfficeAssignment",
-                        principalColumn: "UserID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Company",
                 columns: table => new
                 {
@@ -222,25 +200,6 @@ namespace MyWebSite.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AdminAssigment ",
-                columns: table => new
-                {
-                    AdminID = table.Column<int>(type: "int", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: false),
-                    CompanyID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AdminAssigment ", x => new { x.UserID, x.AdminID });
-                    table.ForeignKey(
-                        name: "FK_AdminAssigment _Admin_AdminID",
-                        column: x => x.AdminID,
-                        principalTable: "Admin",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Owner",
                 columns: table => new
                 {
@@ -258,129 +217,6 @@ namespace MyWebSite.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "AdminIndexData",
-                columns: table => new
-                {
-                    AdminIndexDataID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AdminAssignmentAdminID = table.Column<int>(type: "int", nullable: true),
-                    AdminAssignmentUserID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AdminIndexData", x => x.AdminIndexDataID);
-                    table.ForeignKey(
-                        name: "FK_AdminIndexData_AdminAssigment _AdminAssignmentUserID_AdminAssignmentAdminID",
-                        columns: x => new { x.AdminAssignmentUserID, x.AdminAssignmentAdminID },
-                        principalTable: "AdminAssigment ",
-                        principalColumns: new[] { "UserID", "AdminID" },
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AdminAdminIndexData",
-                columns: table => new
-                {
-                    AdminID = table.Column<int>(type: "int", nullable: false),
-                    AdminIndexDataID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AdminAdminIndexData", x => new { x.AdminID, x.AdminIndexDataID });
-                    table.ForeignKey(
-                        name: "FK_AdminAdminIndexData_Admin_AdminID",
-                        column: x => x.AdminID,
-                        principalTable: "Admin",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AdminAdminIndexData_AdminIndexData_AdminIndexDataID",
-                        column: x => x.AdminIndexDataID,
-                        principalTable: "AdminIndexData",
-                        principalColumn: "AdminIndexDataID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AdminIndexDataCompany",
-                columns: table => new
-                {
-                    AdminIndexDataID = table.Column<int>(type: "int", nullable: false),
-                    CompanyID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AdminIndexDataCompany", x => new { x.AdminIndexDataID, x.CompanyID });
-                    table.ForeignKey(
-                        name: "FK_AdminIndexDataCompany_AdminIndexData_AdminIndexDataID",
-                        column: x => x.AdminIndexDataID,
-                        principalTable: "AdminIndexData",
-                        principalColumn: "AdminIndexDataID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AdminIndexDataCompany_Company_CompanyID",
-                        column: x => x.CompanyID,
-                        principalTable: "Company",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AdminIndexDataOwner",
-                columns: table => new
-                {
-                    AdminIndexDataID = table.Column<int>(type: "int", nullable: false),
-                    OwnerUserID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AdminIndexDataOwner", x => new { x.AdminIndexDataID, x.OwnerUserID });
-                    table.ForeignKey(
-                        name: "FK_AdminIndexDataOwner_AdminIndexData_AdminIndexDataID",
-                        column: x => x.AdminIndexDataID,
-                        principalTable: "AdminIndexData",
-                        principalColumn: "AdminIndexDataID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AdminIndexDataOwner_Owner_OwnerUserID",
-                        column: x => x.OwnerUserID,
-                        principalTable: "Owner",
-                        principalColumn: "UserID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Admin_OfficeAssignmentUserID",
-                table: "Admin",
-                column: "OfficeAssignmentUserID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AdminAdminIndexData_AdminIndexDataID",
-                table: "AdminAdminIndexData",
-                column: "AdminIndexDataID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AdminAssigment _AdminID",
-                table: "AdminAssigment ",
-                column: "AdminID",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AdminIndexData_AdminAssignmentUserID_AdminAssignmentAdminID",
-                table: "AdminIndexData",
-                columns: new[] { "AdminAssignmentUserID", "AdminAssignmentAdminID" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AdminIndexDataCompany_CompanyID",
-                table: "AdminIndexDataCompany",
-                column: "CompanyID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AdminIndexDataOwner_OwnerUserID",
-                table: "AdminIndexDataOwner",
-                column: "OwnerUserID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -435,15 +271,6 @@ namespace MyWebSite.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AdminAdminIndexData");
-
-            migrationBuilder.DropTable(
-                name: "AdminIndexDataCompany");
-
-            migrationBuilder.DropTable(
-                name: "AdminIndexDataOwner");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -459,9 +286,6 @@ namespace MyWebSite.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "AdminIndexData");
-
-            migrationBuilder.DropTable(
                 name: "Owner");
 
             migrationBuilder.DropTable(
@@ -471,13 +295,7 @@ namespace MyWebSite.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "AdminAssigment ");
-
-            migrationBuilder.DropTable(
                 name: "Company");
-
-            migrationBuilder.DropTable(
-                name: "Admin");
 
             migrationBuilder.DropTable(
                 name: "OfficeAssignment");

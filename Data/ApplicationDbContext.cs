@@ -17,21 +17,14 @@ namespace MyWebSite.Data
         {
         }
         public DbSet<Company> Company { get; set; }
-        public DbSet<Admin> Admin { get; set; }
         public DbSet<Owner> Owner { get; set; }
         public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
-        public DbSet<AdminAssignment> AdminAssignment { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Admin>().ToTable("Admin");
             modelBuilder.Entity<Owner>().ToTable("Owner");
             modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
-            modelBuilder.Entity<AdminAssignment>().ToTable("AdminAssigment ");
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<AdminAssignment>()
-                .HasKey(c => new { c.UserID, c.AdminID });
         }
     }
 }

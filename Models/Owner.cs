@@ -12,6 +12,5 @@ namespace MyWebSite.Models
         public int CompanyID { get; set; }
 
         public Company Company { get; set; }
-        public IEnumerable<AdminIndexData> AdminIndexData { get; set; }
     }
 }

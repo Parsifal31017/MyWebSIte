@@ -65,6 +65,5 @@ namespace MyWebSite.Models
 
         public ICollection<Owner> Owner { get; set; }
         public OfficeAssignment OfficeAssignment { get; set; }
-        public IEnumerable<AdminIndexData> AdminIndexData { get; set; }
     }
 }

@@ -39,7 +39,7 @@ namespace MyWebSite.Pages
         public async Task OnGetAsync(int? id, int? companyID)
         {
             Company = await _context.Company
-    .Include(c => c.AdminIndexData)
+    .Include(c => c.Owner)
     .AsNoTracking()
     .ToListAsync();
         }
