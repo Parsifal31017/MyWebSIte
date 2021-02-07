@@ -29,7 +29,6 @@ namespace MyWebSite.Pages.Company
             string currentFilter, string searchString, int? pageIndex)
         {
             CurrentSort = sortOrder;
-            // using System;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
 

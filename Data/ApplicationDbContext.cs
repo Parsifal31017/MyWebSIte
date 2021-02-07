@@ -1,12 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using MyWebSite.Models;
-using System.Security.Claims;
-using MyWebSite.Pages.Company;
-//using Google.Apis.YouTube.Samples;
 
 namespace MyWebSite.Data
 {

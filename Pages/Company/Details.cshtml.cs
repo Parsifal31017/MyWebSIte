@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using MyWebSite.Data;
-using MyWebSite.Models;
-using MyWebSite.Models.CompanyViewModels;
+using System.Threading.Tasks;
 
 namespace MyWebSite.Pages.Company
 {
