@@ -95,12 +95,12 @@
    asp-route-pageIndex="@(Model.Company.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
-    @Localizer["Предыдущий"]
+    @Localizer["Previous"]
 </a>
 <a asp-page="./Index"
    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Company.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @nextDisabled">
-    @Localizer["Следующий"]
+    @Localizer["Next"]
 </a>
