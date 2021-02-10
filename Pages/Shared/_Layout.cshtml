@@ -24,7 +24,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <button id="theme-button" type="button" name="Topic" class="form-control">Тема</button>
+                            <button id="theme-button" type="button" class="form-control">Тема</button>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -49,6 +49,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script type="text/javascript" src="/js/ChangeTheme.js"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
