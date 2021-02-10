@@ -1,27 +1,25 @@
 ﻿@page
 @model LoginModel
-@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = @Localizer["Log in"];
+    ViewData["Title"] = "Log in";
 }
 
-<h1>@Localizer["Log in"]</h1>
+<h1>Авторизоваться</h1>
 <div class="row">
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
-                <h4>@Localizer["Use a local account to log in"]</h4>
+                <h4>Используйте локальную учетную запись для входа в систему</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Input.Email">@Localizer["Email"]</label>
+                    <label asp-for="Input.Email">Почта</label>
                     <input asp-for="Input.Email" class="form-control" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.Password">@Localizer["Password"]</label>
+                    <label asp-for="Input.Password">Пароль</label>
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
@@ -34,17 +32,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">@Localizer["Log in"]</button>
+                    <button type="submit" class="btn btn-primary">Авторизоваться</button>
                 </div>
                 <div class="form-group">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">@Localizer["Forgot your password?"]</a>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Забыли свой пароль?</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">@Localizer["Register as a new user"]</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Зарегистрируйтесь как новый пользователь</a>
                     </p>
                     <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">@Localizer["Resending the confirmation email"]</a>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Повторная отправка подтверждения по электронной почте</a>
                     </p>
                 </div>
             </form>
@@ -52,7 +50,7 @@
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
-            <h4>@Localizer["Use another service to log in"]</h4>
+            <h4>Используйте другую службу для входа в систему</h4>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)

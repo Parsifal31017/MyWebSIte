@@ -5,28 +5,23 @@
     ViewData["Title"] = "Company";
 }
 
-@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
-
 <div class="container-fluid">
     <div class="container">
         <div class="container">
             <div class="row">
                 <div class="col">
                     <div class="col-md-12">
-                        <h1>@Localizer["Company"]</h1>
-
+                        <h1>Компании</h1>
                         <p>
-                            <a asp-page="Create">@Localizer["Create"]</a>
+                            <a asp-page="Create">Создать</a>
                         </p>
-
                         <form asp-page="./Index" method="get">
                             <div class="form-actions no-color">
                                 <p>
-                                    @Localizer["Search:"]
+                                    Поиск:
                                     <input type="text" name="SearchString" value="@Model.CurrentFilter" />
                                     <input type="submit" value="Search" class="btn btn-primary" /> |
-                                    <a asp-page="./Index">@Localizer["Back to list"]</a>
+                                    <a asp-page="./Index">Вернуться к списку</a>
                                 </p>
                             </div>
                         </form>
@@ -69,9 +64,9 @@
                                                 @Html.DisplayFor(modelItem => item.EnrollmentDate)
                                             </td>
                                             <td>
-                                                <a asp-page="./Edit" asp-route-id="@item.ID">@Localizer["Edit"]</a> |
-                                                <a asp-page="./Details" asp-route-id="@item.ID">@Localizer["Details"]</a> |
-                                                <a asp-page="./Delete" asp-route-id="@item.ID">@Localizer["Delete"]</a>
+                                                <a asp-page="./Edit" asp-route-id="@item.ID">Редактировать</a> |
+                                                <a asp-page="./Details" asp-route-id="@item.ID">Подробности</a> |
+                                                <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
                                             </td>
                                         </tr>
                                     }
@@ -95,12 +90,12 @@
    asp-route-pageIndex="@(Model.Company.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
-    @Localizer["Previous"]
+    Предыдущий
 </a>
 <a asp-page="./Index"
    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Company.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @nextDisabled">
-    @Localizer["Next"]
+    Следующий
 </a>
