@@ -47,6 +47,18 @@ namespace MyWebSite.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DbInitializer",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DbInitializer", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "OfficeAssignment",
                 columns: table => new
                 {
@@ -173,18 +185,15 @@ namespace MyWebSite.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CompanyID = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FirstName = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     EnrollmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Thematics = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Bonus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Images = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Video = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Topic = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     News = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Tags = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Rank = table.Column<double>(type: "float", nullable: false),
                     Update = table.Column<DateTime>(type: "datetime2", nullable: false),
                     OfficeAssignmentUserID = table.Column<int>(type: "int", nullable: true)
                 },
@@ -284,6 +293,9 @@ namespace MyWebSite.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "DbInitializer");
 
             migrationBuilder.DropTable(
                 name: "Owner");

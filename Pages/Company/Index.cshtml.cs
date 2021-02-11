@@ -54,17 +54,11 @@ namespace MyWebSite.Pages.Company
                 case "date_desc":
                     companyIQ = companyIQ.OrderByDescending(s => s.EnrollmentDate);
                     break;
-                case "rating_desc":
-                    companyIQ = companyIQ.OrderByDescending(s => s.Rating);
-                    break;
                 case "bonus_desc":
                     companyIQ = companyIQ.OrderByDescending(s => s.Bonus);
                     break;
                 case "description_desc":
                     companyIQ = companyIQ.OrderByDescending(s => s.Description);
-                    break;
-                case "images_desc":
-                    companyIQ = companyIQ.OrderByDescending(s => s.Images);
                     break;
                 case "video_desc":
                     companyIQ = companyIQ.OrderByDescending(s => s.Video);

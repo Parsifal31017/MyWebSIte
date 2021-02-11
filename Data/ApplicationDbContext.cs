@@ -11,13 +11,10 @@ namespace MyWebSite.Data
         {
         }
         public DbSet<Company> Company { get; set; }
-        public DbSet<Owner> Owner { get; set; }
-        public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Owner>().ToTable("Owner");
-            modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
+            modelBuilder.Entity<Company>().ToTable("Company");
             base.OnModelCreating(modelBuilder);
         }
     }

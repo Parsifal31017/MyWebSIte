@@ -17,13 +17,6 @@ namespace MyWebSite.Pages
 
         public IList<MyWebSite.Models.Company> Company { get; set; }
 
-        public List<MyWebSite.Models.Company> GetCompaniesWithRank()
-        {
-            return Company != null
-                ? Company.OrderBy(p => p.Rank).Take(100).ToList()
-                : new List<MyWebSite.Models.Company>();
-        }
-
         public List<MyWebSite.Models.Company> GetCompaniesWithUpdate()
         {
             return Company != null

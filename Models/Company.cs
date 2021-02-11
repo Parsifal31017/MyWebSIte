@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyWebSite.Models
 {
@@ -15,10 +14,6 @@ namespace MyWebSite.Models
         [Required]
         [Display(Name = "Title")]
         public string Title { get; set; }
-        [Required]
-        [Column("FirstName")]
-        [Display(Name = "Rating")]
-        public decimal Rating { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Enrollment Date")]
@@ -32,9 +27,6 @@ namespace MyWebSite.Models
         [Required]
         [Display(Name = "Description")]
         public string Description { get; set; }
-        [Required]
-        [Display(Name = "Images")]
-        public string Images { get; set; }
         [Required]
         [Display(Name = "Video ")]
         public string Video { get; set; }
@@ -50,7 +42,6 @@ namespace MyWebSite.Models
         [Required]
         [Display(Name = "Tags")]
         public string Tags { get; set; }
-        public double Rank { get; set; }
         public DateTime Update { get; set; }
 
         [Display(Name = "Full Name")]
@@ -58,7 +49,7 @@ namespace MyWebSite.Models
         {
             get
             {
-                return Title + ", " + Rating;
+                return Title + ", " + Tags;
             }
         }
 

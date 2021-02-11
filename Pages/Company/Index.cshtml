@@ -36,12 +36,6 @@
                                             </a>
                                         </th>
                                         <th>
-                                            <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                                               asp-route-currentFilter="@Model.CurrentFilter">
-                                                @Html.DisplayNameFor(model => model.Company[0].Rank)
-                                            </a>
-                                        </th>
-                                        <th>
                                             <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
                                                asp-route-currentFilter="@Model.CurrentFilter">
                                                 @Html.DisplayNameFor(model => model.Company[0].EnrollmentDate)
@@ -56,9 +50,6 @@
                                         <tr>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.Title)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Rank)
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.EnrollmentDate)

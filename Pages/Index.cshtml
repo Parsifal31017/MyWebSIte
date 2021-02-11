@@ -6,41 +6,6 @@
 
 <h1>Компании</h1>
 <br />
-<h5>Компании с самым высоким рейтингом</h5>
-<br />
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Company[0].CompanyID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Company[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Company[0].Rank)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Company)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CompanyID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rank)
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<br />
 <h5>Обновленные компании</h5>
 <br />
 <table class="table table-hover">

@@ -219,6 +219,18 @@ namespace MyWebSite.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("MyWebSite.Data.DbInitializer", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.HasKey("ID");
+
+                    b.ToTable("DbInitializer");
+                });
+
             modelBuilder.Entity("MyWebSite.Models.Company", b =>
                 {
                     b.Property<int>("ID")
@@ -240,10 +252,6 @@ namespace MyWebSite.Migrations
                     b.Property<DateTime>("EnrollmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Images")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("News")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -253,13 +261,6 @@ namespace MyWebSite.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<double>("Rank")
-                        .HasColumnType("float");
-
-                    b.Property<decimal>("Rating")
-                        .HasColumnType("decimal(18,2)")
-                        .HasColumnName("FirstName");
 
                     b.Property<string>("Tags")
                         .IsRequired()
