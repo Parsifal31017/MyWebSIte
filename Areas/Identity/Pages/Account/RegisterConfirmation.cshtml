@@ -9,8 +9,7 @@
     if (@Model.DisplayConfirmAccountLink)
     {
     <p>
-        В настоящее время в этом приложении нет зарегистрированного реального отправителя электронной почты, см. <a href="https://aka.ms/aspaccountconf">эти документы</a> о том, как настроить реального отправителя электронной почты.
-        Обычно это будет отправлено по электронной почте: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Нажмите здесь, чтобы подтвердить свою учетную запись</a>
+        <a id="confirm-link" href="@Model.EmailConfirmationUrl">Нажмите здесь, чтобы подтвердить свою учетную запись</a>
     </p>
     }
     else
